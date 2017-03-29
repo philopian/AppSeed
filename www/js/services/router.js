@@ -5,6 +5,7 @@ import view1 from '../view1';
 import view2 from '../view2';
 import leaflet from '../leaflet';
 import esri from '../esri';
+import reduxExample from '../redux-example';
 let v = {};
 
 export class Router {
@@ -20,6 +21,9 @@ export class Router {
     try { this.deconstructor(); } catch (e) {}
     switch (view) {
       //===(DON'T DELETE)===========
+      case 'reduxexample':
+        v = new reduxExample();
+        break;
       case 'view1':
         v = new view1();
         break;

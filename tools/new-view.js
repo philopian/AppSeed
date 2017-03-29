@@ -14,7 +14,7 @@ function createFiles(viewName) {
   //---HTML---------------------------------------
   let html = `<div id="${dashCase}" class="view">
     <h1>Hello, ${wordCase}</h1>
-    <button id="just-a-button">Click me!</button>
+    <button id="just-a-button" class="button success">Click me!</button>
 </div>`;
   console.log(path.join(config.webRoot, `html/${dashCase}.html`));
 
@@ -70,7 +70,7 @@ export class View {
 
   //--Custom Method---------
   justaButtonClick() {
-    console.log('...JUST A BUTTON CLICK.....from view1!!!!');
+    console.log('...JUST A BUTTON CLICK.....from ${dashCase}!!!!');
   }
 }
 export { View as default }`;
