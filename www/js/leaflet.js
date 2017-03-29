@@ -42,9 +42,19 @@ export class View {
     this.addGeojson(map);
   }
 
+  updateDefaultMarkers() {
+    delete L.Icon.Default.prototype._getIconUrl;
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+      iconUrl: require('leaflet/dist/images/marker-icon.png'),
+      shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+    });
+  }
+
   addGeojson(map) {
     http.getSampleData()
       .then((geojson) => {
+        this.updateDefaultMarkers();
         var layer = L.geoJSON(geojson).addTo(map);
         console.log(layer);
 

@@ -41,3 +41,5 @@
 - mocha test exclude the scss/html
 - command to build a new view
 - add redux
+- add (karma-webpack)[https://www.npmjs.com/package/mocha-webpack]
+- add (istanbul code coverage )[https://www.npmjs.com/package/webpack-istanbul-plugin]
