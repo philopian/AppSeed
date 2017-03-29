@@ -29,6 +29,10 @@ if (app.get('env') === 'production') {
   app.use('/fonts', express.static(path.join(config.distRoot, 'fonts')));
   app.use('/assets', express.static(path.join(config.distRoot, 'assets')));
 } else {
+  // Statics stuff
+  app.use('/bower_components', express.static(config.bower));
+  app.use('/assets', express.static(path.join(config.webRoot, 'assets')));
+
   // Webpack
   const compiler = webpack(webpackConfig);
   app.use(require('webpack-dev-middleware')(compiler, {
@@ -36,7 +40,6 @@ if (app.get('env') === 'production') {
     publicPath: webpackConfig.output.publicPath
   }));
   app.use(require('webpack-hot-middleware')(compiler));
-  app.use('/bower_components', express.static(config.bower));
 }
 app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
