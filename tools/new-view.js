@@ -10,10 +10,6 @@ function createFiles(viewName) {
   let wordCase = viewName.split("-").join(" ").toLowerCase();
   let camelCase = camel(wordCase);
   let lowerCase = camelCase.toLowerCase();
-  console.log(dashCase);
-  console.log(wordCase);
-  console.log(camelCase);
-
 
   //---HTML---------------------------------------
   let html = `<div id="${dashCase}" class="view">
