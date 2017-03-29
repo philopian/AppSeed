@@ -12,6 +12,7 @@ let jsTags = '<!-- bower:js -->\n';
 files.forEach((d) => {
   let tagPath = path.relative(path.join(__dirname, '..'), d)
   tagPath = tagPath.replace('www/', '');
+  tagPath = tagPath.replace(/\//g, "\\");
 
   let fileType = path.extname(d);
   if (fileType == '.css') {
