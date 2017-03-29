@@ -1,0 +1,23 @@
+{
+  "extends": "airbnb-base",
+  "plugins": [
+    "import"
+  ],
+  "rules": {
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"],
+    "max-len": 0,
+    "spaced-comment": 0,
+    "no-var": 0,
+    "comma-dangle": 0,
+    "no-multiple-empty-lines": 0,
+    "quotes": 0,
+    "guard-for-in": 0,
+    "require-jsdoc": 0,
+    "Fatal": 0,
+    "no-multi-spaces": 0,
+    "no-tabs": 0,
+    "no-console": 0,
+    "eol-last": 0
+  }
+}

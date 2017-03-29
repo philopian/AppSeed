@@ -1,0 +1,80 @@
+<div id="view-esri" class="view">
+    <h1>
+        ESRI</h1>
+    <div id="esri-map"></div>
+
+    <p>hkjslkjsd</p>
+</div>
+
+
+
+
+
+
+
+<script>
+    require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/Graphic",
+        "esri/symbols/SimpleLineSymbol",
+        "esri/geometry/Point",
+        "esri/geometry/Polyline",
+        "esri/geometry/Polygon",
+        "esri/layers/FeatureLayer",
+        "dojo/domReady!",
+    ], function(Map, MapView, Graphic, SimpleLineSymbol, Point, Polyline, Polygon, FeatureLayer) {
+
+        // Add a map
+        var map = new Map({
+            basemap: "streets"
+        });
+        var view = new MapView({
+            container: "esri-map", // Reference to the scene div created in step 5
+            map: map, // Reference to the map object created before the scene
+            zoom: 4, // Sets the zoom level based on level of detail (LOD)
+            center: [-100, 45] // Sets the center point of view in lon/lat
+        });
+
+        // Add Polyline
+        var polyline = new Polyline({
+            paths: [
+                [-111.30, 52.68],
+                [-98, 49.5],
+                [-93.94, 29.89]
+            ]
+        });
+        var lineSymbol = new SimpleLineSymbol({
+            color: [226, 119, 40],
+            width: 4
+        });
+
+        // Create an object for storing attributes related to the line
+        var lineAtt = {
+            Name: "Keystone Pipeline",
+            Owner: "TransCanada",
+            Length: "3,456 km"
+        };
+        var polylineGraphic = new Graphic({
+            geometry: polyline,
+            symbol: lineSymbol,
+            attributes: lineAtt,
+            popupTemplate: {
+                title: "{Name}",
+                content: [{
+                    type: "fields",
+                    fieldInfos: [{
+                        fieldName: "Name"
+                    }, {
+                        fieldName: "Owner"
+                    }, {
+                        fieldName: "Length"
+                    }]
+                }]
+            }
+        });
+
+        // Add the line graphic to the view's GraphicsLayer
+        view.graphics.add(polylineGraphic);
+    });
+</script>

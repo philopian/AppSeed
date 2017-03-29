@@ -1,0 +1,108 @@
+{
+  "name": "appseed-es6",
+  "description": "Starter Kit for ES6 workflow",
+  "main": "index.js",
+  "authors": [
+    "Phil Willis <pdotwdot@gmail.com> (http://www.philwillis.pw/)"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "leaflet": "^1.0.3",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.1.1",
+    "foundation-sites": "^6.3.1",
+    "history.js": "^1.8.0"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    },
+    "lodash": {
+      "main": [
+        "dist/lodash.js"
+      ]
+    },
+    "leaflet": {
+      "main": [
+        "dist/leaflet.css",
+        "dist/leaflet-src.js"
+      ]
+    },
+    "foundation": {
+      "main": [
+        "css/foundation.min.css",
+        "js/foundation.min.js"
+      ]
+    },
+    "foundation-sites": {
+      "main": [
+        "dist/css/foundation.min.css",
+        "dist/js/foundation.min.js"
+      ]
+    },
+    "jquery.cookie": {
+      "main": []
+    },
+    "jquery-placeholder": {
+      "main": []
+    },
+    "fastclick": {
+      "main": []
+    },
+    "jquery-ui": {
+      "main": [
+        "jquery-ui.js",
+        "themes/base/slider.css"
+      ]
+    },
+    "leaflet.markercluster": {
+      "main": [
+        "**/dist/leaflet.markercluster.js",
+        "**/dist/MarkerCluster.Default.css",
+        "**/MarkerCluster.css"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css"
+      ]
+    },
+    "datatables": {
+      "main": [
+        "media/css/jquery.dataTables.css",
+        "media/css/dataTables.foundation.css",
+        "media/css/dataTables.jqueryui.css",
+        "media/js/jquery.dataTables.js",
+        "media/js/dataTables.foundation.js",
+        "media/js/dataTables.jqueryui.js"
+      ]
+    },
+    "jquery-accordion": {
+      "main": [
+        "css/jquery.accordion.css",
+        "js/jquery.accordion.js"
+      ]
+    },
+    "modernizr": {
+      "main": [
+        "modernizr.js"
+      ]
+    },
+    "history.js": {
+      "main": [
+        "scripts/compressed/history.js"
+      ]
+    }
+  }
+}
