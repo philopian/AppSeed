@@ -20,9 +20,11 @@ export class View {
   init() {
     http.getSampleData()
       .then((data) => {
-        $('#mock-json-data').text(JSON.stringify(data))
-        console.log(JSON.stringify(data));
+        $('#mock-json-data').text(JSON.stringify(data));
       })
+      .catch((e) => {
+        console.log(e); // "oh, no!"
+      });
   }
 
 

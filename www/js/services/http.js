@@ -12,8 +12,6 @@ module.exports = {
         type: 'GET',
         url: 'api/testJsonApi',
         success: function(data, status) {
-          console.log(data);
-
           resolve(data);
         },
         error: function(err) {

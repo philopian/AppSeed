@@ -30,6 +30,5 @@ window.onpopstate = (event) => {
 // Links to load views
 $(document).on('click', '.router', (e) => {
   let view = $(e.target).data('router');
-  v.deconstructor();
   v = router.loadView(view, false);
 });

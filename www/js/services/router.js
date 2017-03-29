@@ -17,7 +17,9 @@ export class Router {
   }
 
   loadView(view, nav = false) {
+    try { this.deconstructor(); } catch (e) {}
     switch (view) {
+      //===(DON'T DELETE)===========
       case 'view1':
         v = new view1();
         break;
