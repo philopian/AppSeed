@@ -5,7 +5,6 @@
   ],
   "rules": {
     "semi": ["error", "always"],
-    "quotes": ["error", "double"],
     "max-len": 0,
     "spaced-comment": 0,
     "no-var": 0,

@@ -11,7 +11,7 @@
 
 
 # Module Formats (We do this to avoid global variables)
-- ES6 ***
+- ES6 (Airbnb ES6 Styleguide)[https://github.com/airbnb/javascript] ***
 - IFFE
 - Asynchronous Module Definition (AMD)
 - CommonJS
