@@ -1,7 +1,7 @@
-require("../sass/main.scss");
-var html = require("../html/main.html");
-
 import http from './services/http';
+
+require("../sass/main.scss");
+const html = require("../html/main.html");
 
 export class View {
   constructor() {
@@ -28,5 +28,10 @@ export class View {
   }
 
 
+  //--Custom Method---------
+  customMethod() {
+    console.log('..custom method');
+  }
+
 }
-export { View as default }
+export { View as default };

@@ -1,16 +1,15 @@
-require("../sass/view2.scss");
-var html = require("../html/view2.html");
-
 import $ from 'jquery';
-import foundation from 'foundation-sites';
+
+require("../sass/view2.scss");
+const html = require("../html/view2.html");
+
 export class View {
   constructor() {
-    $(document).on('click', '#just-a-button', this.justaButtonClick)
+    $(document).on('click', '#just-a-button', this.justaButtonClick);
   }
   deconstructor() {
-    $(document).off('click', '#just-a-button', this.justaButtonClick)
+    $(document).off('click', '#just-a-button', this.justaButtonClick);
   }
-
 
   html() {
     return html;
@@ -20,10 +19,10 @@ export class View {
     $('#view-2').foundation();
   }
 
+
+  //--Custom Method---------
   justaButtonClick() {
     console.log('...JUST A BUTTON CLICK.....from view2  !!!!');
   }
-
-
 }
-export { View as default }
+export { View as default };

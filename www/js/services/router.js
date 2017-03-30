@@ -1,3 +1,4 @@
+/*eslint new-cap: 0, object-shorthand: 0 */
 import $ from 'jquery';
 
 import main from '../main';
@@ -10,7 +11,7 @@ let v = {};
 
 export class Router {
   constructor() {
-    // console.log('...ROUTER constructor');
+    console.log('');
   }
 
   deconstructor() {
@@ -18,7 +19,7 @@ export class Router {
   }
 
   loadView(view, nav = false) {
-    try { this.deconstructor(); } catch (e) {}
+    try { this.deconstructor(); } catch (e) {} // eslint-disable-line no-empty
     switch (view) {
       //===(DON'T DELETE)===========
       case 'reduxexample':
@@ -49,12 +50,10 @@ export class Router {
     return v;
   }
 
-
   addPath(path) {
     window.history.pushState({
       path: path
     }, '', path);
   }
-
 }
-export { Router as default }
+export { Router as default };

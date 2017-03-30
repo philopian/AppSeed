@@ -46,10 +46,11 @@ function createFiles(viewName) {
 
 
   //---JS---------------------------------------
-  let js = `require("../sass/${dashCase}.scss");
-var html = require("../html/${dashCase}.html");
+  let js = `import $ from 'jquery';
 
-import $ from 'jquery';
+require("../sass/${dashCase}.scss");
+const html = require("../html/${dashCase}.html");
+
 export class View {
   constructor() {
     console.log('...${camelCase} constructor');
@@ -73,7 +74,7 @@ export class View {
     console.log('...JUST A BUTTON CLICK.....from ${dashCase}!!!!');
   }
 }
-export { View as default }`;
+export { View as default };`;
   // Create new file "js/<file-name>.js" file
   fs.writeFile(path.join(config.webRoot, `js/${dashCase}.js`), js, 'utf8', function(err) {
     if (err) {

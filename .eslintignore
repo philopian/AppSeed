@@ -1,3 +1,4 @@
 *.js
-!www/*.js
+!www/**/*.js
+!tests/**/*.js
 

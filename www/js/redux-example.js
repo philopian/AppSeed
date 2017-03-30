@@ -1,10 +1,10 @@
-require("../sass/redux-example.scss");
-var html = require("../html/redux-example.html");
-
 import $ from 'jquery';
 import store from './services/store';
 
+require("../sass/redux-example.scss");
+const html = require("../html/redux-example.html");
 let state = {};
+
 export class View {
   constructor() {
     console.log('...reduxExample constructor');
@@ -18,12 +18,12 @@ export class View {
     });
 
     // Add click handlers
-    $(document).on('click', '#just-a-button', this.justaButtonClick)
+    $(document).on('click', '#just-a-button', this.justaButtonClick);
   }
 
   deconstructor() {
     // Remove click handlers
-    $(document).off('click', '#just-a-button', this.justaButtonClick)
+    $(document).off('click', '#just-a-button', this.justaButtonClick);
   }
 
   html() {
@@ -34,10 +34,9 @@ export class View {
     $('#state-thing').text(state.thing);
   }
 
+
   //--Custom Method---------
   justaButtonClick() {
-    console.log('...JUST A BUTTON CLICK.....from redux-example!!!!');
-
     // Update the store value "thing"
     store.dispatch({
       type: "UPDATE_SOMETHING",
@@ -45,4 +44,4 @@ export class View {
     });
   }
 }
-export { View as default }
+export { View as default };

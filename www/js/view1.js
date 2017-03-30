@@ -1,16 +1,16 @@
-require("../sass/view1.scss");
-var html = require("../html/view1.html");
-
 import $ from 'jquery';
-import foundation from 'foundation-sites';
+import foundation from 'foundation-sites'; // eslint-disable-line 
+
+require("../sass/view1.scss");
+const html = require("../html/view1.html");
+
 export class View {
   constructor() {
-    // console.log('...view2 constructor');
-    $(document).on('click', '#just-a-button', this.justaButtonClick)
+    $(document).on('click', '#just-a-button', this.justaButtonClick);
   }
 
   deconstructor() {
-    $(document).off('click', '#just-a-button', this.justaButtonClick)
+    $(document).off('click', '#just-a-button', this.justaButtonClick);
   }
 
   html() {
@@ -21,16 +21,12 @@ export class View {
     $('#view-1').foundation(); // Allows you to do foundation JS stuff like show modals
   }
 
-  loadJs() {
-
-  }
 
 
+  //--Custom Method---------
   justaButtonClick() {
     console.log('...JUST A BUTTON CLICK.....from view1!!!!');
   }
 
-
-
 }
-export { View as default }
+export { View as default };

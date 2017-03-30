@@ -1,22 +1,23 @@
 require("../sass/esri.scss");
-var html = require("../html/esri.html");
+const html = require("../html/esri.html");
 
 export class View {
   constructor() {
     console.log('...ESRI constructor');
-
   }
+
   deconstructor() {
     console.log('...ESRI deconstructor');
-
   }
+
   html() {
     return html;
   }
 
-
-  init() {}
+  init() {
+    // all the code happens in the html file because it used dojo & esri CDN
+  }
 
 
 }
-export { View as default }
+export { View as default };

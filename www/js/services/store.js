@@ -1,5 +1,5 @@
 import { applyMiddleware, createStore } from 'redux';
-import { createLogger } from 'redux-logger'
+import { createLogger } from 'redux-logger';
 
 const initialState = {
   markers: [],
@@ -9,25 +9,21 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'UPDATE_MARKERS':
       state = Object.assign({}, state, {
-          markers: action.payload
-        })
-        // state = {...state, markers: action.payload }
+        markers: action.payload
+      }); // state = {...state, markers: action.payload }
       break;
     case 'UPDATE_SOMETHING':
       state = Object.assign({}, state, {
-          thing: action.payload
-        })
-        // state = {...state, thing: action.payload }
+        thing: action.payload
+      });
       break;
+      /*--NEW CASES BELOW HERE-----*/
 
     default:
       return state;
   }
   return state;
-}
-
-
-
+};
 /******************************
     this.state = store.getState(); // get initial state
     store.subscribe(()=>{
@@ -50,7 +46,3 @@ if (process.env.NODE_ENV === 'production') {
   const middleware = applyMiddleware(createLogger());
   module.exports = createStore(reducer, middleware);
 }
-
-
-// const middleware = applyMiddleware(logger());
-// export default createStore(reducer, middleware);

@@ -1,15 +1,13 @@
-require("../sass/leaflet.scss");
-var html = require("../html/leaflet.html");
-
-
-import $ from 'jquery';
 import L from 'leaflet';
 import http from './services/http';
 
+require("../sass/leaflet.scss");
+const html = require("../html/leaflet.html");
 let map = {};
+
 export class View {
   constructor() {
-    // console.log('...view1 constructor');
+    console.log('...view1 constructor');
   }
   deconstructor() {
     console.log('...leaflet deconstructor');
@@ -21,7 +19,7 @@ export class View {
 
   init() {
     console.log('...initMap');
-    var basemapsource = {
+    const basemapsource = {
       esriGrey: "http://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
       esriDarkGrey: "http://server.arcgisonline.com/arcgis/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",
       nokiahybrid: "http://{s}.maptile.maps.svc.ovi.com/maptiler/v2/maptile/newest/hybrid.day/{z}/{x}/{y}/256/png8",
@@ -32,18 +30,18 @@ export class View {
       esriSatelliteLables: "https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}"
     };
 
-    var mapSettings = {};
+    const mapSettings = {};
     map = L.map('map', mapSettings).setView([37.4316, -78.6569], 2);
-    var basemaps = {
-      "Satellite": L.layerGroup([L.tileLayer(basemapsource.esriSatellite), L.tileLayer(basemapsource.esriSatelliteLables), ]).addTo(map),
-      "Street": L.tileLayer(basemapsource.esriStreet)
+    const basemaps = { // eslint-disable-line no-unused-vars
+      Satellite: L.layerGroup([L.tileLayer(basemapsource.esriSatellite), L.tileLayer(basemapsource.esriSatelliteLables)]).addTo(map),
+      Street: L.tileLayer(basemapsource.esriStreet)
     };
 
     this.addGeojson(map);
   }
 
   updateDefaultMarkers() {
-    delete L.Icon.Default.prototype._getIconUrl;
+    delete L.Icon.Default.prototype._getIconUrl; // eslint-disable-line no-underscore-dangle
     L.Icon.Default.mergeOptions({
       iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
       iconUrl: require('leaflet/dist/images/marker-icon.png'),
@@ -51,18 +49,17 @@ export class View {
     });
   }
 
-  addGeojson(map) {
+  addGeojson() {
     http.getSampleData()
       .then((geojson) => {
         this.updateDefaultMarkers();
-        var layer = L.geoJSON(geojson).addTo(map);
-        console.log(layer);
-
-        map.fitBounds(layer.getBounds());
-      })
+        return L.geoJSON(geojson, {
+          onEachFeature: (feature, layer) => {
+            layer.bindPopup(feature.properties.place);
+          }
+        }).addTo(map);
+      });
   }
 
-
-
 }
-export { View as default }
+export { View as default };
