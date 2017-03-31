@@ -27,8 +27,9 @@ function createFiles(viewName) {
 
 
   //---SASS---------------------------------------
-  let sass = `#${dashCase} {
-    background-color: rgb(105, 225, 105);
+  let sass = `@import 'globals';
+  #${dashCase} {
+    background-color: $color-white;
     height: 100%;
     width: 100%;
     h1 {
