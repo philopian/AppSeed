@@ -1,5 +1,6 @@
+@import 'globals';
 #view-main {
-    background-color: rgb(33, 142, 83);
+    background-color: $color-blue-light;
     padding: 20px;
     #simpsons-gif,
     #ron {

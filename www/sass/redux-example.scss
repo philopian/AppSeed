@@ -1,5 +1,6 @@
+@import 'globals';
 #redux-example {
-    background-color: rgb(105, 225, 105);
+    background-color: $color-blue;
     height: 100%;
     width: 100%;
     h1 {

@@ -1,5 +1,6 @@
+@import 'globals';
 #view-esri {
-    background-color: red;
+    background-color: $color-rose;
     height: 100%;
     width: 100%;
     #esri-map {

@@ -1,7 +1,8 @@
+@import 'globals';
 #view-leaflet {
-    background-color: green;
+    background-color: $color-blue-light;
     #map {
-        border: solid 2px red;
+        border: solid 2px $color-rose;
         height: 400px;
     }
     .leaflet-popup-content-wrapper {
