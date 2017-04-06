@@ -23,7 +23,7 @@
     "server:production": "cross-env NODE_ENV=production node_modules/.bin/babel-node ./server",
     "webpack": "node_modules/.bin/webpack --config webpack.config.dev.js",
     "webpack:watch": "node_modules/.bin/webpack --config webpack.config.dev.js --watch",
-    "clean-dist": "rimraf ./dist && mkdir dist",
+    "clean-dist": "node_modules/.bin/babel-node tools/build-clean",
     "copy-assets": "node_modules/.bin/babel-node tools/copy-assets",
     "inject-prod-tags": "node_modules/.bin/babel-node tools/inject-prod-tags",
     "prebuild": "npm-run-all clean-dist test-report bower:build inject-prod-tags copy-assets",

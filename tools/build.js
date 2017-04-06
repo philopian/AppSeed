@@ -28,6 +28,6 @@ webpack(config).run((err, stats) => {
   }
 
   console.log(`Webpack stats: ${stats}`);
-  console.log(chalk.green('Your app has been built for production and written to /dist!'));
+  console.log(chalk.green(`Your app has been built for production and written to /${config.distFileName}`));
   return 0;
 });

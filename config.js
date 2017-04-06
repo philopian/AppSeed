@@ -1,4 +1,6 @@
 var path = require('path');
+const DIST_NAME = 'dist';
+
 
 module.exports = {
   mysecret: 'This is a secret shhhhh',
@@ -7,7 +9,8 @@ module.exports = {
 
   appRoot: __dirname,
   webRoot: path.join(__dirname, './www'),
-  distRoot: path.join(__dirname, './dist'),
+  distFileName: DIST_NAME,
+  distRoot: path.join(__dirname, DIST_NAME),
   bower: path.join(__dirname, './www/bower_components'),
 
   logo: path.join(__dirname, "logo.png"),

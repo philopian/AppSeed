@@ -42,7 +42,7 @@ concat(bowerJsFiles.minified, outJsFile, function(err) {
     fs.appendFile(outJsFile, uglify.code, (err) => {
       if (err) throw err;
       rimraf(tempOutJsFile, () => {});
-      console.log(chalk.green('non minified JS appended to ./dist/code/vendor.min.js'));
+      console.log(chalk.green(`non minified JS appended to ./${config.distFileName}/code/vendor.min.js`));
     });
   });
 
@@ -75,7 +75,7 @@ concat(bowerCssFiles.minified, outCssFile, function(err) {
     fs.appendFile(outCssFile, uglified, (err) => {
       if (err) throw err;
       rimraf(tempOutCssFile, () => {});
-      console.log(chalk.green('non minified CSS appended to ./dist/code/vendor.min.js'));
+      console.log(chalk.green(`non minified CSS appended to ./${config.distFileName}/code/vendor.min.js`));
     });
   });
 

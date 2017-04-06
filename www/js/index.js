@@ -2,7 +2,7 @@ import $ from 'jquery';
 import R from './services/router';
 
 require("../sass/index.scss");
-require("../sass/globals.scss");
+// require("../sass/globals.scss");
 const html = require("../index.html"); // eslint-disable-line no-unused-vars
 const router = new R();
 

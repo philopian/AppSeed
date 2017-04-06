@@ -1,10 +1,11 @@
 const path = require('path');
+const config = require('./config');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BowerWebpackPlugin = require("bower-webpack-plugin");
 
-const config = {
+const configWebpack = {
   resolve: {
     modulesDirectories: ["node_modules", "bower_components"]
   },
@@ -19,12 +20,13 @@ const config = {
     path.resolve(__dirname, 'www/js')
   ],
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, config.distFileName),
     publicPath: '/',
     filename: 'code/bundle.js'
   },
   exclude: "bower_components/**/*.css",
   plugins: [
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
     new BowerWebpackPlugin({
       modulesDirectories: ["bower_components"],
       manifestFiles: "bower.json",
@@ -71,4 +73,4 @@ const config = {
     ]
   }
 }
-module.exports = config;
+module.exports = configWebpack;

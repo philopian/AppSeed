@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2017-03-29T15:35:36.043Z",
-    "end": "2017-03-29T15:35:36.052Z",
-    "duration": 9,
+    "start": "2017-04-06T20:00:31.854Z",
+    "end": "2017-04-06T20:00:31.865Z",
+    "duration": 11,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -38,8 +38,8 @@
             "code": "(0, _chai.expect)(true).to.equal(true);",
             "err": {},
             "isRoot": false,
-            "uuid": "6cd734c2-9580-417f-bb89-ceb3c355728a",
-            "parentUUID": "999bad37-fbb6-4854-9304-bf1751bb71bc",
+            "uuid": "53cbacc7-6f98-4e71-b04f-c13f5409b0bc",
+            "parentUUID": "5b335ebb-bb77-4a84-a8c6-ec1f1419b8d3",
             "skipped": false
           }
         ],
@@ -47,8 +47,8 @@
         "root": false,
         "_timeout": 2000,
         "file": "/tests/server/index.test.js",
-        "uuid": "999bad37-fbb6-4854-9304-bf1751bb71bc",
-        "fullFile": "/Users/Philippe/Documents/HDRWork/__APPSEED__/__APPSEED_GITHUB/tests/server/index.test.js",
+        "uuid": "5b335ebb-bb77-4a84-a8c6-ec1f1419b8d3",
+        "fullFile": "/Users/Philippe/Documents/HDRWork/__APPSEED__/APPSEED_GITHUB/tests/server/index.test.js",
         "passes": [
           {
             "title": "... true should == true",
@@ -63,8 +63,8 @@
             "code": "(0, _chai.expect)(true).to.equal(true);",
             "err": {},
             "isRoot": false,
-            "uuid": "6cd734c2-9580-417f-bb89-ceb3c355728a",
-            "parentUUID": "999bad37-fbb6-4854-9304-bf1751bb71bc",
+            "uuid": "53cbacc7-6f98-4e71-b04f-c13f5409b0bc",
+            "parentUUID": "5b335ebb-bb77-4a84-a8c6-ec1f1419b8d3",
             "skipped": false
           }
         ],
@@ -101,8 +101,8 @@
             "code": "(0, _chai.expect)(true).to.equal(true);",
             "err": {},
             "isRoot": false,
-            "uuid": "82fe70be-08a0-44c3-9d61-e5acf9ded50d",
-            "parentUUID": "25020625-de95-4ac3-95eb-5a7e8867c318",
+            "uuid": "d2679470-adc0-4447-bc7d-fc5db082b69b",
+            "parentUUID": "08f1e675-b74e-442d-a4a6-c2d3dcb364a4",
             "skipped": false
           }
         ],
@@ -110,8 +110,8 @@
         "root": false,
         "_timeout": 2000,
         "file": "/tests/www/index.test.js",
-        "uuid": "25020625-de95-4ac3-95eb-5a7e8867c318",
-        "fullFile": "/Users/Philippe/Documents/HDRWork/__APPSEED__/__APPSEED_GITHUB/tests/www/index.test.js",
+        "uuid": "08f1e675-b74e-442d-a4a6-c2d3dcb364a4",
+        "fullFile": "/Users/Philippe/Documents/HDRWork/__APPSEED__/APPSEED_GITHUB/tests/www/index.test.js",
         "passes": [
           {
             "title": "... true should == true",
@@ -126,8 +126,8 @@
             "code": "(0, _chai.expect)(true).to.equal(true);",
             "err": {},
             "isRoot": false,
-            "uuid": "82fe70be-08a0-44c3-9d61-e5acf9ded50d",
-            "parentUUID": "25020625-de95-4ac3-95eb-5a7e8867c318",
+            "uuid": "d2679470-adc0-4447-bc7d-fc5db082b69b",
+            "parentUUID": "08f1e675-b74e-442d-a4a6-c2d3dcb364a4",
             "skipped": false
           }
         ],
@@ -152,7 +152,7 @@
     "pending": [],
     "root": true,
     "_timeout": 2000,
-    "uuid": "14b40281-2bc5-4ef6-bceb-a73dc5bc3505",
+    "uuid": "fe9f53d7-0235-4c08-9af4-b59136a8327b",
     "fullFile": "",
     "file": "",
     "passes": [],
@@ -186,8 +186,8 @@
       "code": "(0, _chai.expect)(true).to.equal(true);",
       "err": {},
       "isRoot": false,
-      "uuid": "6cd734c2-9580-417f-bb89-ceb3c355728a",
-      "parentUUID": "999bad37-fbb6-4854-9304-bf1751bb71bc",
+      "uuid": "53cbacc7-6f98-4e71-b04f-c13f5409b0bc",
+      "parentUUID": "5b335ebb-bb77-4a84-a8c6-ec1f1419b8d3",
       "skipped": false
     },
     {
@@ -203,8 +203,8 @@
       "code": "(0, _chai.expect)(true).to.equal(true);",
       "err": {},
       "isRoot": false,
-      "uuid": "82fe70be-08a0-44c3-9d61-e5acf9ded50d",
-      "parentUUID": "25020625-de95-4ac3-95eb-5a7e8867c318",
+      "uuid": "d2679470-adc0-4447-bc7d-fc5db082b69b",
+      "parentUUID": "08f1e675-b74e-442d-a4a6-c2d3dcb364a4",
       "skipped": false
     }
   ],
@@ -223,8 +223,8 @@
       "code": "(0, _chai.expect)(true).to.equal(true);",
       "err": {},
       "isRoot": false,
-      "uuid": "6cd734c2-9580-417f-bb89-ceb3c355728a",
-      "parentUUID": "999bad37-fbb6-4854-9304-bf1751bb71bc",
+      "uuid": "53cbacc7-6f98-4e71-b04f-c13f5409b0bc",
+      "parentUUID": "5b335ebb-bb77-4a84-a8c6-ec1f1419b8d3",
       "skipped": false
     },
     {
@@ -240,8 +240,8 @@
       "code": "(0, _chai.expect)(true).to.equal(true);",
       "err": {},
       "isRoot": false,
-      "uuid": "82fe70be-08a0-44c3-9d61-e5acf9ded50d",
-      "parentUUID": "25020625-de95-4ac3-95eb-5a7e8867c318",
+      "uuid": "d2679470-adc0-4447-bc7d-fc5db082b69b",
+      "parentUUID": "08f1e675-b74e-442d-a4a6-c2d3dcb364a4",
       "skipped": false
     }
   ],
