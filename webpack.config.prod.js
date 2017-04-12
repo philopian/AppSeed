@@ -62,7 +62,7 @@ const configWebpack = {
   module: {
     loaders: [
       { test: /\.html$/, loader: 'html-loader', options: { minimize: true } },
-      { test: /\.js$/, exclude: /node_modules/, loaders: ['babel'] },
+      { test: /\.js$/, loaders: ['babel'] },
       { test: /\.scss$/, exclude: /bower_components/, loader: ExtractTextPlugin.extract('style', "css!postcss!sass") },
 
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },

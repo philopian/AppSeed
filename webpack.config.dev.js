@@ -5,7 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const config = {
   resolve: {
-    modulesDirectories: ["node_modules", "bower_components"]
+    modulesDirectories: ["bower_components", "node_modules"]
   },
   debug: true,
   devtool: 'cheap-module-eval-source-map',
@@ -43,7 +43,7 @@ const config = {
     loaders: [
       { test: /\.html$/, loader: 'html', options: { minimize: true } },
       { test: /\.css$/, exclude: /node_modules/, loader: "style!css" },
-      { test: /\.js$/, exclude: /node_modules/, loaders: ['babel'] },
+      { test: /\.js$/, loaders: ['babel'] },
       { test: /\.scss$/, loaders: ['style', 'css', 'postcss', 'sass'] },
 
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
