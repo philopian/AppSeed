@@ -49,31 +49,33 @@ function createFiles(viewName) {
   //---JS---------------------------------------
   let js = `import $ from 'jquery';
 
-require("../sass/${dashCase}.scss");
-const html = require("../html/${dashCase}.html");
+require('../sass/${dashCase}.scss');
+const html = require('../html/${dashCase}.html');
 
 export class View {
-  constructor() {
-    console.log('...${camelCase} constructor');
-    $(document).on('click', '#just-a-button', this.justaButtonClick)
-  }
+  constructor() {} // eslint-disable-line
 
-  deconstructor() {
-    $(document).off('click', '#just-a-button', this.justaButtonClick)
-  }
+  deconstructor() {}
 
   html() {
     return html;
   }
 
-  init() {
-    
+  addListerners() {
+    document.getElementById('just-a-button').addEventListener("click", this.justaButtonClick.bind(this));
   }
 
+  init() {}
+
   //--Custom Method---------
-  justaButtonClick() {
-    console.log('...JUST A BUTTON CLICK.....from ${dashCase}!!!!');
+  justaButtonClick(e) {
+    this.printMessage(\`..the (\${$(e.target).text()}) button was clicked \`);
   }
+
+  printMessage(message) {
+    console.log(\`\${message} ... from ${dashCase}\`);
+  }
+
 }
 export { View as default };`;
   // Create new file "js/<file-name>.js" file
