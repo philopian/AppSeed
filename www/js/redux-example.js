@@ -7,8 +7,6 @@ let state = {};
 
 export class View {
   constructor() {
-    console.log('...reduxExample constructor');
-
     // REDUX
     state = store.getState();
     store.subscribe(() => {
@@ -21,6 +19,7 @@ export class View {
     $(document).on('click', '#just-a-button', this.justaButtonClick);
   }
 
+
   deconstructor() {
     // Remove click handlers
     $(document).off('click', '#just-a-button', this.justaButtonClick);
@@ -29,6 +28,8 @@ export class View {
   html() {
     return html;
   }
+
+  addListerners() {}
 
   init() {
     $('#state-thing').text(state.thing);

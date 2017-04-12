@@ -43,6 +43,7 @@ export class Router {
         break;
     }
     $(document).find('#view').html(v.html());
+    v.addListerners();
     if (!nav) {
       this.addPath(view);
     }

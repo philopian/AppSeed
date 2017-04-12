@@ -6,16 +6,15 @@ const html = require("../html/leaflet.html");
 let map = {};
 
 export class View {
-  constructor() {
-    console.log('...view1 constructor');
-  }
-  deconstructor() {
-    console.log('...leaflet deconstructor');
-  }
+  constructor() {} // eslint-disable-line
+
+  deconstructor() {}
 
   html() {
     return html;
   }
+
+  addListerners() {}
 
   init() {
     console.log('...initMap');

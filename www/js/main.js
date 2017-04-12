@@ -4,18 +4,15 @@ require("../sass/main.scss");
 const html = require("../html/main.html");
 
 export class View {
-  constructor() {
-    console.log('...main constructor');
-  }
+  constructor() {} // eslint-disable-line
 
-  deconstructor() {
-    console.log('...main deconstructor');
-  }
+  deconstructor() {}
 
   html() {
-    // console.log('...HTML main');
     return html;
   }
+
+  addListerners() {}
 
   init() {
     http.getSampleData()

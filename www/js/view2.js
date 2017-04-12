@@ -4,15 +4,16 @@ require("../sass/view2.scss");
 const html = require("../html/view2.html");
 
 export class View {
-  constructor() {
-    $(document).on('click', '#just-a-button', this.justaButtonClick);
-  }
-  deconstructor() {
-    $(document).off('click', '#just-a-button', this.justaButtonClick);
-  }
+  constructor() {} // eslint-disable-line
+
+  deconstructor() {}
 
   html() {
     return html;
+  }
+
+  addListerners() {
+    document.getElementById('just-a-button').addEventListener("click", this.justaButtonClick.bind(this));
   }
 
   init() {
@@ -21,8 +22,12 @@ export class View {
 
 
   //--Custom Method---------
-  justaButtonClick() {
-    console.log('...JUST A BUTTON CLICK.....from view2  !!!!');
+  justaButtonClick(e) {
+    this.printMessage(`..the (${$(e.target).text()}) button was clicked `);
+  }
+
+  printMessage(message) {
+    console.log(`${message} ... from view2`);
   }
 }
 export { View as default };
