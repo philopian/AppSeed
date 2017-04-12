@@ -16,7 +16,7 @@ fs.mkdir(path.join(config.distRoot, 'code'));
 /*********************************************
  * JAVASCRIPT
  *********************************************/
-var bowerJsFiles = bowerMain('js', 'min.js');
+/* var bowerJsFiles = bowerMain('js', 'min.js');
 var outJsFile = path.join(config.distRoot, 'code/vendor.min.js');
 var tempOutJsFile = path.join(config.distRoot, 'code/.temp.vendor.min.js');
 
@@ -47,7 +47,7 @@ concat(bowerJsFiles.minified, outJsFile, function(err) {
   });
 
 });
-
+//*/
 
 
 
