@@ -9,7 +9,7 @@ export class View {
   }
 
   deconstructor() {
-    $('#just-a-button').on("click", this.justaButtonClick.bind(this));
+    $('#just-a-button').off("click", this.justaButtonClick.bind(this));
   }
 
   html() {

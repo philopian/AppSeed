@@ -8,7 +8,7 @@ export class View {
   constructor() {} // eslint-disable-line
 
   deconstructor() {
-    $('#just-a-button').on("click", this.justaButtonClick.bind(this));
+    $('#just-a-button').off("click", this.justaButtonClick.bind(this));
   }
 
   html() {

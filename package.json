@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "up": "bower i && yarn",
+    "prestart": "bower i && yarn",
     "start": "npm-run-all --parallel security-check test:watch server:dev bower bower:watch open-browser",
     "start:production": "npm-run-all message:running-production server:production open-browser",
     "new:view": "node_modules/.bin/babel-node tools/new-view",
