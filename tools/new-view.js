@@ -53,19 +53,28 @@ require('../sass/${dashCase}.scss');
 const html = require('../html/${dashCase}.html');
 
 export class View {
-  constructor() {} // eslint-disable-line
+  constructor() {
+    console.log('...${camelCase} constructor');
 
-  deconstructor() {}
+    // Add your class properties here!
+    this.someProperty = "This is a class property!";
+  }
+
+  addListerners() {
+    $('#just-a-button').on("click", this.justaButtonClick.bind(this));
+  }
+
+  deconstructor() {
+    $('#just-a-button').on("click", this.justaButtonClick.bind(this));
+  }
 
   html() {
     return html;
   }
 
-  addListerners() {
-    document.getElementById('just-a-button').addEventListener("click", this.justaButtonClick.bind(this));
+  init() {
+    // everything should be in the DOM now so the document should be ready
   }
-
-  init() {}
 
   //--Custom Method---------
   justaButtonClick(e) {
