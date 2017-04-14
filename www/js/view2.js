@@ -4,16 +4,20 @@ require("../sass/view2.scss");
 const html = require("../html/view2.html");
 
 export class View {
-  constructor() {} // eslint-disable-line
+  constructor() {
+    this.someProperty = "This is a class property!";
+  }
 
-  deconstructor() {}
+  deconstructor() {
+    $('#just-a-button').on("click", this.justaButtonClick.bind(this));
+  }
 
   html() {
     return html;
   }
 
   addListerners() {
-    document.getElementById('just-a-button').addEventListener("click", this.justaButtonClick.bind(this));
+    $('#just-a-button').on("click", this.justaButtonClick.bind(this));
   }
 
   init() {
