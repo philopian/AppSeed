@@ -12,7 +12,7 @@ export class View {
     return html;
   }
 
-  addListerners() {}
+  addListeners() {}
 
   init() {
     http.getSampleData()

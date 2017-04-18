@@ -10,7 +10,7 @@ export class View {
     return html;
   }
 
-  addListerners() {}
+  addListeners() {}
 
   init() {
     // all the code happens in the html file because it used dojo & esri CDN

@@ -14,7 +14,7 @@ export class View {
     return html;
   }
 
-  addListerners() {}
+  addListeners() {}
 
   init() {
     console.log('...initMap');

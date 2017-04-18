@@ -29,7 +29,7 @@ export class View {
     return html;
   }
 
-  addListerners() {}
+  addListeners() {}
 
   init() {
     $('#state-thing').text(state.thing);

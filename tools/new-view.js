@@ -60,7 +60,7 @@ export class View {
     this.someProperty = "This is a class property!";
   }
 
-  addListerners() {
+  addListeners() {
     $('#just-a-button').on("click", this.justaButtonClick.bind(this));
   }
 

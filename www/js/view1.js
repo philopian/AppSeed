@@ -15,7 +15,7 @@ export class View {
     return html;
   }
 
-  addListerners() {
+  addListeners() {
     $('#just-a-button').on("click", this.justaButtonClick.bind(this));
   }
 
