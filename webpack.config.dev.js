@@ -1,19 +1,7 @@
 const path = require('path');
-const webpack = require("webpack");
-const BowerWebpackPlugin = require("bower-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
 
-const config = {
-  resolve: {
-    modulesDirectories: ["bower_components", "node_modules"]
-  },
-  debug: true,
-  devtool: 'cheap-module-eval-source-map',
-  target: 'web',
-  noInfo: false,
-  watch: true,
-  caching: true,
-
+module.exports = {
   entry: [
     'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
     path.resolve(__dirname, 'www/js')
@@ -23,35 +11,37 @@ const config = {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  exclude: "**/*.css",
+
+  resolve: {
+    modules: ['node_modules', 'bower_components'],
+    descriptionFiles: ['package.json', 'bower.json'],
+    alias: {
+      // foundation: 'foundation-sites/js/foundation.core'
+      foundation: 'foundation-sites/dist/js/foundation.min.js'
+    }
+  },
+  devtool: 'cheap-module-eval-source-map',
+
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new BowerWebpackPlugin({
-      modulesDirectories: ["bower_components"],
-      manifestFiles: "bower.json",
-      includes: /.*/,
-      excludes: [],
-      searchResolveModulesDirectories: true
-    }),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
-      foundation: "foundation-sites"
+      'window.jQuery': 'jquery',
     })
   ],
-  module: {
-    loaders: [
-      { test: /\.html$/, loader: 'html', options: { minimize: true } },
-      { test: /\.css$/, exclude: /node_modules/, loader: "style!css" },
-      { test: /\.js$/, loaders: ['babel'] },
-      { test: /\.scss$/, loaders: ['style', 'css', 'postcss', 'sass'] },
 
-      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
-      { test: /\.(woff|woff2)$/, loader: "url?prefix=font/&limit=5000" },
-      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
-      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
+  module: {
+    rules: [
+      { test: /\.html$/, use: [{ loader: 'html-loader', options: { minimize: true }, }], },
+      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'], },
+      { test: /\.js$/, exclude: [/node_modules/], use: [{ loader: 'babel-loader' }], },
       { test: /\.(jpg|jpeg|png|svg|gif)$/, loader: 'file-loader?name=[path][name].[ext]' },
+
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'file-loader' }] },
+      { test: /\.(woff|woff2)$/, use: [{ loader: 'url-loader?prefix=font/&limit=5000' }] },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'url-loader?limit=10000&mimetype=application/octet-stream' }] },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'url-loader?limit=10000&mimetype=image/svg+xml' }] },
     ]
   }
-}
-module.exports = config;
+};

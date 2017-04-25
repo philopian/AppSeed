@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { foundation } from 'foundation'; // eslint-disable-line 
 
 require("../sass/view2.scss");
 const html = require("../html/view2.html");

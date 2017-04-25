@@ -7,16 +7,16 @@
 
 ## What's in it?
 - Bower for frontend dependencies
+- NPM for dev and prod dependencies
 - Expressjs for the server
 - ES6 Modules
-- Webpack (CSS/JS)
+- Webpack version 2
 - Bable (Transpiling)
 - ESLint
-- Testing with Mocha
-- Test Reports MochaAwesome
 - nsp (node security project)
-- simple frontend router
-
+- Simple frontend router
+- Command to create new view [$ npm run new:view -s]
+- Redux
 
 ## Download Packages
 ~~~
@@ -38,8 +38,7 @@
 
 
 ## ToDo
-- mocha test exclude the scss/html
-- command to build a new view
-- add redux
+- Testing with Mocha & Webpack
+- Test Reports MochaAwesome
 - add (karma-webpack)[https://www.npmjs.com/package/mocha-webpack]
 - add (istanbul code coverage )[https://www.npmjs.com/package/webpack-istanbul-plugin]

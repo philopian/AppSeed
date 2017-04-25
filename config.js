@@ -1,7 +1,6 @@
 var path = require('path');
 const DIST_NAME = 'dist';
 
-
 module.exports = {
   mysecret: 'This is a secret shhhhh',
   jwtUniqueId: '123456789',
