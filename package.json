@@ -2,7 +2,7 @@
   "name": "appseed-es6",
   "version": "1.0.0",
   "description": "Starter Kit for ES6 workflow",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "up": "bower i && yarn",
     "prestart": "bower i && yarn",
