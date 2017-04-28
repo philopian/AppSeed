@@ -1,8 +1,7 @@
 import { expect } from 'chai';
-// import main from 'www/js/main';
 
-describe('./www/main.js', function() {
-  it('... true should == true', function() {
+describe('./www/index.js', () => {
+  it('... true should == true', () => {
     expect(true).to.equal(true);
   });
 });

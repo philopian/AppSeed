@@ -17,6 +17,7 @@
 - Simple frontend router
 - Command to create new view [$ npm run new:view -s]
 - Redux
+- Testing with Mocha & Webpack
 
 ## Download Packages
 ~~~
@@ -38,7 +39,10 @@
 
 
 ## ToDo
-- Testing with Mocha & Webpack
 - Test Reports MochaAwesome
-- add (karma-webpack)[https://www.npmjs.com/package/mocha-webpack]
 - add (istanbul code coverage )[https://www.npmjs.com/package/webpack-istanbul-plugin]
+
+## Deployment
+- Azure (dist with all the static content and a web config file)
+- Digital Ocean (docker-compose/ ansible)
+- Heroku
