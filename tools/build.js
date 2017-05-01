@@ -1,5 +1,6 @@
 import webpack from 'webpack';
-import config from '../webpack.config.prod';
+import config from '../config';
+import webpackConfig from '../webpack.config.prod';
 import chalk from 'chalk';
 import { Spinner } from 'cli-spinner';
 
@@ -10,7 +11,7 @@ console.log(chalk.blue('Generationg minified bundle for production '));
 spinner.start();
 
 process.env.NODE_ENV = 'production';
-webpack(config).run((err, stats) => {
+webpack(webpackConfig).run((err, stats) => {
   spinner.stop();
   if (err) {
     console.log(chalk.red(err));
@@ -28,6 +29,6 @@ webpack(config).run((err, stats) => {
   }
 
   console.log(`Webpack stats: ${stats}`);
-  console.log(chalk.green(`Your app has been built for production and written to /${config.distFileName}`));
+  console.log(chalk.green(`Your app has been built for production and written to ./${config.distFileName}`));
   return 0;
 });

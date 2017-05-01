@@ -1,5 +1,5 @@
 {
-  "name": "appseed-es6",
+  "name": "appseed",
   "version": "1.0.2",
   "description": "Starter Kit for ES6 workflow",
   "main": "server/index.js",
@@ -10,6 +10,7 @@
     "start:production": "npm-run-all message:running-production server:production open-browser",
     "new:view": "node_modules/.bin/babel-node tools/new-view",
     "test:watch": "webpack -w --progress --colors --config webpack.config.test.js",
+    "test:once": "webpack --progress --colors --config webpack.config.test.js",
     "test:server": "node_modules/.bin/live-server tests-reports/ --port=8081",
     "test": "npm-run-all --parallel test:watch test:server",
     "message:running-production": "node_modules/.bin/babel-node tools/message-running-production",
@@ -24,7 +25,7 @@
     "clean-dist": "node_modules/.bin/babel-node tools/build-clean",
     "copy-assets": "node_modules/.bin/babel-node tools/copy-assets",
     "inject-prod-tags": "node_modules/.bin/babel-node tools/inject-prod-tags",
-    "prebuild": "npm-run-all clean-dist test-report bower:build inject-prod-tags copy-assets",
+    "prebuild": "npm-run-all clean-dist bower:build inject-prod-tags copy-assets",
     "build": "node_modules/.bin/babel-node tools/build",
     "postbuild": "npm-run-all --parallel bower start:production open-browser",
     "webpack": "node_modules/.bin/webpack --config webpack.config.dev.js",

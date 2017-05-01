@@ -68,12 +68,6 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-module.exports = require("chai");
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9872,7 +9866,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	return jQuery;
 });
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)(module)))
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = require("chai");
 
 /***/ }),
 /* 2 */
@@ -9918,7 +9918,7 @@ module.exports = context;
 "use strict";
 
 
-var _chai = __webpack_require__(0);
+var _chai = __webpack_require__(1);
 
 describe('./www/index.js', function () {
   it('... true should == true', function () {
@@ -9933,9 +9933,9 @@ describe('./www/index.js', function () {
 "use strict";
 
 
-var _chai = __webpack_require__(0);
+var _chai = __webpack_require__(1);
 
-var _main = __webpack_require__(7);
+var _main = __webpack_require__(6);
 
 var _main2 = _interopRequireDefault(_main);
 
@@ -9959,8 +9959,7 @@ describe('second tests', function () {
 });
 
 /***/ }),
-/* 6 */,
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9973,7 +9972,7 @@ exports.default = exports.View = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _http = __webpack_require__(8);
+var _http = __webpack_require__(7);
 
 var _http2 = _interopRequireDefault(_http);
 
@@ -9981,8 +9980,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-__webpack_require__(15);
-var _html = __webpack_require__(13);
+__webpack_require__(14);
+var _html = __webpack_require__(12);
 
 var View = exports.View = function () {
   function View() {
@@ -10023,16 +10022,16 @@ var View = exports.View = function () {
 }();
 
 exports.default = View;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _jquery = __webpack_require__(1);
+var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -10062,7 +10061,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10076,9 +10075,9 @@ module.exports = {
 
 
 
-var base64 = __webpack_require__(18)
-var ieee754 = __webpack_require__(19)
-var isArray = __webpack_require__(20)
+var base64 = __webpack_require__(17)
+var ieee754 = __webpack_require__(18)
+var isArray = __webpack_require__(19)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -11856,13 +11855,13 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(11)(undefined);
+exports = module.exports = __webpack_require__(10)(undefined);
 // imports
 exports.push([module.i, "@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500);", ""]);
 
@@ -11873,7 +11872,7 @@ exports.push([module.i, "#view-main {\n  background-color: #9cafb7;\n  padding: 
 
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {/*
@@ -11952,22 +11951,22 @@ function toComment(sourceMap) {
   return '/*# ' + data + ' */';
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8).Buffer))
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "www/assets/images/simpsons.gif";
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<div id=view-main class=view> <h1> MAIN VIEW</h1> <p>This is the main view <i class=\"fa fa-thumbs-o-up\" aria-hidden=true></i></p> <p id=mock-json-data></p> <img id=simpsons-gif src=" + __webpack_require__(12) + " alt=\"\"> </div>";
+module.exports = "<div id=view-main class=view> <h1> MAIN VIEW</h1> <p>This is the main view <i class=\"fa fa-thumbs-o-up\" aria-hidden=true></i></p> <p id=mock-json-data></p> <img id=simpsons-gif src=" + __webpack_require__(11) + " alt=\"\"> </div>";
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports) {
 
 /*
@@ -12219,16 +12218,16 @@ function updateLink(linkElement, obj) {
 
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(10);
+var content = __webpack_require__(9);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(14)(content, {});
+var update = __webpack_require__(13)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -12245,7 +12244,7 @@ if(false) {
 }
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports) {
 
 var g;
@@ -12272,7 +12271,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -12300,19 +12299,19 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = require("base64-js");
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports) {
 
 module.exports = require("ieee754");
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports) {
 
 module.exports = require("isarray");
