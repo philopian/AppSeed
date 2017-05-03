@@ -20,7 +20,6 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, config.distFileName),
-    publicPath: '/',
     filename: 'code/bundle.js'
   },
 
