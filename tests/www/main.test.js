@@ -12,7 +12,7 @@ before((done) => {
 
 describe('second tests', () => {
   it('should pass', () => {
-    expect(true).to.be.true;
+    expect(true).to.not.be.true;
   });
   it('main file should have a method called html that returns a string', () => {
     expect(true).to.be.true;
