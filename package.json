@@ -4,17 +4,17 @@
   "description": "Starter Kit for ES6 workflow",
   "main": "server/index.js",
   "scripts": {
-
+    "test": "npm-run-all --parallel test:report-watch test:server",
     "test:watch": "mocha-webpack -w --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/**/*.test.js\"",
     "test:once": "mocha-webpack --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/**/*.test.js\"",
     "test:report": "mocha-webpack --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/**/*.test.js\" --reporter mocha-simple-html-reporter --reporter-options output=tests-reports/index.html",
-
+    "test:report-watch": "mocha-webpack -w --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/**/*.test.js\" --reporter mocha-simple-html-reporter --reporter-options output=tests-reports/index.html",
+    "test:server": "node_modules/.bin/live-server tests-reports/ --port=8081",
     "up": "bower i && yarn",
     "prestart": "bower i && yarn",
-    "start": "npm-run-all --parallel security-check test:watch server:dev bower bower:watch open-browser test:server",
+    "start": "npm-run-all --parallel security-check server:dev bower bower:watch open-browser test",
     "start:production": "npm-run-all message:running-production server:production open-browser",
     "new:view": "node_modules/.bin/babel-node tools/new-view",
-
     "message:running-production": "node_modules/.bin/babel-node tools/message-running-production",
     "open-browser": "node_modules/.bin/babel-node tools/open-browser",
     "security-check": "nsp check",
@@ -91,6 +91,7 @@
     "run-sequence": "1.2.2",
     "sass-loader": "4.1.1",
     "script-loader": "0.7.0",
+    "shelljs": "^0.7.7",
     "strip-comments": "0.4.4",
     "style-loader": "0.13.2",
     "uglify-js": "2.8.12",

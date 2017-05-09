@@ -5,6 +5,7 @@ module.exports = {
   mysecret: 'This is a secret shhhhh',
   jwtUniqueId: '123456789',
   port: 8080,
+  portTests: 8081,
 
   appRoot: __dirname,
   webRoot: path.join(__dirname, './www'),
