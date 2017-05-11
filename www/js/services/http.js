@@ -11,7 +11,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
       $.ajax({
         type: 'GET',
-        url: 'http://localhost:8083/api/testJsonApi',
+        url: `http://localhost:${config.portAPI}/api/testJsonApi`,
         success: (data) => {
           resolve(data);
         },
