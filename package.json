@@ -4,34 +4,60 @@
   "description": "Starter Kit for ES6 workflow",
   "main": "server/index.js",
   "scripts": {
+    "up": "bower i && yarn",
+    "new:view": "node_modules/.bin/babel-node tools/new-view",
+
+    "prestart": "bower i && yarn && node_modules/.bin/babel-node tools/bower",
+    "start": "npm-run-all security-check open-browser ",
+    "poststart": "npm-run-all --parallel server:rest webpack:dev-server bower:watch test",
+
+    "preapp": "bower i && yarn && node_modules/.bin/babel-node tools/bower",
+    "app": "npm-run-all security-check",
+    "postapp": "npm-run-all --parallel server:rest webpack:dev-server bower:watch test",
+
+
+    "start:production": "npm-run-all message:running-production server:production open-browser",
+
+
+
     "test": "npm-run-all --parallel test:report-watch test:server",
+
     "test:watch": "mocha-webpack -w --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\"",
     "test:once": "mocha-webpack --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\"",
     "test:report": "mocha-webpack --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\" --reporter mocha-simple-html-reporter --reporter-options output=tests-reports/index.html",
     "test:report-watch": "mocha-webpack -w --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\" --reporter mocha-simple-html-reporter --reporter-options output=tests-reports/index.html",
     "test:server": "node_modules/.bin/babel-node tools/test-server",
-    "up": "bower i && yarn",
-    "prestart": "bower i && yarn",
-    "start": "npm-run-all --parallel security-check server:dev bower bower:watch open-browser test",
-    "start:production": "npm-run-all message:running-production server:production open-browser",
-    "new:view": "node_modules/.bin/babel-node tools/new-view",
+
+
+
     "message:running-production": "node_modules/.bin/babel-node tools/message-running-production",
+
     "open-browser": "node_modules/.bin/babel-node tools/open-browser",
+
     "security-check": "nsp check",
+
     "bower": "node_modules/.bin/babel-node tools/bower",
     "bower:watch": "node_modules/.bin/onchange 'bower.json' -v -- npm run bower",
     "bower:build": "node_modules/.bin/babel-node tools/build-bower",
+
+
     "serve": "cross-env NODE_ENV=dev nodemon ./server --exec babel-node",
-    "server:dev": "cross-env NODE_ENV=dev nodemon ./server --exec babel-node",
+    "server:rest": "cross-env NODE_ENV=dev nodemon ./server --exec babel-node",
     "server:production": "cross-env NODE_ENV=production node_modules/.bin/babel-node ./server",
+
+
     "clean-dist": "node_modules/.bin/babel-node tools/build-clean",
     "copy-assets": "node_modules/.bin/babel-node tools/copy-assets",
     "inject-prod-tags": "node_modules/.bin/babel-node tools/inject-prod-tags",
     "prebuild": "npm-run-all clean-dist bower:build inject-prod-tags copy-assets",
     "build": "node_modules/.bin/babel-node tools/build",
     "postbuild": "npm-run-all --parallel bower start:production open-browser",
+
+
+
     "webpack": "node_modules/.bin/webpack --config webpack.config.dev.js",
-    "webpack:watch": "node_modules/.bin/webpack --config webpack.config.dev.js --watch"
+    "webpack:watch": "node_modules/.bin/webpack --config webpack.config.dev.js --watch",
+    "webpack:dev-server": "node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --watch"
   },
   "author": "Phil Willis <pdotwdot@gmail.com> (http://www.philwillis.pw/)",
   "license": "ISC",
@@ -73,10 +99,10 @@
     "main-bower-files": "2.13.1",
     "merge2": "1.0.3",
     "minimatch": "3.0.2",
-    "mocha": "^3.2.0",
+    "mocha": "3.2.0",
     "mocha-loader": "1.1.1",
     "mocha-simple-html-reporter": "1.0.1",
-    "mocha-webpack": "^1.0.0-beta.1",
+    "mocha-webpack": "1.0.0-beta.1",
     "mochawesome": "2.0.4",
     "mochawesome-report": "1.0.0-alpha.1",
     "node-fs-extra": "0.8.1",
@@ -91,13 +117,14 @@
     "run-sequence": "1.2.2",
     "sass-loader": "4.1.1",
     "script-loader": "0.7.0",
-    "shelljs": "^0.7.7",
+    "shelljs": "0.7.7",
     "strip-comments": "0.4.4",
     "style-loader": "0.13.2",
     "uglify-js": "2.8.12",
     "uglifycss": "0.0.25",
-    "webpack": "^2.4.1",
+    "webpack": "2.4.1",
     "webpack-dev-middleware": "1.10.2",
+    "webpack-dev-server": "2.4.5",
     "webpack-hot-middleware": "2.18.0",
     "webpack-node-externals": "1.5.4",
     "webpack-shell-plugin": "0.4.3"

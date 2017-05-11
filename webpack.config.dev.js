@@ -1,9 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
+const config = require('./config');
 
 module.exports = {
   entry: [
-    'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
+    'webpack-hot-middleware/client?reload=true',
+    'webpack-dev-server/client?http://localhost:' + config.port,
     path.resolve(__dirname, 'www/js')
   ],
   output: {
@@ -35,7 +37,7 @@ module.exports = {
     rules: [
       { test: /\.html$/, use: [{ loader: 'html-loader', options: { minimize: true }, }], },
       { test: /\.scss$/, use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'], },
-      { test: /\.js$/, exclude: [/node_modules/], use: [{ loader: 'babel-loader' }], },
+      { test: /\.js$/, exclude: [/node_modules/, /bower_components/], use: [{ loader: 'babel-loader' }], },
       { test: /\.(jpg|jpeg|png|svg|gif)$/, loader: 'file-loader?name=[path][name].[ext]' },
 
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'file-loader' }] },
@@ -43,5 +45,15 @@ module.exports = {
       { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'url-loader?limit=10000&mimetype=application/octet-stream' }] },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'url-loader?limit=10000&mimetype=image/svg+xml' }] },
     ]
+  },
+
+  devServer: {
+    contentBase: path.join(__dirname, 'www'),
+    inline: true,
+    port: config.port,
+    historyApiFallback: {
+      index: '/index.html'
+    }
   }
+
 };

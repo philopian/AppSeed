@@ -348,11 +348,11 @@ body {
 <body>
     <div id="mocha">
         <ul id="stats">
-            <li class="passes">passes: <em>4</em></li>
+            <li class="passes">passes: <em>3</em></li>
             <li class="failures">failures: <em>0</em></li>
-            <li class="duration">duration: <em>32ms</em></li>
+            <li class="duration">duration: <em>19ms</em></li>
         </ul>
-        <ul id="report"><li class="suite"><h1>./server/index.js</h1><ul><li class="test pass fast"><h2>... true should == true<span class="duration">0ms</span></h2><pre><code>(0, _chai.expect)(true).to.equal(true);</code></pre></li></ul></li><li class="suite"><h1>./www/index.js</h1><ul><li class="test pass fast"><h2>... true should == true<span class="duration">0ms</span></h2><pre><code>(0, _chai.expect)(true).to.equal(true);</code></pre></li></ul></li><li class="suite"><h1>second tests</h1><ul><li class="test pass fast"><h2>should pass<span class="duration">0ms</span></h2><pre><code>(0, _chai.expect)(true).to.be.true;</code></pre></li><li class="test pass fast"><h2>main file should have a method called html that returns a string<span class="duration">0ms</span></h2><pre><code>(0, _chai.expect)(true).to.be.true;</code></pre></li></ul></li><ul>
+        <ul id="report"><li class="suite"><h1>second tests</h1><ul><li class="test pass fast"><h2>html() should return string of HTML<span class="duration">1ms</span></h2><pre><code>(0, _chai.expect)(m.html()).to.be.a('string');</code></pre></li><li class="test pass fast"><h2>should pass<span class="duration">0ms</span></h2><pre><code>(0, _chai.expect)(true).to.be.true;</code></pre></li><li class="test pass fast"><h2>main file should have a method called html that returns a string<span class="duration">0ms</span></h2><pre><code>(0, _chai.expect)(true).to.be.true;</code></pre></li></ul></li><ul>
     </div>
     <script>
         var tests = document.getElementsByClassName('test');

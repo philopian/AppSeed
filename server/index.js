@@ -3,8 +3,6 @@ import chalk from 'chalk';
 import express from 'express';
 import compression from 'compression';
 import bodyParser from 'body-parser';
-import webpack from 'webpack';
-import webpackConfig from '../webpack.config.dev';
 
 const config = require('../config');
 const apiRoute = require('./api');
@@ -22,30 +20,9 @@ app.use((req, res, next) => {
   next();
 });
 
-if (app.get('env') === 'production') {
-  console.log(chalk.blue('Using production server settings with GZIP'));
-  app.use(compression()); // Enable GZIP
-  app.use('/code', express.static(path.join(config.distRoot, 'code')));
-  app.use('/fonts', express.static(path.join(config.distRoot, 'fonts')));
-  app.use('/assets', express.static(path.join(config.distRoot, 'assets')));
-} else {
-  // Statics stuff
-  app.use('/bower_components', express.static(config.bower));
-  app.use('/assets', express.static(path.join(config.webRoot, 'assets')));
 
-  // Webpack
-  const compiler = webpack(webpackConfig);
-  app.use(require('webpack-dev-middleware')(compiler, {
-    noInfo: true,
-    publicPath: webpackConfig.output.publicPath
-  }));
-  app.use(require('webpack-hot-middleware')(compiler));
-}
 app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
-
-
-
 
 
 /******** API Calls	**************************************/
@@ -91,15 +68,15 @@ api.all('/*', apiRoute.allOtherRoutes); // Any other /api/* route gets this mess
 
 
 /******** All other routes redirect frontend static ********/
-let www = path.resolve(config.webRoot, 'index.html');
-if (app.get('env') === 'production') {
-  www = path.resolve(config.distRoot, 'index.html');
-}
+// let www = path.resolve(config.webRoot, 'index.html');
+// if (app.get('env') === 'production') {
+//   www = path.resolve(config.distRoot, 'index.html');
+// }
 app.all('/*', (req, res) => {
-  res.sendFile(www);
+  res.send({ "error": "not a valid route" });
 });
 
 /******** Listen on a port	*****************************/
-app.listen(config.port, () => {
-  console.log(chalk.blue(`The magic happens: http://localhost:${config.port}`));
+app.listen(config.portAPI, () => {
+  console.log(chalk.blue(`The REST magic happens: http://localhost:${config.portAPI}`));
 });
