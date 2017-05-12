@@ -18,7 +18,9 @@ module.exports = {
     modules: ['node_modules', 'bower_components'],
     descriptionFiles: ['package.json', 'bower.json'],
     alias: {
+      // foundation: 'foundation-sites/js/foundation.core'
       foundation: 'foundation-sites/dist/js/foundation.min.js'
+
     }
   },
   devtool: 'cheap-module-eval-source-map',

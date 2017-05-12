@@ -1,5 +1,14 @@
-import L from 'leaflet';
 import http from './services/http';
+let L = {};
+if (process.env.NODE_ENV !== 'test') {
+  L = require('leaflet');
+}
+
+console.log(`......NODE_ENV  (${process.env.NODE_ENV})`);
+
+
+
+
 
 require("../sass/leaflet.scss");
 const html = require("../html/leaflet.html");

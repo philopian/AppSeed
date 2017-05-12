@@ -6,7 +6,7 @@ import View from '../../www/js/view1.js';
 let m = {};
 before((done) => {
   m = new View();
-  console.log(`\n  ${m.html()} \n\n`);
+  // console.log(`\n  ${m.html()} \n\n`);
   done();
 });
 

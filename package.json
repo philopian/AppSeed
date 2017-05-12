@@ -6,55 +6,34 @@
   "scripts": {
     "up": "bower i && yarn",
     "new:view": "node_modules/.bin/babel-node tools/new-view",
-
     "prestart": "bower i && yarn && node_modules/.bin/babel-node tools/bower",
     "start": "npm-run-all security-check open-browser ",
     "poststart": "npm-run-all --parallel server:rest webpack:dev-server bower:watch test",
-
     "preapp": "bower i && yarn && node_modules/.bin/babel-node tools/bower",
     "app": "npm-run-all security-check",
     "postapp": "npm-run-all --parallel server:rest webpack:dev-server bower:watch test",
-
-
     "start:production": "npm-run-all message:running-production server:production open-browser",
-
-
-
     "test": "npm-run-all --parallel test:report-watch test:server",
-
     "test:watch": "mocha-webpack -w --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\"",
-    "test:once": "mocha-webpack --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\"",
-    "test:report": "mocha-webpack --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\" --reporter mocha-simple-html-reporter --reporter-options output=tests-reports/index.html",
-    "test:report-watch": "mocha-webpack -w --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\" --reporter mocha-simple-html-reporter --reporter-options output=tests-reports/index.html",
-    "test:server": "node_modules/.bin/babel-node tools/test-server",
-
-
-
+    "test:once": "cross-env NODE_ENV=test mocha-webpack --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\"",
+    "test:report": "cross-env NODE_ENV=test mocha-webpack --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\" --reporter mocha-simple-html-reporter --reporter-options output=tests-reports/index.html",
+    "test:report-watch": "cross-env NODE_ENV=test mocha-webpack -w --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\" --reporter mocha-simple-html-reporter --reporter-options output=tests-reports/index.html",
+    "test:server": "cross-env NODE_ENV=test node_modules/.bin/babel-node tools/test-server",
     "message:running-production": "node_modules/.bin/babel-node tools/message-running-production",
-
     "open-browser": "node_modules/.bin/babel-node tools/open-browser",
-
     "security-check": "nsp check",
-
     "bower": "node_modules/.bin/babel-node tools/bower",
     "bower:watch": "node_modules/.bin/onchange 'bower.json' -v -- npm run bower",
     "bower:build": "node_modules/.bin/babel-node tools/build-bower",
-
-
     "serve": "cross-env NODE_ENV=dev nodemon ./server --exec babel-node",
     "server:rest": "cross-env NODE_ENV=dev nodemon ./server --exec babel-node",
     "server:production": "cross-env NODE_ENV=production node_modules/.bin/babel-node ./server",
-
-
     "clean-dist": "node_modules/.bin/babel-node tools/build-clean",
     "copy-assets": "node_modules/.bin/babel-node tools/copy-assets",
     "inject-prod-tags": "node_modules/.bin/babel-node tools/inject-prod-tags",
     "prebuild": "npm-run-all clean-dist bower:build inject-prod-tags copy-assets",
     "build": "node_modules/.bin/babel-node tools/build",
     "postbuild": "npm-run-all --parallel bower start:production open-browser",
-
-
-
     "webpack": "node_modules/.bin/webpack --config webpack.config.dev.js",
     "webpack:watch": "node_modules/.bin/webpack --config webpack.config.dev.js --watch",
     "webpack:dev-server": "node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --watch"
@@ -94,7 +73,7 @@
     "gulp-load-plugins": "1.5.0",
     "gulp-real-favicon": "0.2.2",
     "html-loader": "0.4.5",
-    "jsdom": "9.12.0",
+    "jsdom": "9.9.1",
     "live-server": "1.2.0",
     "main-bower-files": "2.13.1",
     "merge2": "1.0.3",
