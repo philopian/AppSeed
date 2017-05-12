@@ -1,9 +1,6 @@
 import $ from 'jquery';
 import config from '../../../config';
 
-console.log(config);
-
-
 module.exports = {
   testHello: () => "..this works!!",
 

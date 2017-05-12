@@ -15,15 +15,11 @@ module.exports = {
     modules: ['node_modules', 'bower_components'],
     descriptionFiles: ['package.json', 'bower.json'],
     alias: {
-      foundation: 'foundation-sites/dist/js/foundation.min.js'
+      foundation: 'foundation-sites/js/foundation.core'
     }
   },
 
   plugins: [
-    // new WebpackShellPlugin({
-    //   verbose: false,
-    //   onBuildExit: "node_modules/.bin/mocha --colors --require ./tests/www/__spec-helper__.js ./tests-reports/frontend-test-bundle.js --reporter mocha-simple-html-reporter --reporter-options output=tests-reports/index.html"
-    // }),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",

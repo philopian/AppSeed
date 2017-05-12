@@ -2,7 +2,7 @@ node_modules
 bower_components
 .DS_Store
 typings
-test-reports
+tests-reports
 coverage
 .tmp
 .nyc_output
