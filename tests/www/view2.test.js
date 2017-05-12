@@ -10,7 +10,7 @@ before((done) => {
   done();
 });
 
-describe('FILE: view1.js', () => {
+describe('FILE: view2.js', () => {
   it('html() should return string of HTML', () => {
     expect(m.html()).to.be.a('string');
   });
