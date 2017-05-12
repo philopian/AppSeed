@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 var nodeExternals = require('webpack-node-externals');
 var WebpackShellPlugin = require('webpack-shell-plugin');
+var isCoverage = process.env.NODE_ENV === 'coverage';
 
 module.exports = {
   entry: './tests/www/__all__.js',
@@ -32,6 +33,7 @@ module.exports = {
 
   module: {
     rules: [
+      { test: /\.(js)/, exclude: /bower_components/, include: path.resolve('www') },
       { test: /\.html$/, use: [{ loader: 'html-loader', options: { minimize: true }, }], },
       { test: /\.scss$/, use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'], },
       { test: /\.js$/, exclude: /node_modules/, use: [{ loader: 'babel-loader', query: { compact: false } }], },
