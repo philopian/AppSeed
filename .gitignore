@@ -3,3 +3,6 @@ bower_components
 .DS_Store
 typings
 test-reports
+coverage
+.tmp
+.nyc_output
