@@ -18,12 +18,14 @@
 - Command to create new view [$ npm run new:view -s]
 - Redux
 - Testing with Mocha & Webpack
+- Code coverage with Istanbul
+
+
 
 ## Download Packages
 ~~~
   $ npm run up
 ~~~
-
 
 ## Start Developing
 ~~~
@@ -35,12 +37,6 @@
 ~~~
   $ npm run build -s
 ~~~
-
-
-
-## ToDo
-- Test Reports MochaAwesome
-- add (istanbul code coverage )[https://www.npmjs.com/package/webpack-istanbul-plugin]
 
 ## Deployment
 - Azure (dist with all the static content and a web config file)
