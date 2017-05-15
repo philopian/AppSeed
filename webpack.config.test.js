@@ -33,7 +33,7 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /\.(js)/, exclude: /bower_components/, include: path.resolve('www') },
+      { test: /\.(js)$/, exclude: /bower_components/, include: path.resolve('www'), loader: 'istanbul-instrumenter-loader' },
       { test: /\.html$/, use: [{ loader: 'html-loader', options: { minimize: true }, }], },
       { test: /\.scss$/, use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'], },
       { test: /\.js$/, exclude: /node_modules/, use: [{ loader: 'babel-loader', query: { compact: false } }], },
