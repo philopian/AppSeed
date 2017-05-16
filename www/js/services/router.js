@@ -11,7 +11,7 @@ let v = {};
 
 export class Router {
   constructor() {
-    console.log('');
+    console.log(`......NODE_ENV=${process.env.NODE_ENV}`);
   }
 
   deconstructor() {

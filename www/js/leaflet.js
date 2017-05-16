@@ -1,6 +1,5 @@
 import http from './services/http';
 let L = {};
-
 if (process.env.NODE_ENV !== 'test') {
   L = require('leaflet');
 }
@@ -40,7 +39,7 @@ export class View {
       Street: L.tileLayer(basemapsource.esriStreet)
     };
 
-    this.addGeojson(map);
+    this.addGeojson();
   }
 
   updateDefaultMarkers() {
