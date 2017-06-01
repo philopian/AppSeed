@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
-import { saveState, loadState } from './store-rehydrator';
+import { saveState, loadState } from './gatorade';
 
 const initialState = {
   markers: [],
