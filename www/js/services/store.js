@@ -1,11 +1,19 @@
 import { applyMiddleware, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
+import { saveState, loadState } from './store-rehydrator';
 
 const initialState = {
   markers: [],
   thing: 0,
 };
 const reducer = (state = initialState, action) => {
+  // If the data in local storage does not equals the initialState load it instead
+  if (state === initialState) {
+    if (loadState() != null) {
+      state = loadState();
+    }
+  }
+
   switch (action.type) {
     case 'UPDATE_MARKERS':
       state = Object.assign({}, state, {
@@ -22,6 +30,7 @@ const reducer = (state = initialState, action) => {
     default:
       return state;
   }
+  saveState(state);
   return state;
 };
 /******************************
