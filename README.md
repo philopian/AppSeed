@@ -1,4 +1,12 @@
-# AppSeed ES6
+# AppSeed
+~~~
+    ___               _____               __
+   /   |  ____  ____ / ___/___  ___  ____/ /
+  / /| | / __ \/ __ \\__ \/ _ \/ _ \/ __  / 
+ / ___ |/ /_/ / /_/ /__/ /  __/  __/ /_/ /  
+/_/  |_/ .___/ .___/____/\___/\___/\__,_/   
+      /_/   /_/    
+~~~   
 
 ## Prerequisites
 - node.js > 4x
@@ -6,16 +14,17 @@
 
 
 ## What's in it?
-- Bower for frontend dependencies
-- NPM for dev and prod dependencies
-- Expressjs for the server
-- ES6 Modules
 - Webpack version 2
 - Bable (Transpiling)
+- Bower for frontend dependencies
+- NPM for frontend/backend dependencies
+- Expressjs for REST API
+- Simple frontend view router
+- ES6 Modules
 - ESLint
 - nsp (node security project)
-- Simple frontend router
 - Command to create new view [$ npm run new:view -s]
+- Simple Router
 - Redux
 - Testing with Mocha & Webpack
 - Code coverage with Istanbul
@@ -32,11 +41,16 @@
   $ npm start -s
 ~~~
 
-
 ## Build Distribution
 ~~~
   $ npm run build -s
 ~~~
+
+## Creating a new view
+~~~
+  $ npm run new:view -s
+~~~
+
 
 ## Deployment
 - Azure (dist with all the static content and a web config file)
