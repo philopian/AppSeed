@@ -95,11 +95,6 @@ export { View as default };`;
     console.log(chalk.blue(`Created new file "js/${dashCase}.js" file`));
   });
 
-
-
-
-
-
   // Read the router file and add new view 
   let importPattern = /let v = {};/g
   let importAddNewContent = `import ${camelCase} from '../${dashCase}';
@@ -127,19 +122,30 @@ let v = {};`
       console.log(chalk.blue(`Your new route can be found at: http://localhost:${config.port}/${lowerCase}`));
     });
   });
-
-
-
-
 }
 
+const banner = `
+   ÛÛÛÛÛÛÛÛÛ                       ÛÛÛÛÛÛÛÛÛ                      ÛÛÛÛÛ
+  ÛÛÛ°°°°°ÛÛÛ                     ÛÛÛ°°°°°ÛÛÛ                    °°ÛÛÛ 
+ °ÛÛÛ    °ÛÛÛ ÛÛÛÛÛÛÛÛ  ÛÛÛÛÛÛÛÛ °ÛÛÛ    °°°   ÛÛÛÛÛÛ  ÛÛÛÛÛÛ  ÛÛÛÛÛÛÛ 
+ °ÛÛÛÛÛÛÛÛÛÛÛ°°ÛÛÛ°°ÛÛÛ°°ÛÛÛ°°ÛÛÛ°°ÛÛÛÛÛÛÛÛÛ  ÛÛÛ°°ÛÛÛÛÛÛ°°ÛÛÛÛÛÛ°°ÛÛÛ 
+ °ÛÛÛ°°°°°ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ °°°°°°°°ÛÛÛ°ÛÛÛÛÛÛÛ°ÛÛÛÛÛÛÛ°ÛÛÛ °ÛÛÛ 
+ °ÛÛÛ    °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ °ÛÛÛ ÛÛÛ    °ÛÛÛ°ÛÛÛ°°° °ÛÛÛ°°° °ÛÛÛ °ÛÛÛ 
+ ÛÛÛÛÛ   ÛÛÛÛÛ°ÛÛÛÛÛÛÛ  °ÛÛÛÛÛÛÛ °°ÛÛÛÛÛÛÛÛÛ °°ÛÛÛÛÛÛ°°ÛÛÛÛÛÛ°°ÛÛÛÛÛÛÛÛ
+°°°°°   °°°°° °ÛÛÛ°°°   °ÛÛÛ°°°   °°°°°°°°°   °°°°°°  °°°°°°  °°°°°°°° 
+              °ÛÛÛ      °ÛÛÛ                                           
+              ÛÛÛÛÛ     ÛÛÛÛÛ                                          
+             °°°°°     °°°°°                                           
+
+
+`;
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-rl.question(chalk.blue('What name do you want to name your new view? '), (newViewName) => {
+rl.question(chalk.blue(`${banner} What name do you want to name your new view? `), (newViewName) => {
   // Dash case the result
   newViewName = newViewName.split(" ").join("-").toLowerCase();
   createFiles(newViewName);
