@@ -52,7 +52,7 @@
 ~~~
 
 
-## Deployment
+
+## Stuff to come
 - Azure (dist with all the static content and a web config file)
-- Digital Ocean (docker-compose/ ansible)
-- Heroku
+- Digital Ocean (docker-compose/ansible)
