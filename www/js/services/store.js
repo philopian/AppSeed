@@ -4,6 +4,7 @@ import { saveState, loadState } from './gatorade';
 
 const initialState = {
   markers: [],
+  view: '',
   thing: 0,
 };
 const reducer = (state = initialState, action) => {
@@ -23,6 +24,11 @@ const reducer = (state = initialState, action) => {
     case 'UPDATE_SOMETHING':
       state = Object.assign({}, state, {
         thing: action.payload
+      });
+      break;
+    case 'UPDATE_CURRENT_VIEW':
+      state = Object.assign({}, state, {
+        view: action.payload
       });
       break;
       /*--NEW CASES BELOW HERE-----*/

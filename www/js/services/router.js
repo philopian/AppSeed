@@ -7,6 +7,7 @@ import view2 from '../view2';
 import leaflet from '../leaflet';
 import esri from '../esri';
 import reduxExample from '../redux-example';
+import store from './store';
 let v = {};
 
 export class Router {
@@ -42,6 +43,10 @@ export class Router {
         view = '/';
         break;
     }
+    store.dispatch({
+      type: 'UPDATE_CURRENT_VIEW',
+      payload: view
+    });
     $(document).find('#view').html(v.html());
     v.addListeners();
     if (!nav) {
