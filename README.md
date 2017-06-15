@@ -8,51 +8,77 @@
       /_/   /_/    
 ~~~   
 
+## What is AppSeed?
+AppSeed is a starter kit for rapid web application development using nodejs and ES6. It's the environment and some wired up tools. YOU can choose as little or as much 3rd party dependencies (via Bower or NPM or Github) you like.
+<br><br>
+Happy coding!
+
+<br>
+
+
 ## Prerequisites
 - node.js > 4x
 - bower & yarn ($ npm i -g yarn bower)
 
-
-## What's in it?
-- Webpack version 2
-- Bable (Transpiling)
-- Bower for frontend dependencies
-- NPM for frontend/backend dependencies
-- Expressjs for REST API
-- Simple frontend view router
-- ES6 Modules
-- ESLint
-- nsp (node security project)
-- Command to create new view [$ npm run new:view -s]
-- Simple Router
-- Redux
-- Testing with Mocha & Webpack
-- Code coverage with Istanbul
+<br>
 
 
+## Technologies
+AppSeed is aimed at making your web development experience exceptional, here are a couple of tools it uses:
 
-## Download Packages
-~~~
-  $ npm run up
-~~~
+| **Tech** | **Description** |
+|----------|-------|
+| [Webpack v2](https://webpack.js.org/) | Bundles npm packages and our JS into a single file. Includes hot reloading via [react-transform-hmr](https://www.npmjs.com/package/react-transform-hmr). |
+| [Babel](http://babeljs.io) |  Compiles ES6 to ES5, so you can develop using the new version of JavaScript today.     |
+| [Bower](https://bower.io/) |  A package manager for the web. You can still use NPM for the frontend packages but try to use Bower whenever you can.     |
+| [Redux](http://redux.js.org) | Redux is a predictable state container for JavaScript apps. |
+| [npm Scripts](https://docs.npmjs.com/misc/scripts)| A bunch of nodejs scripts for automation and building. |
+| [ESLint](http://eslint.org/)| Lint your code as you develop and get tool tips on when you are being naughty |
+| [SASS](http://sass-lang.com/) | Powerful CSS extension language, allows for variables, functions, and more |
+| [PostCSS](https://github.com/postcss/postcss) | Transform styles with JS plugins. Used to autoprefix CSS |
+| [VS Code Editor](https://code.visualstudio.com/) | Not manditory but there are some files to help make your development fun. |
+| [Express Nodejs Webserver](https://expressjs.com/) | Fast, unopinionated, minimalist web framework for Node.js. It's currently used for a REST API. |
+| [Node Security Project](https://www.npmjs.com/package/nsp)| Node Security helps you keep your node applications secure.  |
+| [Mochajs](https://mochajs.org/)| Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun. We are using [Mocha-Webpack](https://www.npmjs.com/package/mocha-webpack) to bundle our JS code before running test on them. |
+| [Istanbul](https://istanbul.js.org/) | JavaScript test coverage made simple. |
 
-## Start Developing
-~~~
-  $ npm start -s
-~~~
+<br>
 
-## Build Distribution
-~~~
-  $ npm run build -s
-~~~
 
-## Creating a new view
-~~~
-  $ npm run new:view -s
-~~~
+## Commands
+Here a couple of npm commands you can use while developing:
+| **Command** | **How to run command** |
+|----------|-------|
+| Download all the application dependencies | $ npm run up |
+| Start developing | $ npm start -s |
+| Start developing without automatically opening a browser tab | $ npm run app -s |
+| Build the  | $ npm run build -s |
+| Add a new view | $ npm run new:view -s |
+| Run unit tests | $ npm run test:once -s |
+| Run unit tests coverage | $ npm run test:cover -s |
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
 
 
 
 ## Stuff to come
+- .vscode debugging the frontend via the ./.vscode/launch.json
+- .vscode debugging expressjs server via the ./.vscode/launch.json
+- add some sample data from SQLite
+- remove view npm script
+- 
 - Azure (dist with all the static content and a web config file)
 - Digital Ocean (docker-compose/ansible)
+
