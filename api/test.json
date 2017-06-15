@@ -39,7 +39,7 @@
     {
       "type": "Feature",
       "properties": {
-        "place": "gros morne"
+        "place": "Gros morne"
       },
       "geometry": {
         "type": "Point",

@@ -6,7 +6,7 @@ module.exports = {
   jwtUniqueId: '123456789',
   port: 8080,
   portTests: 8081,
-  portAPI: 8083,
+  portAPI: 8082,
 
   appRoot: __dirname,
   webRoot: path.join(__dirname, './www'),
