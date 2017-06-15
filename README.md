@@ -47,6 +47,7 @@ AppSeed is aimed at making your web development experience exceptional, here are
 
 ## Commands
 Here a couple of npm commands you can use while developing:
+
 | **Command** | **How to run command** |
 |----------|-------|
 | Download all the application dependencies | $ npm run up |
@@ -58,19 +59,7 @@ Here a couple of npm commands you can use while developing:
 | Run unit tests coverage | $ npm run test:cover -s |
 
 
-
-
-
-
-
 <br>
-
-
-
-
-
-
-
 
 
 ## Stuff to come
@@ -78,7 +67,6 @@ Here a couple of npm commands you can use while developing:
 - .vscode debugging expressjs server via the ./.vscode/launch.json
 - add some sample data from SQLite
 - remove view npm script
-- 
 - Azure (dist with all the static content and a web config file)
 - Digital Ocean (docker-compose/ansible)
 
