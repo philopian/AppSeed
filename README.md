@@ -53,7 +53,7 @@ Here a couple of npm commands you can use while developing:
 | Download all the application dependencies | $ npm run up |
 | Start developing | $ npm start -s |
 | Start developing without automatically opening a browser tab | $ npm run app -s |
-| Build the  | $ npm run build -s |
+| Build the distribution version | $ npm run build -s |
 | Add a new view | $ npm run new:view -s |
 | Run unit tests | $ npm run test:once -s |
 | Run unit tests coverage | $ npm run test:cover -s |
