@@ -107,6 +107,7 @@ Setup the Editor formater [⌘ + P], then type in [ > Formatter]
 ## Stuff to come
 - .vscode debugging the frontend via the ./.vscode/launch.json
 - .vscode debugging expressjs server via the ./.vscode/launch.json
+- TestCafe
 - add some sample data from SQLite
 - remove view npm script
 - Azure (dist with all the static content and a web config file)
