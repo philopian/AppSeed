@@ -1,0 +1,12 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "editor.wordWrap": "off",
+
+  "files.associations": {
+    "*.min.geojson": "plain text",
+    "*.geojson": "json"
+  },
+  "files.exclude": {
+    "**/.gitignore": false
+  }
+}

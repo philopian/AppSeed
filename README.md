@@ -61,7 +61,8 @@ Here a couple of npm commands you can use while developing:
 <br>
 
 ## VS Code
-Setup the Editor formater [⌘ + P], then type in [ > Formatter]
+- Setup the Editor formater [⌘ + P], then type in [ > Formatter Config]
+- Install the "JS-CSS-HTML" Formatter plugin
 ~~~
 {
   "onSave": true,
@@ -102,6 +103,7 @@ Setup the Editor formater [⌘ + P], then type in [ > Formatter]
   }
 }
 ~~~
+
 
 
 ## Stuff to come
