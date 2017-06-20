@@ -11,6 +11,25 @@ function createFiles(viewName) {
   let camelCase = camel(wordCase);
   let lowerCase = camelCase.toLowerCase();
 
+
+  //---TEST FILE---------------------------------------
+  let mocha = `import { expect } from 'chai';
+
+describe('./www/${dashCase}.js', () => {
+  it('... true should == true', () => {
+    expect(true).to.equal(true);
+  });
+});`;
+  console.log(path.join(config.webRoot, `../tests/www/${dashCase}.test.js`));
+
+  fs.writeFile(path.join(config.webRoot, `../tests/www/${dashCase}.test.js`), mocha, 'utf8', function(err) {
+    if (err) {
+      return console.log(err);
+    }
+    console.log(chalk.blue(`Created new file "./tests/www/${dashCase}.test.js" file`));
+  });
+
+
   //---HTML---------------------------------------
   let html = `<div id="${dashCase}" class="view">
     <h1>Hello, ${wordCase}</h1>
@@ -22,7 +41,7 @@ function createFiles(viewName) {
     if (err) {
       return console.log(err);
     }
-    console.log(chalk.blue(`Created new file "html/${dashCase}.html" file`));
+    console.log(chalk.blue(`Created new file "./www/html/${dashCase}.html" file`));
   });
 
 
@@ -40,7 +59,7 @@ function createFiles(viewName) {
     if (err) {
       return console.log(err);
     }
-    console.log(chalk.blue(`Created new file "sass/${dashCase}.scss" file`));
+    console.log(chalk.blue(`Created new file "./www/sass/${dashCase}.scss" file`));
   });
 
 
@@ -54,18 +73,20 @@ const html = require('../html/${dashCase}.html');
 
 export class View {
   constructor() {
-    console.log('...${camelCase} constructor');
-
-    // Add your class properties here!
+    // Add your class properties here
     this.someProperty = "This is a class property!";
+
+    console.log('...${camelCase} constructor');
   }
 
   addListeners() {
+    // Add event listerners to your DOM elements here
     $('#just-a-button').on("click", this.justaButtonClick.bind(this));
   }
 
   deconstructor() {
-    $('#just-a-button').on("click", this.justaButtonClick.bind(this));
+    // Remove the event listeners here so that it doesn't get fired on other views
+    $('#just-a-button').unbind('click');
   }
 
   html() {
@@ -73,7 +94,7 @@ export class View {
   }
 
   init() {
-    // everything should be in the DOM now so the document should be ready
+    // Everything should be in the DOM now so the document should be ready
   }
 
   //--Custom Method---------
@@ -92,7 +113,7 @@ export { View as default };`;
     if (err) {
       return console.log(err);
     }
-    console.log(chalk.blue(`Created new file "js/${dashCase}.js" file`));
+    console.log(chalk.blue(`Created new file "./www/js/${dashCase}.js" file`));
   });
 
   // Read the router file and add new view 
