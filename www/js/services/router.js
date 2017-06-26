@@ -12,7 +12,10 @@ let v = {};
 
 export class Router {
   constructor() {
-    console.log(`......NODE_ENV=${process.env.NODE_ENV}`);
+    this.state = store.getState();
+    store.subscribe(() => {
+      this.state = store.getState();
+    });
   }
 
   deconstructor() {

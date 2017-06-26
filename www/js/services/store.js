@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 import { saveState, loadState } from './gatorade';
 
@@ -57,7 +57,10 @@ const reducer = (state = initialState, action) => {
 if (process.env.NODE_ENV === 'production') {
   module.exports = createStore(reducer);
 } else {
-  console.log('......Using Dev Store........');
+  console.log('......Using Dev Mode........');
   const middleware = applyMiddleware(createLogger());
-  module.exports = createStore(reducer, middleware);
+  const enhancers = compose(
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  );
+  module.exports = createStore(reducer, enhancers, middleware);
 }
