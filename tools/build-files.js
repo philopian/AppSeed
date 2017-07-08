@@ -11,43 +11,23 @@ import uglifyCss from 'uglifycss';
 import rimraf from 'rimraf';
 import config from '../config';
 
-fs.mkdir(path.join(config.distRoot, 'code'));
+/*********************************************
+ * Create the ./DEPLOY/www/code/ directory
+ *********************************************/
+const webDir = path.join(config.distRoot, 'code');
+fs.mkdirSync(webDir);
+
+
 
 /*********************************************
- * JAVASCRIPT
+ * Copy config file
  *********************************************/
-/* var bowerJsFiles = bowerMain('js', 'min.js');
-var outJsFile = path.join(config.distRoot, 'code/vendor.min.js');
-var tempOutJsFile = path.join(config.distRoot, 'code/.temp.vendor.min.js');
-
-// Minified JS packages provided
-concat(bowerJsFiles.minified, outJsFile, function(err) {
-  if (err) throw err
-  console.log(chalk.green('JS Bower Packages concatenated'));
-
-  // Minify these JS packages
-  concat(bowerJsFiles.minifiedNotFound, tempOutJsFile, function(err) {
-    if (err) throw err
-    console.log(chalk.blue('Concat non-min bowerfiles'));
-
-    let uglify = uglifyJS.minify(tempOutJsFile, {
-      compress: {
-        dead_code: true,
-        global_defs: {
-          DEBUG: false
-        },
-      }
-    });
-
-    fs.appendFile(outJsFile, uglify.code, (err) => {
-      if (err) throw err;
-      rimraf(tempOutJsFile, () => {});
-      console.log(chalk.green(`non minified JS appended to ./${config.distFileName}/code/vendor.min.js`));
-    });
-  });
-
+const configFrom = path.join(config.appRoot, 'config.js');
+const configTo = path.join(config.deployRoot, 'config.js');
+fsExtra.copy(configFrom, configTo, err => {
+  if (err) return console.error(err)
+  console.log(chalk.green('Config file copied to dist'));
 });
-//*/
 
 
 

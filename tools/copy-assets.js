@@ -6,10 +6,6 @@ import fs from 'node-fs-extra';
 var source = path.join(config.webRoot, 'assets');
 var destination = path.join(config.distRoot, 'assets');
 
-console.log(source);
-console.log(destination);
-
-
 fs.copy(source, destination, function(err) {
   if (err) {
     console.error(err);

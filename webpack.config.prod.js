@@ -3,6 +3,7 @@ const config = require('./config');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const extractSASS = new ExtractTextPlugin('code/app.css');
 
 module.exports = {
   devtool: 'source-map',
@@ -45,16 +46,16 @@ module.exports = {
       },
       inject: true
     }),
-    new ExtractTextPlugin('code/app.css'),
-    new webpack.optimize.DedupePlugin(),
+    extractSASS,
     new webpack.optimize.UglifyJsPlugin(),
   ],
 
   module: {
     rules: [
       { test: /\.html$/, use: [{ loader: 'html-loader', options: { minimize: true }, }], },
-      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'], },
+      { test: /\.scss$/i, use: extractSASS.extract(['css-loader', 'postcss-loader', 'sass-loader']) },
       { test: /\.js$/, exclude: [/node_modules/], use: [{ loader: 'babel-loader' }], },
+
       { test: /\.(jpg|jpeg|png|svg|gif)$/, loader: 'file-loader?name=assets/images/[name].[ext]' },
 
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'file-loader' }] },

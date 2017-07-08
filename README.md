@@ -107,6 +107,9 @@ Here a couple of npm commands you can use while developing:
 
 
 ## Stuff to come
+- make the export folder ./DEPLOY/ so you can bundle everything thing up
+- Create a script in the ./tools/ to generate ansible deployment
+- create azure IIS webconfig script in the ./tools/
 - .vscode debugging the frontend via the ./.vscode/launch.json
 - .vscode debugging expressjs server via the ./.vscode/launch.json
 - TestCafe
