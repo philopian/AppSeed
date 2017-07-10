@@ -4,8 +4,7 @@ const config = require('./config');
 
 module.exports = {
   entry: [
-    'webpack-hot-middleware/client?reload=true',
-    'webpack-dev-server/client?http://localhost:' + config.port,
+    `webpack-dev-server/client?http://localhost:${config.port}`,
     path.resolve(__dirname, 'www/js')
   ],
   output: {
