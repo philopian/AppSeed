@@ -106,6 +106,52 @@ Here a couple of npm commands you can use while developing:
 
 
 
+## React 
+- All the react code can be found in the ./react/components/ directory
+
+
+
+## React Styled components (styled-components package)
+- Allows you to have CSS in your component file (don't have css name collisions)
+- The const variable must start with Uppercase else react will treat it like a regular HTML tag
+- Uppercase = style, lowercase == html tag
+- 
+
+
+
+- How to define the css
+    ~~~
+    const Container = styled.div`
+        border: 2px solid rgb(42, 125, 153);
+        margin: 20px;
+        padding: 10px;
+        background-color: rgb(236, 236, 236);
+    `;
+    ~~~
+- how it's used in the render function
+    ~~~
+      render() {
+        return (
+            <Container>
+              <p>Hello React!</p>
+            </Container>
+        );
+      }
+    ~~~
+- Want to style an actual component
+    ~~~
+    const Container = styled('my-web-component')`
+        border: 2px solid rgb(42, 125, 153);
+        margin: 20px;
+        padding: 10px;
+        background-color: rgb(236, 236, 236);
+    `;
+    ~~~
+
+
+
+
+
 ## Stuff to come
 - .vscode debugging the frontend via the ./.vscode/launch.json
 - .vscode debugging expressjs server via the ./.vscode/launch.json

@@ -124,12 +124,7 @@
 
 
 
-
-
-
-
-
-
+# Extra stuff
 ~~~
   "serve": "npm-run-all --parallel server browser-sync",
     "server": "nodemon server --exec babel-node",
