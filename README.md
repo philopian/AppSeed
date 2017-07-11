@@ -81,7 +81,7 @@ Here a couple of npm commands you can use while developing:
     "space_before_conditional": true,
     "unescape_strings": false,
     "wrap_line_length": 0,
-    "e4x": false,
+    "e4x": true,
     "end_with_newline": false,
     "comma_first": false,
     "brace_style": "collapse-preserve-inline"
