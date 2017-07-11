@@ -1,1 +1,1 @@
-{ "presets": ["env"] }
+{ "presets": ["react", "airbnb", "env"] }
