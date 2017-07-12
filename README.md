@@ -112,11 +112,12 @@ Here a couple of npm commands you can use while developing:
 
 
 ## React Styled components (styled-components package)
-- Allows you to have CSS in your component file (don't have css name collisions)
+- https://medium.com/@lvarayut/styled-components-in-action-723852f2a93d
+- Allows you to have CSS in your component file (don't affect other styles in the page)
 - The const variable must start with Uppercase else react will treat it like a regular HTML tag
 - Uppercase = style, lowercase == html tag
-- 
-
+- You can have dynamic styles based on prop values
+- styled-components makes random class name in the HTML
 
 
 - How to define the css
