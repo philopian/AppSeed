@@ -37,6 +37,7 @@ module.exports = {
       { test: /\.html$/, use: [{ loader: 'html-loader', options: { minimize: true }, }], },
       { test: /\.scss$/, use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'], },
       { test: /\.js$/, exclude: /node_modules/, use: [{ loader: 'babel-loader', query: { compact: false } }], },
+      { test: /\.jsx$/, include: path.join(__dirname, 'www/react'), loader: 'babel-loader' },
       { test: /\.(jpg|jpeg|png|svg|gif)$/, loader: 'file-loader?name=[path][name].[ext]' },
 
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: [{ loader: 'file-loader' }] },

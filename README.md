@@ -81,7 +81,7 @@ Here a couple of npm commands you can use while developing:
     "space_before_conditional": true,
     "unescape_strings": false,
     "wrap_line_length": 0,
-    "e4x": false,
+    "e4x": true,
     "end_with_newline": false,
     "comma_first": false,
     "brace_style": "collapse-preserve-inline"
@@ -103,6 +103,53 @@ Here a couple of npm commands you can use while developing:
   }
 }
 ~~~
+
+
+
+## React 
+- All the react code can be found in the ./react/components/ directory
+
+
+
+## React Styled components (styled-components package)
+- https://medium.com/@lvarayut/styled-components-in-action-723852f2a93d
+- Allows you to have CSS in your component file (don't affect other styles in the page)
+- The const variable must start with Uppercase else react will treat it like a regular HTML tag
+- Uppercase = style, lowercase == html tag
+- You can have dynamic styles based on prop values
+- styled-components makes random class name in the HTML
+
+
+- How to define the css
+    ~~~
+    const Container = styled.div`
+        border: 2px solid rgb(42, 125, 153);
+        margin: 20px;
+        padding: 10px;
+        background-color: rgb(236, 236, 236);
+    `;
+    ~~~
+- how it's used in the render function
+    ~~~
+      render() {
+        return (
+            <Container>
+              <p>Hello React!</p>
+            </Container>
+        );
+      }
+    ~~~
+- Want to style an actual component
+    ~~~
+    const Container = styled('my-web-component')`
+        border: 2px solid rgb(42, 125, 153);
+        margin: 20px;
+        padding: 10px;
+        background-color: rgb(236, 236, 236);
+    `;
+    ~~~
+
+
 
 
 
