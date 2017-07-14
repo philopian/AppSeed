@@ -17,7 +17,7 @@ Happy coding!
 
 
 ## Prerequisites
-- node.js > 4x
+- node.js > v6.9.0 (which is Nodejs Long Term Support version)
 - bower & yarn ($ npm i -g yarn bower)
 
 <br>

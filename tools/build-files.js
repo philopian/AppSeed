@@ -87,14 +87,3 @@ if (fs.existsSync(path.join(leafletAssets, 'marker-icon.png'))) {
   });
 }
 
-
-
-/*********************************************
- * API file
- *********************************************/
-const apiDevDir = path.join(config.appRoot, 'api');
-const apiProdDir = path.join(config.deployRoot, 'api');
-fsExtra.copy(apiDevDir, apiProdDir, err => {
-  if (err) return console.error(err)
-  console.log('Sample API files copied to DEPLOY');
-});

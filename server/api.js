@@ -10,7 +10,7 @@ module.exports = {
   },
 
   testJsonApi: (req, res) => {
-    const filepath = path.join(config.appRoot, 'api/test.json');
+    const filepath = path.join(config.serverRoot, 'data/test.json');
     var file = fs.readFileSync(filepath, 'utf-8');
     res.status(200).json(JSON.parse(file));
   },
