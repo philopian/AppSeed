@@ -26,7 +26,7 @@ const configFrom = path.join(config.appRoot, 'config.js');
 const configTo = path.join(config.deployRoot, 'config.js');
 fsExtra.copy(configFrom, configTo, err => {
   if (err) return console.error(err)
-  console.log(chalk.green('Config file copied to dist'));
+  console.log(chalk.green('Config file copied to DEPLOY'));
 });
 
 
@@ -70,7 +70,7 @@ const fontAwesomeBuildDir = path.join(config.distRoot, 'fonts');
 if (fs.existsSync(path.join(fontAwesomeDir, 'fontawesome-webfont.ttf'))) {
   fsExtra.copy(fontAwesomeDir, fontAwesomeBuildDir, err => {
     if (err) return console.error(err)
-    console.log(chalk.green('FontAwesome fonts copied to dist'));
+    console.log(chalk.green('FontAwesome fonts copied to DEPLOY'));
   });
 }
 
@@ -83,6 +83,18 @@ const codeDir = path.join(config.distRoot, 'code/images');
 if (fs.existsSync(path.join(leafletAssets, 'marker-icon.png'))) {
   fsExtra.copy(leafletAssets, codeDir, err => {
     if (err) return console.error(err)
-    console.log(chalk.green('Leaflet assets copied to dist'));
+    console.log(chalk.green('Leaflet assets copied to DEPLOY'));
   });
 }
+
+
+
+/*********************************************
+ * API file
+ *********************************************/
+const apiDevDir = path.join(config.appRoot, 'api');
+const apiProdDir = path.join(config.deployRoot, 'api');
+fsExtra.copy(apiDevDir, apiProdDir, err => {
+  if (err) return console.error(err)
+  console.log('Sample API files copied to DEPLOY');
+});

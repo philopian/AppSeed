@@ -1,0 +1,57 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500);@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500);@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500);@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500);@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500);@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500);@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500);#view-main {
+  background-color: #9cafb7;
+  padding: 20px; }
+  #view-main #simpsons-gif,
+  #view-main #ron {
+    height: 260px; }
+  #view-main #react-example {
+    width: 400px;
+    display: inline-block; }
+#view-1 {
+  background-color: #4281a4; }
+#view-2 {
+  background-color: #4d5256; }
+#view-leaflet {
+  background-color: #9cafb7; }
+  #view-leaflet #map {
+    border: solid 2px #a95c4a;
+    height: 400px; }
+  #view-leaflet .leaflet-popup-content-wrapper {
+    border-radius: 4px; }
+#view-esri {
+  background-color: #a95c4a;
+  height: 100%;
+  width: 100%; }
+  #view-esri #esri-map {
+    padding: 0;
+    margin: 0;
+    height: 400px;
+    width: 100%; }
+#redux-example {
+  background-color: #4281a4;
+  height: 100%;
+  width: 100%; }
+  #redux-example h1 {
+    color: darkcyan; }
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #787270; }
+
+h1 {
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  padding-top: 14px; }
+
+#view {
+  width: 100%;
+  height: 700px;
+  border: 4px solid #a95c4a; }
+
+.view {
+  width: 100%;
+  height: 100%; }
+
+/*# sourceMappingURL=app.css.map*/

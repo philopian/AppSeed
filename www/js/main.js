@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Hello from '../../react/components/_sample.jsx';
+import Hello from '../react/components/_sample.jsx';
 import http from './services/http';
 
 require("../sass/main.scss");
