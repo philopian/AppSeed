@@ -6,3 +6,4 @@ tests-reports
 coverage
 .tmp
 .nyc_output
+.log

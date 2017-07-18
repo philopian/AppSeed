@@ -4,71 +4,33 @@
   "description": "Starter Kit for ES6 workflow",
   "main": "server/index.js",
   "scripts": {
-    "up": "bower i && yarn",
-    "new:view": "node_modules/.bin/babel-node tools/new-view",
-    "prestart": "bower i && yarn && node_modules/.bin/babel-node tools/bower && npm run test:once",
-    "start": "npm-run-all security-check open-browser",
-    "poststart": "npm-run-all --parallel server:rest webpack:dev-server bower:watch test",
-    "preapp": "bower i && yarn && node_modules/.bin/babel-node tools/bower",
-    "app": "npm-run-all security-check",
-    "postapp": "npm-run-all --parallel server:rest webpack:dev-server bower:watch test",
-
-    "test": "npm-run-all --parallel test:report-watch test:server",
-    "test:watch": "cross-env NODE_ENV=test mocha-webpack -w --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\"",
-    "test:once": "mocha-webpack --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\"",
-    "test:report": "cross-env NODE_ENV=test mocha-webpack --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\" --reporter mocha-simple-html-reporter --reporter-options output=tests-reports/index.html",
-    "test:report-watch": "cross-env NODE_ENV=test mocha-webpack -w --require tests/www/__spec-helper__.js --webpack-config webpack.config.test.js \"tests/www/**/*.test.js\" --reporter mocha-simple-html-reporter --reporter-options output=tests-reports/index.html",
-    "test:server": "cross-env NODE_ENV=test node_modules/.bin/babel-node tools/test-server",
-    "test:cover": "cross-env NODE_ENV=coverage nyc --reporter=lcov --reporter=text cross-env NODE_ENV=coverage npm run test:once",
-
-    "open-browser": "node_modules/.bin/babel-node tools/open-browser",
-    "security-check": "nsp check",
-
-    "bower": "node_modules/.bin/babel-node tools/bower",
-    "bower:watch": "node_modules/.bin/onchange 'bower.json' -v -- npm run bower",
-
-
-    "clean-dist": "node_modules/.bin/babel-node tools/build-clean",
-    "copy-assets": "node_modules/.bin/babel-node tools/copy-assets",
-    "copy-server": "node_modules/.bin/babel-node tools/copy-server",
-    "build:files": "node_modules/.bin/babel-node tools/build-files",
-    "build:inject-tags": "node_modules/.bin/babel-node tools/build-inject-tags",
-
-
-    "prebuild": "npm-run-all clean-dist build:files build:inject-tags copy-assets copy-server",
-    "build": "node_modules/.bin/babel-node tools/build-webpack",
-    "postbuild": "npm-run-all --parallel bower server:rest-production serve:production open-browser",
-
-
-    "start:production": "npm-run-all --parallel message:running-production server:production serve:production open-browser",
-    "message:running-production": "node_modules/.bin/babel-node tools/message-running-production",
-    "serve": "cross-env NODE_ENV=dev nodemon ./server --exec babel-node",
-    "serve:production": "node_modules/.bin/live-server ./DEPLOY/www",
-    "server:rest": "cross-env NODE_ENV=dev nodemon ./server --exec babel-node",
-    "server:rest-production": "cross-env NODE_ENV=production node_modules/.bin/babel-node ./DEPLOY/server",
-
-
-    "webpack": "node_modules/.bin/webpack --config webpack.config.dev.js",
-    "webpack:watch": "node_modules/.bin/webpack --config webpack.config.dev.js --watch",
-    "webpack:dev-server": "node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --watch"
+    "prestart": "npm i",
+    "start": "npm-run-all --parallel message:running-production serve:production server:rest-production",
+    "message:running-production": "node_modules/.bin/babel-node message-running-production",
+    "serve:production": "node_modules/.bin/live-server ./www",
+    "server:rest-production": "cross-env NODE_ENV=production node_modules/.bin/babel-node ./server"
   },
-  "author": "Phil Willis <pdotwdot@gmail.com> (http://www.philwillis.pw/)",
+ "author": "Phil Willis <pdotwdot@gmail.com> (http://www.philwillis.pw/)",
   "license": "ISC",
   "dependencies": {
-    "babel-preset-airbnb": "^2.4.0",
-    "babel-preset-react": "^6.24.1",
+    "cross-env": "3.2.4",
+    "babel-cli": "6.23.0",
+    "babel-core": "6.23.1",
+    "babel-loader": "6.3.2",
+    "babel-preset-env": "1.2.2",
+    "babel-register": "6.23.0",
+    "babel-preset-airbnb": "2.4.0",
+    "babel-preset-react": "6.24.1",
     "body-parser": "1.17.0",
     "chalk": "1.1.3",
     "compression": "1.6.2",
     "express": "4.15.0",
-    "extract-text-webpack-plugin": "2.1.0",
-    "html-webpack-plugin": "2.28.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
     "redux": "3.6.0",
-    "redux-logger": "3.0.0",
-    "styled-components": "^2.1.1",
-    "webpack": "2.4.1"
+    "live-server": "1.2.0",
+    "nodemon": "1.11.0",
+    "npm-run-all": "4.0.2",
+    "nsp": "2.6.2",
+    "run-sequence": "1.2.2"
   },
    "nyc": {
     "include": [

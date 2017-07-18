@@ -29,17 +29,28 @@ fs.copy(sourceServer, destinationServer, function(err) {
 
 
 // Copy the package.json and remove all the devDependencies
-var packageJsonFileIn = path.join(config.appRoot, 'package.json');
-var pacpackageJsonFileOut = path.join(config.deployRoot, 'package.json');
+const packageJsonFileIn = path.join(config.appRoot, 'package.json');
+const pacpackageJsonFileOut = path.join(config.deployRoot, 'package.json');
 fs.readFile(packageJsonFileIn, 'utf8', (err, packageJson) => {
   if (err) {
     return console.log(err);
   }
 
-  // remove all the devDependencies
-  var regexRemoveDevDependencies = /"devDependencies": {([\s\S]*?)},\n /g;
+  // Cleanup the devDependencies
+  const regexRemoveDevDependencies = /"devDependencies": {([\s\S]*?)},\n /g;
   packageJson = packageJson.replace(regexRemoveDevDependencies, "");
 
+  // Cleanup the scripts list
+  const regexRemoveNpmScripts = /"scripts": {([\s\S]*?)},\n /g;
+  const prodScripts = `"scripts": {
+    "prestart": "npm i",
+    "start": "npm-run-all --parallel message:running-production serve:production server:rest-production",
+    "message:running-production": "node_modules/.bin/babel-node message-running-production",
+    "serve:production": "node_modules/.bin/live-server ./www",
+    "server:rest-production": "cross-env NODE_ENV=production node_modules/.bin/babel-node ./server"
+  },
+`;
+  packageJson = packageJson.replace(regexRemoveNpmScripts, prodScripts);
 
   // Write changes to index.html file
   fs.writeFile(pacpackageJsonFileOut, packageJson, 'utf8', (err) => {

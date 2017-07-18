@@ -22,8 +22,19 @@ fs.mkdirSync(webDir);
 /*********************************************
  * Copy config file
  *********************************************/
-const configFrom = path.join(config.appRoot, 'config.js');
-const configTo = path.join(config.deployRoot, 'config.js');
+const prodMessageFrom = path.join(config.appRoot, 'config.js');
+const prodMessageTo = path.join(config.deployRoot, 'config.js');
+fsExtra.copy(prodMessageFrom, prodMessageTo, err => {
+  if (err) return console.error(err)
+  console.log(chalk.green('Config file copied to DEPLOY'));
+});
+
+
+/*********************************************
+ * Copy message running prod
+ *********************************************/
+const configFrom = path.join(config.appRoot, 'tools/message-running-production.js');
+const configTo = path.join(config.deployRoot, 'message-running-production.js');
 fsExtra.copy(configFrom, configTo, err => {
   if (err) return console.error(err)
   console.log(chalk.green('Config file copied to DEPLOY'));
@@ -86,4 +97,3 @@ if (fs.existsSync(path.join(leafletAssets, 'marker-icon.png'))) {
     console.log(chalk.green('Leaflet assets copied to DEPLOY'));
   });
 }
-
