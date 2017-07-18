@@ -1,12 +1,5 @@
-# AppSeed
-~~~
-    ___               _____               __
-   /   |  ____  ____ / ___/___  ___  ____/ /
-  / /| | / __ \/ __ \\__ \/ _ \/ _ \/ __  / 
- / ___ |/ /_/ / /_/ /__/ /  __/  __/ /_/ /  
-/_/  |_/ .___/ .___/____/\___/\___/\__,_/   
-      /_/   /_/    
-~~~   
+<img src="appseedica.png" />
+
 
 ## What is AppSeed?
 AppSeed is a starter kit for rapid web application development using nodejs and ES6. It's the environment and some wired up tools. YOU can choose as little or as much 3rd party dependencies (via Bower or NPM or Github) you like.
@@ -154,14 +147,29 @@ Here a couple of npm commands you can use while developing:
 
 
 ## Stuff to come
-- make the export folder ./DEPLOY/ so you can bundle everything thing up
-- Create a script in the ./tools/ to generate ansible deployment
-- create azure IIS webconfig script in the ./tools/
+- Deploy folder
+- Prod Package.json (remove all the scripts but the needed ones & make the default one run prod)
+- PWA (Progressive Web Applicationify the client)
+- vscode setup/configuration
 - .vscode debugging the frontend via the ./.vscode/launch.json
 - .vscode debugging expressjs server via the ./.vscode/launch.json
-- TestCafe
-- add some sample data from SQLite
-- remove view npm script
-- Azure (dist with all the static content and a web config file)
-- Digital Ocean (docker-compose/ansible)
+- Ansible/docker/nginx
+- Template string for deploys webconfig
+- Wireup Tests: Unit test notes md
+- Wireup Tests: Testcafe UI test
+- Wireup Tests: Testcafe screenshots
+- Wireup Tests: REST API integration test
+- Wireup Tests: Integration test
+- Wireup Tests: end-2-end test
+- Script: delete views
+- Script: add examples
+- JWT nodejs
+- Nodejs User Manager Panel
+- Nodejs Sequelize
+- Add sample data in a SQLite database
+- Make a tutorial (how to use this)
+- Style guide
+- Add .net core
+- JWT with JOSE .net core
+- Yeoman generator simple, kitchen sink, 
 
