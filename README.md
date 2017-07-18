@@ -147,8 +147,6 @@ Here a couple of npm commands you can use while developing:
 
 
 ## Stuff to come
-- Deploy folder
-- Prod Package.json (remove all the scripts but the needed ones & make the default one run prod)
 - PWA (Progressive Web Applicationify the client)
 - vscode setup/configuration
 - .vscode debugging the frontend via the ./.vscode/launch.json
