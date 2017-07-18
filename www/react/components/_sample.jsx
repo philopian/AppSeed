@@ -1,13 +1,13 @@
 import React from 'react';
-// import store from '../../www/js/services/store';
 import styled from 'styled-components';
 
-
-
+// Styles
 const Container = styled.div`
+    height: 260px;
     border: 2px solid rgb(42, 125, 153);
     margin-left: 20px;
-    padding: 10px;
+    margin-top: 30px;
+    padding: 0px 10px;
     background-color: rgb(236, 236, 236);
     display: inline-block;
 `;
@@ -25,12 +25,18 @@ const ReactImg = styled.img`
   @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
   @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 `;
+
+
+// React Component
 export default class Sample extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     // Its more performate to bind your methods in the constructor
     this.myCustomMethod = this.myCustomMethod.bind(this);
+
+    // Get store state
+    // Subscribe to the store and update state
   }
 
 /*
