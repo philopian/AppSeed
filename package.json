@@ -39,6 +39,7 @@
     "build": "node_modules/.bin/babel-node tools/build-webpack",
     "postbuild": "cd DEPLOY && npm start",
 
+    "server:rest": "cross-env NODE_ENV=dev nodemon ./server --exec babel-node",
 
     "webpack": "node_modules/.bin/webpack --config webpack.config.dev.js",
     "webpack:watch": "node_modules/.bin/webpack --config webpack.config.dev.js --watch",
