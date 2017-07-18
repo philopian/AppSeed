@@ -1,25 +1,25 @@
 @import 'globals';
 html,
 body {
-    height: 100%;
-    width: 100%;
-    background-color: $color-grey-light;
+  height: 100%;
+  width: 100%;
+  background-color: $color-silver;
 }
 
 h1 {
-    color: $color-white;
-    font-size: 2em;
-    text-align: center;
-    padding-top: 14px;
+  color: $color-white;
+  font-size: 2em;
+  text-align: center;
+  padding-top: 14px;
 }
 
 #view {
-    width: 100%;
-    height: 700px;
-    border: 4px solid $color-rose;
+  width: 100%;
+  height: 700px;
+  border: 4px solid $color-rose;
 }
 
 .view {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }

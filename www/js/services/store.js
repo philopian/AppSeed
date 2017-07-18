@@ -56,6 +56,7 @@ const reducer = (state = initialState, action) => {
 
 if (process.env.NODE_ENV === 'production') {
   module.exports = createStore(reducer);
+  console.log('......Using PROD Mode........');
 } else {
   console.log('......Using Dev Mode........');
   const middleware = applyMiddleware(createLogger());
