@@ -1,6 +1,7 @@
 var path = require('path');
 const DEPLOY = 'DEPLOY';
 const DIST_NAME = 'www';
+const BASE_URL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8082';
 
 module.exports = {
   mysecret: 'This is a secret shhhhh',
@@ -8,6 +9,7 @@ module.exports = {
   port: 8080,
   portTests: 8081,
   portAPI: 8082,
+  BASE_URL,
 
   appRoot: __dirname,
   webRoot: path.join(__dirname, './www'),

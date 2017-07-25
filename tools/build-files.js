@@ -19,15 +19,15 @@ fs.mkdirSync(webDir);
 
 
 
-/*********************************************
- * Copy config file
- *********************************************/
-const prodMessageFrom = path.join(config.appRoot, 'config.js');
-const prodMessageTo = path.join(config.deployRoot, 'config.js');
-fsExtra.copy(prodMessageFrom, prodMessageTo, err => {
-  if (err) return console.error(err)
-  console.log(chalk.green('Config file copied to DEPLOY'));
-});
+// /*********************************************
+//  * Copy config file
+//  *********************************************/
+// const prodMessageFrom = path.join(config.appRoot, 'config.js');
+// const prodMessageTo = path.join(config.deployRoot, 'config.js');
+// fsExtra.copy(prodMessageFrom, prodMessageTo, err => {
+//   if (err) return console.error(err)
+//   console.log(chalk.green('Config file copied to DEPLOY'));
+// });
 
 
 /*********************************************

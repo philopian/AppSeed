@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  nginx:
+    image: appseed-nginx
+    container_name: appseed-nginx
+    build: ./nginx
+    depends_on:
+     - "nodejs"
+    ports:
+     - "80:80"
+    # entrypoint: ./wait-for-it.sh web:8080 -- ./nginx-forever.sh
+    networks:
+      - appseed-network
+
+  nodejs:
+    image: appseed-nodejs
+    container_name: 'appseed-nodejs'
+    build: ./nodejs
+    ports:
+      - "8080:8080"
+    networks:
+      - appseed-network
+
+networks:
+  appseed-network:
+    driver: bridge
