@@ -4,6 +4,7 @@ const DIST_NAME = 'www';
 const BASE_URL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8082';
 
 module.exports = {
+  serverIp: 'xxx.xxx.xxx.xxx',
   mysecret: 'This is a secret shhhhh',
   jwtUniqueId: '123456789',
   port: 8080,

@@ -33,12 +33,12 @@ fs.mkdirSync(webDir);
 /*********************************************
  * Copy message running prod
  *********************************************/
-const configFrom = path.join(config.appRoot, 'tools/message-running-production.js');
-const configTo = path.join(config.deployRoot, 'message-running-production.js');
-fsExtra.copy(configFrom, configTo, err => {
-  if (err) return console.error(err)
-  console.log(chalk.green('Config file copied to DEPLOY'));
-});
+// const configFrom = path.join(config.appRoot, 'tools/message-running-production.js');
+// const configTo = path.join(config.deployRoot, 'message-running-production.js');
+// fsExtra.copy(configFrom, configTo, err => {
+//   if (err) return console.error(err)
+//   console.log(chalk.green('Config file copied to DEPLOY'));
+// });
 
 
 

@@ -23,6 +23,7 @@ fs.copy(sourceServer, destinationServer, function(err) {
     console.error(err);
   } else {
     console.log("Nodejs server files has been copied to the ./DEPLOY/nodejs folder!");
+    console.log(chalk.blue('...Copied the nodejs server files has been copied to the ./DEPLOY/nodejs folder'));
   }
 });
 
@@ -48,6 +49,7 @@ fs.readFile(packageJsonFileIn, 'utf8', (err, packageJson) => {
   // Write changes to index.html file
   fs.writeFile(pacpackageJsonFileOut, packageJson, 'utf8', (err) => {
     if (err) return console.error(err)
+    console.log(chalk.blue('...Wrote changes to index.html file'));
     console.log(chalk.blue(`bower tags injected into ${pacpackageJsonFileOut}`));
   });
 });
@@ -57,6 +59,7 @@ const configFileName = path.join(config.appRoot, 'config.js');
 const nodejsConfigFileName = path.join(config.deployRoot, 'nodejs/config.js');
 fs.readFile(configFileName, 'utf8', (err, data) => {
   if (err) return console.error(err)
+  console.log(chalk.blue('...'));
 
   // Cleanup the devDependencies
   const updatePortAPI = /portAPI: ([\s\S]*?),/g;
@@ -65,12 +68,11 @@ fs.readFile(configFileName, 'utf8', (err, data) => {
   // Write changes to DEPLOY/server/nodejs file
   fs.writeFile(nodejsConfigFileName, data, 'utf8', (err) => {
     if (err) return console.error(err)
+    console.log(chalk.blue('...Copied and updated the config.js file to have the proper portAPI value'));
   });
 });
 
-// Make all the remaining
-const nodejsBabelRCFileName = path.join(config.deployRoot, 'nodejs/.babelrc');
-const nodejsBabelRCContent = `{"presets": ["es2015"]}`;
+// Create the Dockerfile for nodejs
 const nodejsDockerfileFileName = path.join(config.deployRoot, 'nodejs/Dockerfile');
 const nodejsDockerfileContent = `FROM node:7.7.1
 
@@ -85,14 +87,18 @@ COPY config.js /var/nodejs/config.js
 RUN npm install
 
 CMD ["npm","start"]`;
-
-fs.writeFile(nodejsBabelRCFileName, nodejsBabelRCContent, 'utf8', (err) => {
-  if (err) return console.error(err)
-});
 fs.writeFile(nodejsDockerfileFileName, nodejsDockerfileContent, 'utf8', (err) => {
   if (err) return console.error(err)
+  console.log(chalk.blue('...Created the Dockerfile for nodejs'));
 });
 
+// Make all the remaining
+const nodejsBabelRCFileName = path.join(config.deployRoot, 'nodejs/.babelrc');
+const nodejsBabelRCContent = `{"presets": ["es2015"]}`;
+fs.writeFile(nodejsBabelRCFileName, nodejsBabelRCContent, 'utf8', (err) => {
+  if (err) return console.error(err)
+  console.log(chalk.blue('...Maked all the remaining nodejs files'));
+});
 
 
 
@@ -102,9 +108,10 @@ fs.writeFile(nodejsDockerfileFileName, nodejsDockerfileContent, 'utf8', (err) =>
 /*********************************************
  * nginx
  *********************************************/
+// Create the nginx directory in the DEPLOY folder
 fs.mkdirSync(path.join(config.deployRoot, 'nginx'));
-const deployWWW = path.join(config.deployRoot, 'www');
-const nginxWWW = path.join(config.deployRoot, 'nginx/www');
+
+// Create the nginx.conf file
 const nginxConfFileName = path.join(config.deployRoot, 'nginx/nginx.conf');
 const nginxConfContents = `server {
     listen 80;
@@ -138,10 +145,23 @@ const nginxConfContents = `server {
         try_files $uri /index.html;
     }
 }`;
+fs.writeFile(nginxConfFileName, nginxConfContents, 'utf8', (err) => {
+  if (err) return console.error(err)
+  console.log(chalk.blue('...Created the nginx.conf file'));
+});
+
+// Create the nginx-forever.sh bash script
 const nginxForeverFileName = path.join(config.deployRoot, 'nginx/nginx-forever.sh');
 const nginxForeverContents = `#!/bin/bash
 service nginx start
 while true; do sleep 1d; done`;
+
+fs.writeFile(nginxForeverFileName, nginxForeverContents, 'utf8', (err) => {
+  if (err) return console.error(err)
+  console.log(chalk.blue('...Created the nginx-forever.sh bash script'));
+});
+
+// Create the nginx Dockerfile
 const nginxDockerFileName = path.join(config.deployRoot, 'nginx/Dockerfile');
 const nginxDockerContents = `FROM nginx
 WORKDIR /
@@ -156,20 +176,17 @@ COPY nginx-forever.sh /nginx-forever.sh
 
 # docker-compose need nginx to NOT run as daemon (b/c it will exit)
 CMD ["nginx", "-g", "daemon off;"]`;
+fs.writeFile(nginxDockerFileName, nginxDockerContents, 'utf8', (err) => {
+  if (err) return console.error(err)
+  console.log(chalk.blue('...Created the nginx Dockerfile'));
+});
+
+// Copy the www folder to the nginx directory
+const deployWWW = path.join(config.deployRoot, 'www');
+const nginxWWW = path.join(config.deployRoot, 'nginx/www');
 fs.copy(deployWWW, nginxWWW, err => {
   if (err) return console.error(err)
-
-  fs.writeFile(nginxConfFileName, nginxConfContents, 'utf8', (err) => {
-    if (err) return console.error(err)
-  });
-  fs.writeFile(nginxForeverFileName, nginxForeverContents, 'utf8', (err) => {
-    if (err) return console.error(err)
-  });
-  fs.writeFile(nginxDockerFileName, nginxDockerContents, 'utf8', (err) => {
-    if (err) return console.error(err)
-  });
-
-  console.log(chalk.green('created nginx stuff'));
+  console.log(chalk.green('...Copied the www folder to the nginx directory'));
 });
 
 
@@ -182,6 +199,11 @@ fs.copy(deployWWW, nginxWWW, err => {
 /*********************************************
  * Docker-Compose Stuff
  *********************************************/
+const ansibleDir = path.join(config.deployRoot, 'ansible');
+fs.mkdirSync(ansibleDir);
+
+// Create docker-compose.yml file
+const dockerComposeFileName = path.join(config.deployRoot, 'docker-compose.yml');
 const dockerComposeContents = `version: '2'
 
 services:
@@ -209,7 +231,13 @@ services:
 networks:
   appseed-network:
     driver: bridge`;
-const dockerComposeFileName = path.join(config.deployRoot, 'docker-compose.yml');
+fs.writeFile(dockerComposeFileName, dockerComposeContents, 'utf8', (err) => {
+  if (err) return console.error(err)
+  console.log(chalk.blue('...Created docker-compose.yml file'));
+});
+
+// Create up.sh bash script
+const dockerUpFileName = path.join(config.deployRoot, 'up.sh');
 const dockerUpContents = `ENVIRONMENT="production"
 projectName="appseed"
 composeFileName="docker-compose.yml"
@@ -218,11 +246,24 @@ echo "... Building the AppSeed Docker images."
 docker-compose -f "$composeFileName" -p "$projectName" build
 
 echo "... Running Docker-Compose."
-docker-compose -f "$composeFileName" up`;
-const dockerUpFileName = path.join(config.deployRoot, 'up.sh');
+docker-compose -f "$composeFileName" up -d`;
+fs.writeFile(dockerUpFileName, dockerUpContents, 'utf8', (err) => {
+  if (err) return console.error(err)
+  chmod(dockerUpFileName, 755);
+  console.log(chalk.blue('...Created up.sh bash script'));
+});
+
+// Create down.sh bash script
+const dockerDownFileName = path.join(config.deployRoot, 'down.sh');
 const dockerDownContents = `echo "... Stoping all the Docker-Compose containers and removing the custom images."
 docker-compose down --rmi all`;
-const dockerDownFileName = path.join(config.deployRoot, 'down.sh');
+fs.writeFile(dockerDownFileName, dockerDownContents, 'utf8', (err) => {
+  if (err) return console.error(err)
+  chmod(dockerDownFileName, 755);
+  console.log(chalk.blue('...Created down.sh bash script'));
+});
+
+// Create the readme.md for the deploy folder
 const deployReadMeContents = `# Docker-Compose with bash scripts
 - Basic docker-compose commands
   ~~~
@@ -266,24 +307,196 @@ const deployReadMeContents = `# Docker-Compose with bash scripts
   ~~~
 `;
 const deployReadMeFileName = path.join(config.deployRoot, 'README.md');
-
-
-fs.writeFile(dockerComposeFileName, dockerComposeContents, 'utf8', (err) => {
-  if (err) return console.error(err)
-});
-fs.writeFile(dockerUpFileName, dockerUpContents, 'utf8', (err) => {
-  if (err) return console.error(err)
-  chmod(dockerUpFileName, 777);
-});
-
-fs.writeFile(dockerDownFileName, dockerDownContents, 'utf8', (err) => {
-  if (err) return console.error(err)
-  chmod(dockerDownFileName, 777);
-});
-
 fs.writeFile(deployReadMeFileName, deployReadMeContents, 'utf8', (err) => {
   if (err) return console.error(err)
+  console.log(chalk.blue('...Created the readme.md for the deploy folder'));
 });
+
+
+
+
+
+
+
+/*********************************************
+ * Ansible Stuff
+ *********************************************/
+// Create the ansible.cfg file
+const ansibleCfgFileName = path.join(config.deployRoot, 'ansible/ansible.cfg');
+const ansibleCfgContents = `[defaults]
+hostfile = hosts
+`;
+fs.writeFile(ansibleCfgFileName, ansibleCfgContents, 'utf8', (err) => {
+  if (err) return console.error(err)
+  console.log(chalk.blue(''));
+});
+
+// Create the host inventory file
+const ansibleHostsFileName = path.join(config.deployRoot, 'ansible/hosts');
+const ansibleHostsContents = `droplet-01 ansible_ssh_host=${config.serverIp}
+
+[droplets]
+droplet-01
+
+
+[droplets:vars]
+ansible_ssh_user=root
+ansible_ssh_private_key_file=~/.ssh/ansible
+`;
+fs.writeFile(ansibleHostsFileName, ansibleHostsContents, 'utf8', (err) => {
+  if (err) return console.error(err)
+  console.log(chalk.blue(''));
+});
+
+// Create the init.yml playbook 
+const ansibleInitFileName = path.join(config.deployRoot, 'ansible/init.yml');
+const ansibleInitContents = `---
+################################################################################
+- name: Update/Upgrade Linux
+  hosts: droplets
+  become_user: sudo
+  tasks:
+   - name: Updates a server
+     apt: update_cache=yes
+   - name: Upgrade a server
+     apt: upgrade=full
+################################################################################
+
+################################################################################
+- name: Install fail2ban package
+  hosts: droplets
+  become_user: sudo
+  tasks:
+    - name: Install fail2ban package
+      apt: pkg=fail2ban state=present
+    - name: Check to see if its running
+      shell: /etc/init.d/fail2ban status
+      register: fail2ban
+    - debug: msg="{{ fail2ban.stdout }}"
+################################################################################
+
+################################################################################
+- name: Setup UFW
+  hosts: droplets
+  become_user: sudo
+  tasks:
+    - name: Ensure ufw is at the latest version
+      apt: pkg=ufw state=latest
+      tags: ufw
+    - name: Set ufw policy to deny all incoming connections
+      ufw: policy=deny direction=incoming
+      tags: ufw
+    - name: Set ufw policy to allow all outgoing connections
+      ufw: policy=allow direction=outgoing
+      tags: ufw
+    - name: Set ufw to allow ntp
+      ufw: rule=allow port=ntp
+      tags: ufw
+    - name: Set ufw rule to limit connections on ssh/tcp (port 22)
+      ufw: rule=limit port=ssh proto=tcp
+      tags: ufw
+    - name: Set ufw rule to limit connections on www/tcp (port 80)
+      ufw: rule=limit port=www proto=tcp
+      tags: ufw
+    - name: Set ufw rule to limit connections on https/tcp (port 443)
+      ufw: rule=limit port=https proto=tcp
+      tags: ufw
+    - name: Enable ufw logging
+      ufw: logging=on
+      tags: ufw
+    - name: Start ufw
+      ufw: state=enabled
+      tags: ufw
+################################################################################
+
+
+################################################################################
+- name: Install Docker
+  hosts: droplets
+  become_user: sudo
+  roles:
+    - angstwad.docker_ubuntu
+  tasks:
+    - name: Copy over nginx folder
+      copy: src=../nginx/ dest=/var/nginx/ mode=0644
+    - name: Copy over nodejs folder
+      copy: src=../nodejs/ dest=/var/nodejs/ mode=0644
+
+    - name: Copy over Docker Compose file
+      copy: src=../docker-compose.yml dest=/var/docker-compose.yml mode=0644
+
+    - name: Copy over Docker up.sh script file
+      copy: src=../up.sh dest=/var/up.sh mode=0755
+    - name: Copy over Docker down.sh script file
+      copy: src=../down.sh dest=/var/down.sh mode=0755
+
+    - name: Build & Run Docker Compose
+      shell: cd /var && ./up.sh
+      async: 120
+      poll: 0
+- name: Stop/Start DockerCompose
+  hosts: droplets
+  become_user: sudo
+  tasks:
+    - name: Give Docker time to build
+      shell: echo 'Docker needs a couple minutes to build/run all the containers'
+      register: foo
+    - debug: msg="{{ foo.stdout }}"
+################################################################################`;
+fs.writeFile(ansibleInitFileName, ansibleInitContents, 'utf8', (err) => {
+  if (err) return console.error(err)
+  console.log(chalk.blue(''));
+});
+
+// Create the update.yml playbook 
+const ansibleUpdateFileName = path.join(config.deployRoot, 'ansible/update.yml');
+const ansibleUpdateContents = `---
+################################################################################
+- name: Update web static files for nginx
+  hosts: droplets
+  become_user: sudo
+  tasks:
+    - name: Sync nginx files (including the static web files)
+      synchronize:
+        src: ../nginx/
+        dest: /var/nginx/
+
+- name: Update the nodejs server files
+  hosts: droplets
+  become_user: sudo
+  tasks:
+    - name: Sync nodejs files (including the static web files)
+      synchronize:
+        src: ../nodejs/
+        dest: /var/nodejs/
+        rsync_opts:
+          - "--exclude=node_modules"
+
+- name: Stop/Start DockerCompose
+  hosts: droplets
+  become_user: sudo
+  tasks:
+    - name: Teardown docker
+      shell: cd /var && ./down.sh      
+    - name: Build docker
+      shell: cd /var && ./up.sh
+      async: 120
+      poll: 0
+- name: Stop/Start DockerCompose
+  hosts: droplets
+  become_user: sudo
+  tasks:
+    - name: Give Docker time to build
+      shell: echo 'Docker needs a couple minutes to build/run all the containers'
+      register: foo
+    - debug: msg="{{ foo.stdout }}"
+################################################################################`;
+fs.writeFile(ansibleUpdateFileName, ansibleUpdateContents, 'utf8', (err) => {
+  if (err) return console.error(err)
+  console.log(chalk.blue(''));
+});
+
+
 
 
 
