@@ -156,7 +156,6 @@ Here a couple of npm commands you can use while developing:
 - vscode setup/configuration
 - .vscode debugging the frontend via the ./.vscode/launch.json
 - .vscode debugging expressjs server via the ./.vscode/launch.json
-- Template string for deploys webconfig
 - Wireup Tests: Unit test notes md
 - Wireup Tests: Testcafe UI test
 - Wireup Tests: Testcafe screenshots
@@ -173,5 +172,5 @@ Here a couple of npm commands you can use while developing:
 - Style guide
 - Add .net core
 - JWT with JOSE .net core
-- Yeoman generator simple, kitchen sink, 
+- Yeoman generator lite, full, older-lite 
 
