@@ -1,6 +1,6 @@
 {
   "name": "appseed",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Starter Kit for ES6 workflow",
   "main": "server/index.js",
   "scripts": {
@@ -34,7 +34,9 @@
     "server:rest": "cross-env NODE_ENV=dev nodemon ./server --exec babel-node",
     "webpack": "node_modules/.bin/webpack --config webpack.config.dev.js",
     "webpack:watch": "node_modules/.bin/webpack --config webpack.config.dev.js --watch",
-    "webpack:dev-server": "node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --watch"
+    "webpack:dev-server": "node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --watch",
+    "deploy:init": "cd DEPLOY/ansible && ansible-playbook init.yml",
+    "deploy": "cd DEPLOY/ansible && ansible-playbook update.yml"
   },
   "author": "Phil Willis <pdotwdot@gmail.com> (http://www.philwillis.pw/)",
   "license": "ISC",
