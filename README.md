@@ -10,8 +10,10 @@ Happy coding!
 
 
 ## Prerequisites
-- node.js > v6.9.0 (which is Nodejs Long Term Support version)
-- bower & yarn ($ npm i -g yarn bower)
+- Node.js > v6.9.0 (which is Nodejs Long Term Support version)
+- Bower & Yarn ($ npm i -g yarn bower)
+- (Optional) Docker (for testing the DEPLOY folder & running those containers on a server)
+- (Optional) Anisble (if you want to auto deploy to your server)
 
 <br>
 
@@ -34,7 +36,8 @@ AppSeed is aimed at making your web development experience exceptional, here are
 | [Node Security Project](https://www.npmjs.com/package/nsp)| Node Security helps you keep your node applications secure.  |
 | [Mochajs](https://mochajs.org/)| Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun. We are using [Mocha-Webpack](https://www.npmjs.com/package/mocha-webpack) to bundle our JS code before running test on them. |
 | [Istanbul](https://istanbul.js.org/) | JavaScript test coverage made simple. |
-
+| [Docker](https://www.docker.com/) | Have containers for testing locally and using those containers on the server. |
+| [Ansible](https://www.ansible.com/) | Deployment automation to your server. |
 <br>
 
 
@@ -47,9 +50,12 @@ Here a couple of npm commands you can use while developing:
 | Start developing | $ npm start -s |
 | Start developing without automatically opening a browser tab | $ npm run app -s |
 | Build the distribution version | $ npm run build -s |
+| Initialize your server | $ npm run deploy:init -s |
+| Update the server | $ npm run deploy -s |
 | Add a new view | $ npm run new:view -s |
 | Run unit tests | $ npm run test:once -s |
 | Run unit tests coverage | $ npm run test:cover -s |
+
 
 <br>
 
@@ -103,7 +109,6 @@ Here a couple of npm commands you can use while developing:
 - All the react code can be found in the ./react/components/ directory
 
 
-
 ## React Styled components (styled-components package)
 - https://medium.com/@lvarayut/styled-components-in-action-723852f2a93d
 - Allows you to have CSS in your component file (don't affect other styles in the page)
@@ -151,7 +156,6 @@ Here a couple of npm commands you can use while developing:
 - vscode setup/configuration
 - .vscode debugging the frontend via the ./.vscode/launch.json
 - .vscode debugging expressjs server via the ./.vscode/launch.json
-- Ansible/docker/nginx
 - Template string for deploys webconfig
 - Wireup Tests: Unit test notes md
 - Wireup Tests: Testcafe UI test
