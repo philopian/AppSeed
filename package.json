@@ -1,6 +1,6 @@
 {
   "name": "appseed",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Starter Kit for ES6 workflow",
   "main": "server/index.js",
   "scripts": {
@@ -28,9 +28,10 @@
     "copy-server": "node_modules/.bin/babel-node tools/copy-server",
     "build:files": "node_modules/.bin/babel-node tools/build-files",
     "build:inject-tags": "node_modules/.bin/babel-node tools/build-inject-tags",
+    "build:web-config": "node_modules/.bin/babel-node tools/build-web-config",
     "prebuild": "npm-run-all clean-dist build:files build:inject-tags copy-assets",
     "build": "node_modules/.bin/babel-node tools/build-webpack",
-    "postbuild": "npm-run-all bower copy-server",
+    "postbuild": "npm-run-all bower copy-server build:web-config",
     "server:rest": "cross-env NODE_ENV=dev nodemon ./server --exec babel-node",
     "webpack": "node_modules/.bin/webpack --config webpack.config.dev.js",
     "webpack:watch": "node_modules/.bin/webpack --config webpack.config.dev.js --watch",
