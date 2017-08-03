@@ -4,6 +4,7 @@ const config = require('./config');
 
 module.exports = {
   entry: [
+    'event-source-polyfill',
     `webpack-dev-server/client?http://localhost:${config.port}`,
     path.resolve(__dirname, 'www/js')
   ],
