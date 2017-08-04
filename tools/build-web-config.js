@@ -28,5 +28,5 @@ const webConfigContents = `<?xml version="1.0" encoding="utf-8"?>
  </configuration>`;
 fs.writeFile(webConfigFileName, webConfigContents, 'utf8', (err) => {
   if (err) return console.error(err)
-  console.log(chalk.green('created IIS webconfig stuff'));
+  console.log(chalk.blue('...Created IIS webconfig file'));
 });

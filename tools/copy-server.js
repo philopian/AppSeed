@@ -29,7 +29,7 @@ fs.copy(sourceServer, destinationServer, function(err) {
 
 // Copy the package.json and remove all the devDependencies
 const packageJsonFileIn = path.join(config.appRoot, 'package.json');
-const pacpackageJsonFileOut = path.join(config.deployRoot, 'nodejs/package.json');
+const packageJsonFileOut = path.join(config.deployRoot, 'nodejs/package.json');
 fs.readFile(packageJsonFileIn, 'utf8', (err, packageJson) => {
   if (err) return console.error(err)
 
@@ -47,10 +47,10 @@ fs.readFile(packageJsonFileIn, 'utf8', (err, packageJson) => {
   packageJson = packageJson.replace(regexRemoveNpmScripts, prodScripts);
 
   // Write changes to index.html file
-  fs.writeFile(pacpackageJsonFileOut, packageJson, 'utf8', (err) => {
+  fs.writeFile(packageJsonFileOut, packageJson, 'utf8', (err) => {
     if (err) return console.error(err)
-    console.log(chalk.blue('...Wrote changes to index.html file'));
-    console.log(chalk.blue(`bower tags injected into ${pacpackageJsonFileOut}`));
+      // console.log(chalk.blue('...Wrote changes to index.html file'));
+      // console.log(chalk.blue(`bower tags injected into ${packageJsonFileOut}`));
   });
 });
 
@@ -59,7 +59,7 @@ const configFileName = path.join(config.appRoot, 'config.js');
 const nodejsConfigFileName = path.join(config.deployRoot, 'nodejs/config.js');
 fs.readFile(configFileName, 'utf8', (err, data) => {
   if (err) return console.error(err)
-  console.log(chalk.blue('...'));
+    // console.log(chalk.blue('...'));
 
   // Cleanup the devDependencies
   const updatePortAPI = /portAPI: ([\s\S]*?),/g;
@@ -68,7 +68,7 @@ fs.readFile(configFileName, 'utf8', (err, data) => {
   // Write changes to DEPLOY/server/nodejs file
   fs.writeFile(nodejsConfigFileName, data, 'utf8', (err) => {
     if (err) return console.error(err)
-    console.log(chalk.blue('...Copied and updated the config.js file to have the proper portAPI value'));
+      // console.log(chalk.blue('...Copied and updated the config.js file to have the proper portAPI value'));
   });
 });
 
@@ -89,7 +89,7 @@ RUN npm install
 CMD ["npm","start"]`;
 fs.writeFile(nodejsDockerfileFileName, nodejsDockerfileContent, 'utf8', (err) => {
   if (err) return console.error(err)
-  console.log(chalk.blue('...Created the Dockerfile for nodejs'));
+    // console.log(chalk.blue('...Created the Dockerfile for nodejs'));
 });
 
 // Make all the remaining
@@ -97,7 +97,8 @@ const nodejsBabelRCFileName = path.join(config.deployRoot, 'nodejs/.babelrc');
 const nodejsBabelRCContent = `{"presets": ["es2015"]}`;
 fs.writeFile(nodejsBabelRCFileName, nodejsBabelRCContent, 'utf8', (err) => {
   if (err) return console.error(err)
-  console.log(chalk.blue('...Maked all the remaining nodejs files'));
+    // console.log(chalk.blue('...Maded all the remaining nodejs files'));
+  console.log(chalk.blue('...Created all the Nodejs files'));
 });
 
 
@@ -147,7 +148,7 @@ const nginxConfContents = `server {
 }`;
 fs.writeFile(nginxConfFileName, nginxConfContents, 'utf8', (err) => {
   if (err) return console.error(err)
-  console.log(chalk.blue('...Created the nginx.conf file'));
+    // console.log(chalk.blue('...Created the nginx.conf file'));
 });
 
 // Create the nginx-forever.sh bash script
@@ -158,7 +159,7 @@ while true; do sleep 1d; done`;
 
 fs.writeFile(nginxForeverFileName, nginxForeverContents, 'utf8', (err) => {
   if (err) return console.error(err)
-  console.log(chalk.blue('...Created the nginx-forever.sh bash script'));
+    // console.log(chalk.blue('...Created the nginx-forever.sh bash script'));
 });
 
 // Create the nginx Dockerfile
@@ -178,7 +179,7 @@ COPY nginx-forever.sh /nginx-forever.sh
 CMD ["nginx", "-g", "daemon off;"]`;
 fs.writeFile(nginxDockerFileName, nginxDockerContents, 'utf8', (err) => {
   if (err) return console.error(err)
-  console.log(chalk.blue('...Created the nginx Dockerfile'));
+    // console.log(chalk.blue('...Created the nginx Dockerfile'));
 });
 
 // Copy the www folder to the nginx directory
@@ -186,7 +187,8 @@ const deployWWW = path.join(config.deployRoot, 'www');
 const nginxWWW = path.join(config.deployRoot, 'nginx/www');
 fs.copy(deployWWW, nginxWWW, err => {
   if (err) return console.error(err)
-  console.log(chalk.green('...Copied the www folder to the nginx directory'));
+    // console.log(chalk.green('...Copied the www folder to the nginx directory'));
+  console.log(chalk.blue('...Created nginx scripts'));
 });
 
 
@@ -233,7 +235,7 @@ networks:
     driver: bridge`;
 fs.writeFile(dockerComposeFileName, dockerComposeContents, 'utf8', (err) => {
   if (err) return console.error(err)
-  console.log(chalk.blue('...Created docker-compose.yml file'));
+    // console.log(chalk.blue('...Created docker-compose.yml file'));
 });
 
 // Create up.sh bash script
@@ -250,7 +252,7 @@ docker-compose -f "$composeFileName" up -d`;
 fs.writeFile(dockerUpFileName, dockerUpContents, 'utf8', (err) => {
   if (err) return console.error(err)
   chmod(dockerUpFileName, 755);
-  console.log(chalk.blue('...Created up.sh bash script'));
+  // console.log(chalk.blue('...Created up.sh bash script'));
 });
 
 // Create down.sh bash script
@@ -260,7 +262,7 @@ docker-compose down --rmi all`;
 fs.writeFile(dockerDownFileName, dockerDownContents, 'utf8', (err) => {
   if (err) return console.error(err)
   chmod(dockerDownFileName, 755);
-  console.log(chalk.blue('...Created down.sh bash script'));
+  // console.log(chalk.blue('...Created down.sh bash script'));
 });
 
 // Create the readme.md for the deploy folder
@@ -309,7 +311,8 @@ const deployReadMeContents = `# Docker-Compose with bash scripts
 const deployReadMeFileName = path.join(config.deployRoot, 'README.md');
 fs.writeFile(deployReadMeFileName, deployReadMeContents, 'utf8', (err) => {
   if (err) return console.error(err)
-  console.log(chalk.blue('...Created the readme.md for the deploy folder'));
+    // console.log(chalk.blue('...Created the readme.md for the deploy folder'));
+  console.log(chalk.blue('...Created Docker scripts'));
 });
 
 
@@ -325,11 +328,10 @@ fs.writeFile(deployReadMeFileName, deployReadMeContents, 'utf8', (err) => {
 const ansibleCfgFileName = path.join(config.deployRoot, 'ansible/ansible.cfg');
 const ansibleCfgContents = `[defaults]
 hostfile = hosts
-deprecation_warnings=False
 `;
 fs.writeFile(ansibleCfgFileName, ansibleCfgContents, 'utf8', (err) => {
   if (err) return console.error(err)
-  console.log(chalk.blue(''));
+    // console.log(chalk.blue(''));
 });
 
 // Create the host inventory file
@@ -346,7 +348,7 @@ ansible_ssh_private_key_file=~/.ssh/ansible
 `;
 fs.writeFile(ansibleHostsFileName, ansibleHostsContents, 'utf8', (err) => {
   if (err) return console.error(err)
-  console.log(chalk.blue(''));
+    // console.log(chalk.blue('...Created Ansible Host'));
 });
 
 // Create the init.yml playbook 
@@ -355,7 +357,7 @@ const ansibleInitContents = `---
 ################################################################################
 - name: Update/Upgrade Linux
   hosts: droplets
-  sudo: true
+  become_user: sudo
   tasks:
    - name: Updates a server
      apt: update_cache=yes
@@ -366,7 +368,7 @@ const ansibleInitContents = `---
 ################################################################################
 - name: Install fail2ban package
   hosts: droplets
-  sudo: true
+  become_user: sudo
   tasks:
     - name: Install fail2ban package
       apt: pkg=fail2ban state=present
@@ -379,7 +381,7 @@ const ansibleInitContents = `---
 ################################################################################
 - name: Setup UFW
   hosts: droplets
-  sudo: true
+  become_user: sudo
   tasks:
     - name: Ensure ufw is at the latest version
       apt: pkg=ufw state=latest
@@ -414,7 +416,7 @@ const ansibleInitContents = `---
 ################################################################################
 - name: Install Docker
   hosts: droplets
-  sudo: true
+  become_user: sudo
   roles:
     - angstwad.docker_ubuntu
   tasks:
@@ -437,7 +439,7 @@ const ansibleInitContents = `---
       poll: 0
 - name: Stop/Start DockerCompose
   hosts: droplets
-  sudo: true
+  become_user: sudo
   tasks:
     - name: Give Docker time to build
       shell: echo 'Docker needs a couple minutes to build/run all the containers'
@@ -446,7 +448,7 @@ const ansibleInitContents = `---
 ################################################################################`;
 fs.writeFile(ansibleInitFileName, ansibleInitContents, 'utf8', (err) => {
   if (err) return console.error(err)
-  console.log(chalk.blue(''));
+    // console.log(chalk.blue('...Created Ansible init script'));
 });
 
 // Create the update.yml playbook 
@@ -455,7 +457,7 @@ const ansibleUpdateContents = `---
 ################################################################################
 - name: Update web static files for nginx
   hosts: droplets
-  sudo: true
+  become_user: sudo
   tasks:
     - name: Sync nginx files (including the static web files)
       synchronize:
@@ -464,7 +466,7 @@ const ansibleUpdateContents = `---
 
 - name: Update the nodejs server files
   hosts: droplets
-  sudo: true
+  become_user: sudo
   tasks:
     - name: Sync nodejs files (including the static web files)
       synchronize:
@@ -475,7 +477,7 @@ const ansibleUpdateContents = `---
 
 - name: Stop/Start DockerCompose
   hosts: droplets
-  sudo: true
+  become_user: sudo
   tasks:
     - name: Teardown docker
       shell: cd /var && ./down.sh      
@@ -485,7 +487,7 @@ const ansibleUpdateContents = `---
       poll: 0
 - name: Stop/Start DockerCompose
   hosts: droplets
-  sudo: true
+  become_user: sudo
   tasks:
     - name: Give Docker time to build
       shell: echo 'Docker needs a couple minutes to build/run all the containers'
@@ -494,7 +496,8 @@ const ansibleUpdateContents = `---
 ################################################################################`;
 fs.writeFile(ansibleUpdateFileName, ansibleUpdateContents, 'utf8', (err) => {
   if (err) return console.error(err)
-  console.log(chalk.blue(''));
+    // console.log(chalk.blue('...Create Ansible update script'));
+  console.log(chalk.blue('...Created Ansible scripts'));
 });
 
 

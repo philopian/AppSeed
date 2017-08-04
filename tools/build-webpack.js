@@ -6,7 +6,7 @@ import ora from 'ora';
 
 process.env.NODE_ENV = 'production';
 
-var spinner = ora(chalk.blue('Generationg minified bundle for production ')).start();
+var spinner = ora(chalk.blue('Generationg minified bundle for production. This might take a couple minutes')).start();
 webpack(webpackConfig).run((err, stats) => {
   spinner.stop();
   if (err) {
