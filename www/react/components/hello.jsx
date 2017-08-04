@@ -3,10 +3,8 @@ import styled from 'styled-components';
 
 // Styles
 const Container = styled.div`
-    height: 260px;
     border: 2px solid rgb(42, 125, 153);
-    margin-left: 20px;
-    margin-top: 30px;
+    margin: 10px;
     padding: 0px 10px;
     background-color: rgb(236, 236, 236);
     display: inline-block;

@@ -3,7 +3,16 @@ html,
 body {
   height: 100%;
   width: 100%;
-  background-color: $color-silver;
+  background-color: $color-white;
+}
+
+#appseed-logo {
+  height: 100px;
+  margin-bottom: 0px !important;
+}
+
+#nav-bar {
+  text-align: center;
 }
 
 h1 {
@@ -15,11 +24,11 @@ h1 {
 
 #view {
   width: 100%;
-  height: 700px;
-  border: 4px solid $color-rose;
+  min-height: 700px;
+  border: 4px solid $color-white;
 }
 
 .view {
   width: 100%;
-  height: 100%;
+  min-height: 700px;
 }

@@ -43,17 +43,16 @@
 
 <body>
 
-    <h1><img src="assets/images/appseedica.png" alt="" style="margin-bottom: 20px;"></h1>
+    <h1><img id="appseed-logo" src="assets/images/appseedica.png" alt="" style="margin-bottom: 20px;"></h1>
 
-    <button class="button tiny router" data-router="main" data-fulltext="This is a span element">main</button>
-    <button class="button tiny router" data-router="view1">view 1</button>
-    <button class="button tiny router" data-router="view2">view 2</button>
-    <button class="button tiny router" data-router="leaflet">Leaflet</button>
+    <div id="nav-bar">
+        <button class="button tiny router" data-router="main" data-fulltext="This is a span element">main</button>
+        <button class="button tiny router" data-router="view1">view 1</button>
+        <button class="button tiny router" data-router="view2">view 2</button>
+        <button class="button tiny router" data-router="leaflet">Leaflet</button>
+    </div>
 
-    <p>the content in the box below will be added dynamically</p>
     <div id="view"></div>
-
-
 
     <!-- bundle:js -->
     <script src="bundle.js"></script>

@@ -1,13 +1,73 @@
 @import 'globals';
+// Mobile First
 #view-main {
-  background-color: $color-blue-light;
+  background-color: $color-blue;
   padding: 20px;
   #simpsons-gif,
   #ron {
-    height: 260px;
+    height: 200px;
   }
   #react-example {
-    width: 400px;
+    background-color: rgb(255, 255, 255) !important;
     display: inline-block;
+    min-width: 385;
+    margin: 0 auto;
+  }
+  #mock-json-data {
+    font-size: 0.8em;
+  }
+}
+
+// Responsive
+@supports (display: grid) {
+  #view-main {
+    #grid-example {
+      border: solid 2px rgb(255, 255, 255);
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 300px 200px;
+      // grid-template-rows: 100px 50px 100px;
+      grid-gap: 20px;
+      .cell {
+        background-color: rgb(35, 196, 217);
+        padding: 6px;
+        color: rgb(255, 255, 255);
+      }
+      .cell:nth-of-type(odd) {
+        background: rgb(46, 127, 136);
+      }
+    }
+    .fractional-grid-example {
+      margin: 10px;
+      border: solid 2px red;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-auto-rows: 50px;
+      grid-gap: 20px;
+      .cell {
+        background-color: $color-blue;
+      }
+      .cell:nth-of-type(odd) {
+        background: rgb(35, 196, 217);
+      }
+    }
+    @media (max-width: 1024px) {
+      #grid-example {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 720px) {
+      #grid-example {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 320px) {
+      #grid-example {
+        grid-template-columns: 1fr;
+      }
+    }
   }
 }
