@@ -325,6 +325,7 @@ fs.writeFile(deployReadMeFileName, deployReadMeContents, 'utf8', (err) => {
 const ansibleCfgFileName = path.join(config.deployRoot, 'ansible/ansible.cfg');
 const ansibleCfgContents = `[defaults]
 hostfile = hosts
+deprecation_warnings=False
 `;
 fs.writeFile(ansibleCfgFileName, ansibleCfgContents, 'utf8', (err) => {
   if (err) return console.error(err)
@@ -354,7 +355,7 @@ const ansibleInitContents = `---
 ################################################################################
 - name: Update/Upgrade Linux
   hosts: droplets
-  become_user: sudo
+  sudo: true
   tasks:
    - name: Updates a server
      apt: update_cache=yes
@@ -365,7 +366,7 @@ const ansibleInitContents = `---
 ################################################################################
 - name: Install fail2ban package
   hosts: droplets
-  become_user: sudo
+  sudo: true
   tasks:
     - name: Install fail2ban package
       apt: pkg=fail2ban state=present
@@ -378,7 +379,7 @@ const ansibleInitContents = `---
 ################################################################################
 - name: Setup UFW
   hosts: droplets
-  become_user: sudo
+  sudo: true
   tasks:
     - name: Ensure ufw is at the latest version
       apt: pkg=ufw state=latest
@@ -413,7 +414,7 @@ const ansibleInitContents = `---
 ################################################################################
 - name: Install Docker
   hosts: droplets
-  become_user: sudo
+  sudo: true
   roles:
     - angstwad.docker_ubuntu
   tasks:
@@ -436,7 +437,7 @@ const ansibleInitContents = `---
       poll: 0
 - name: Stop/Start DockerCompose
   hosts: droplets
-  become_user: sudo
+  sudo: true
   tasks:
     - name: Give Docker time to build
       shell: echo 'Docker needs a couple minutes to build/run all the containers'
@@ -454,7 +455,7 @@ const ansibleUpdateContents = `---
 ################################################################################
 - name: Update web static files for nginx
   hosts: droplets
-  become_user: sudo
+  sudo: true
   tasks:
     - name: Sync nginx files (including the static web files)
       synchronize:
@@ -463,7 +464,7 @@ const ansibleUpdateContents = `---
 
 - name: Update the nodejs server files
   hosts: droplets
-  become_user: sudo
+  sudo: true
   tasks:
     - name: Sync nodejs files (including the static web files)
       synchronize:
@@ -474,7 +475,7 @@ const ansibleUpdateContents = `---
 
 - name: Stop/Start DockerCompose
   hosts: droplets
-  become_user: sudo
+  sudo: true
   tasks:
     - name: Teardown docker
       shell: cd /var && ./down.sh      
@@ -484,7 +485,7 @@ const ansibleUpdateContents = `---
       poll: 0
 - name: Stop/Start DockerCompose
   hosts: droplets
-  become_user: sudo
+  sudo: true
   tasks:
     - name: Give Docker time to build
       shell: echo 'Docker needs a couple minutes to build/run all the containers'
