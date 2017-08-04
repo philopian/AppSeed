@@ -2,15 +2,11 @@ import webpack from 'webpack';
 import config from '../config';
 import webpackConfig from '../webpack.config.prod';
 import chalk from 'chalk';
-import { Spinner } from 'cli-spinner';
-
-
-var spinner = new Spinner('processing.. %s');
-spinner.setSpinnerString(20);
-console.log(chalk.blue('Generationg minified bundle for production '));
-spinner.start();
+import ora from 'ora';
 
 process.env.NODE_ENV = 'production';
+
+var spinner = ora(chalk.blue('Generationg minified bundle for production ')).start();
 webpack(webpackConfig).run((err, stats) => {
   spinner.stop();
   if (err) {
