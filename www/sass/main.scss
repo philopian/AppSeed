@@ -22,6 +22,7 @@
 @supports (display: grid) {
   #view-main {
     #grid-example {
+      padding: 10px;
       border: solid 2px rgb(255, 255, 255);
       width: 100%;
       max-width: 1280px;
@@ -31,12 +32,15 @@
       // grid-template-rows: 100px 50px 100px;
       grid-gap: 20px;
       .cell {
-        background-color: rgb(35, 196, 217);
-        padding: 6px;
+        background-color: rgba(35, 196, 217, 0.6);
+        padding: 20px;
         color: rgb(255, 255, 255);
       }
+      .center-cell {
+        text-align: center;
+      }
       .cell:nth-of-type(odd) {
-        background: rgb(46, 127, 136);
+        background: rgba(46, 127, 136, 0.6);
       }
     }
     .fractional-grid-example {

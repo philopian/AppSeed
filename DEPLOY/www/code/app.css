@@ -14,6 +14,7 @@
 
 @supports ((display: -ms-grid) or (display: grid)) {
   #view-main #grid-example {
+    padding: 10px;
     border: solid 2px white;
     width: 100%;
     max-width: 1280px;
@@ -24,11 +25,13 @@
         grid-template-columns: 1fr 300px 200px;
     grid-gap: 20px; }
     #view-main #grid-example .cell {
-      background-color: #23c4d9;
-      padding: 6px;
+      background-color: rgba(35, 196, 217, 0.6);
+      padding: 20px;
       color: white; }
+    #view-main #grid-example .center-cell {
+      text-align: center; }
     #view-main #grid-example .cell:nth-of-type(odd) {
-      background: #2e7f88; }
+      background: rgba(46, 127, 136, 0.6); }
   #view-main .fractional-grid-example {
     margin: 10px;
     border: solid 2px red;

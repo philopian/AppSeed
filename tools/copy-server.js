@@ -328,6 +328,7 @@ fs.writeFile(deployReadMeFileName, deployReadMeContents, 'utf8', (err) => {
 const ansibleCfgFileName = path.join(config.deployRoot, 'ansible/ansible.cfg');
 const ansibleCfgContents = `[defaults]
 hostfile = hosts
+deprecation_warnings=False
 `;
 fs.writeFile(ansibleCfgFileName, ansibleCfgContents, 'utf8', (err) => {
   if (err) return console.error(err)
@@ -336,13 +337,13 @@ fs.writeFile(ansibleCfgFileName, ansibleCfgContents, 'utf8', (err) => {
 
 // Create the host inventory file
 const ansibleHostsFileName = path.join(config.deployRoot, 'ansible/hosts');
-const ansibleHostsContents = `droplet-01 ansible_ssh_host=${config.serverIp}
+const ansibleHostsContents = `vmachine-01 ansible_ssh_host=${config.serverIp}
 
-[droplets]
-droplet-01
+[VMs]
+vmachine-01
 
 
-[droplets:vars]
+[VMs:vars]
 ansible_ssh_user=root
 ansible_ssh_private_key_file=~/.ssh/ansible
 `;
@@ -356,8 +357,8 @@ const ansibleInitFileName = path.join(config.deployRoot, 'ansible/init.yml');
 const ansibleInitContents = `---
 ################################################################################
 - name: Update/Upgrade Linux
-  hosts: droplets
-  become_user: sudo
+  hosts: VMs
+  sudo: true
   tasks:
    - name: Updates a server
      apt: update_cache=yes
@@ -367,8 +368,8 @@ const ansibleInitContents = `---
 
 ################################################################################
 - name: Install fail2ban package
-  hosts: droplets
-  become_user: sudo
+  hosts: VMs
+  sudo: true
   tasks:
     - name: Install fail2ban package
       apt: pkg=fail2ban state=present
@@ -380,8 +381,8 @@ const ansibleInitContents = `---
 
 ################################################################################
 - name: Setup UFW
-  hosts: droplets
-  become_user: sudo
+  hosts: VMs
+  sudo: true
   tasks:
     - name: Ensure ufw is at the latest version
       apt: pkg=ufw state=latest
@@ -415,8 +416,8 @@ const ansibleInitContents = `---
 
 ################################################################################
 - name: Install Docker
-  hosts: droplets
-  become_user: sudo
+  hosts: VMs
+  sudo: true
   roles:
     - angstwad.docker_ubuntu
   tasks:
@@ -438,8 +439,8 @@ const ansibleInitContents = `---
       async: 120
       poll: 0
 - name: Stop/Start DockerCompose
-  hosts: droplets
-  become_user: sudo
+  hosts: VMs
+  sudo: true
   tasks:
     - name: Give Docker time to build
       shell: echo 'Docker needs a couple minutes to build/run all the containers'
@@ -456,8 +457,8 @@ const ansibleUpdateFileName = path.join(config.deployRoot, 'ansible/update.yml')
 const ansibleUpdateContents = `---
 ################################################################################
 - name: Update web static files for nginx
-  hosts: droplets
-  become_user: sudo
+  hosts: VMs
+  sudo: true
   tasks:
     - name: Sync nginx files (including the static web files)
       synchronize:
@@ -465,8 +466,8 @@ const ansibleUpdateContents = `---
         dest: /var/nginx/
 
 - name: Update the nodejs server files
-  hosts: droplets
-  become_user: sudo
+  hosts: VMs
+  sudo: true
   tasks:
     - name: Sync nodejs files (including the static web files)
       synchronize:
@@ -476,8 +477,8 @@ const ansibleUpdateContents = `---
           - "--exclude=node_modules"
 
 - name: Stop/Start DockerCompose
-  hosts: droplets
-  become_user: sudo
+  hosts: VMs
+  sudo: true
   tasks:
     - name: Teardown docker
       shell: cd /var && ./down.sh      
@@ -486,8 +487,8 @@ const ansibleUpdateContents = `---
       async: 120
       poll: 0
 - name: Stop/Start DockerCompose
-  hosts: droplets
-  become_user: sudo
+  hosts: VMs
+  sudo: true
   tasks:
     - name: Give Docker time to build
       shell: echo 'Docker needs a couple minutes to build/run all the containers'

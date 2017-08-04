@@ -1,9 +1,9 @@
 droplet-01 ansible_ssh_host=xxx.xxx.xxx.xxx
 
-[droplets]
-droplet-01
+[VMs]
+vmachine-01
 
 
-[droplets:vars]
-ansible_ssh_user=root
+[VMs:vars]
+ansible_ssh_user=app
 ansible_ssh_private_key_file=~/.ssh/ansible

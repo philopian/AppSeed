@@ -1,8 +1,8 @@
 ---
 ################################################################################
 - name: Update/Upgrade Linux
-  hosts: droplets
-  become_user: sudo
+  hosts: VMs
+  sudo: true
   tasks:
    - name: Updates a server
      apt: update_cache=yes
@@ -12,8 +12,8 @@
 
 ################################################################################
 - name: Install fail2ban package
-  hosts: droplets
-  become_user: sudo
+  hosts: VMs
+  sudo: true
   tasks:
     - name: Install fail2ban package
       apt: pkg=fail2ban state=present
@@ -25,8 +25,8 @@
 
 ################################################################################
 - name: Setup UFW
-  hosts: droplets
-  become_user: sudo
+  hosts: VMs
+  sudo: true
   tasks:
     - name: Ensure ufw is at the latest version
       apt: pkg=ufw state=latest
@@ -60,8 +60,8 @@
 
 ################################################################################
 - name: Install Docker
-  hosts: droplets
-  become_user: sudo
+  hosts: VMs
+  sudo: true
   roles:
     - angstwad.docker_ubuntu
   tasks:
@@ -83,8 +83,8 @@
       async: 120
       poll: 0
 - name: Stop/Start DockerCompose
-  hosts: droplets
-  become_user: sudo
+  hosts: VMs
+  sudo: true
   tasks:
     - name: Give Docker time to build
       shell: echo 'Docker needs a couple minutes to build/run all the containers'
