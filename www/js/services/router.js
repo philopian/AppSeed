@@ -5,7 +5,6 @@ import main from '../main';
 import view1 from '../view1';
 import view2 from '../view2';
 import leaflet from '../leaflet';
-import esri from '../esri';
 import reduxExample from '../redux-example';
 import store from './store';
 let v = {};
@@ -37,9 +36,6 @@ export class Router {
         break;
       case 'leaflet':
         v = new leaflet();
-        break;
-      case 'esri':
-        v = new esri();
         break;
       default:
         v = new main();
