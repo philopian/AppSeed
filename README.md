@@ -152,6 +152,10 @@ Here a couple of npm commands you can use while developing:
 
 
 ## Stuff to come
+- Storybook/React new component CLI
+- Jest
+- Jest: coverage
+- Jest: snapshots
 - PWA (Progressive Web Applicationify the client)
 - vscode setup/configuration
 - .vscode debugging the frontend via the ./.vscode/launch.json
@@ -172,5 +176,6 @@ Here a couple of npm commands you can use while developing:
 - Style guide
 - Add .net core
 - JWT with JOSE .net core
-- Yeoman generator lite, full, older-lite 
+- Yeoman generator lite, full, older-lite
+
 
