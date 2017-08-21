@@ -47,7 +47,7 @@ border: 0;
 `;
 
 // React Component
-export default class HelloBanner extends React.Component {
+export default class ReactBanner extends React.Component {
   constructor(props, context) {
     super(props, context);
 
