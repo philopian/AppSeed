@@ -17,10 +17,26 @@ storiesOf('HEADER_TITLE', module)
 
 
 import HelloBanner from '../www/react/components/HelloBanner.jsx';
+import SimpleButton from '../www/react/components/SimpleButton.jsx';
 storiesOf('Component List', module)
   .addDecorator(withKnobs)
   .add('Hello Banner',
     withInfo('')(() =>
       <HelloBanner />
     )
-  );
+  )
+  .addDecorator(withKnobs)
+  .add('SimpleButton - default',
+    withInfo('')(() =>
+      <SimpleButton />
+    )
+  )
+  .addDecorator(withKnobs)
+  .add('SimpleButton - message',
+    withInfo('')(() => {
+      const name = text('Name', 'phil');
+      return (<SimpleButton message={name} />)
+    })
+  )
+
+;
