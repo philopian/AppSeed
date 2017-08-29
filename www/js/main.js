@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import ReactBanner from '../react/components/ReactBanner.jsx';
+import ReactBanner from '../react/components/ReactBanner.jsx';
 import http from './services/http';
 
 require("../sass/main.scss");
