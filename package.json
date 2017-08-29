@@ -4,9 +4,9 @@
   "description": "Starter Kit for ES6 workflow",
   "main": "server/index.js",
   "scripts": {
-    "up": "bower i && yarn",
+    "up": "bower i && npm i",
     "new:view": "node_modules/.bin/babel-node tools/new-view",
-    "prestart": "bower i && yarn && node_modules/.bin/babel-node tools/bower && npm run test:once",
+    "prestart": "bower i && npm i && node_modules/.bin/babel-node tools/bower",
     "start": "npm-run-all security-check open-browser",
     "poststart": "npm-run-all --parallel server:rest webpack:dev-server bower:watch test",
     "storybook": "start-storybook -p 3001 -c .storybook ",

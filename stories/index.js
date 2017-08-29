@@ -5,7 +5,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 
 /************************************************************************
-import YOUR_COMPONENT from '../src/components/YOUR_COMPONENT.jsx';
+import YOUR_COMPONENT from '../www/react/components/YOUR_COMPONENT.jsx';
 storiesOf('HEADER_TITLE', module)
   .addDecorator(withKnobs)
   .add('SUB_TITLE',
