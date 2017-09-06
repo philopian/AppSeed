@@ -25,6 +25,7 @@
     "cross-env": "3.2.4",
     "express": "4.15.0",
     "live-server": "1.2.0",
+    "material-ui": "^0.19.1",
     "nodemon": "1.11.0",
     "npm-run-all": "4.0.2",
     "nsp": "2.6.2",
