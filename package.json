@@ -10,7 +10,7 @@
     "start": "npm-run-all security-check open-browser",
     "poststart": "npm-run-all --parallel server:rest webpack:dev-server bower:watch",
     "storybook": "start-storybook -p 3001 -c .storybook ",
-    "preapp": "bower i && npm i && node_modules/.bin/babel-node tools/bower",
+    "preapp": "npm-run-all up bower",
     "app": "npm-run-all security-check",
     "postapp": "npm-run-all --parallel server:rest webpack:dev-server bower:watch test",
     "test": "npm-run-all --parallel test:report-watch test:server",
