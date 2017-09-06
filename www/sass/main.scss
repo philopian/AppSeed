@@ -2,7 +2,7 @@
 // Mobile First
 #view-main {
   background-color: $color-blue;
-  padding: 20px;
+  // padding: 20px;
   #simpsons-gif,
   #ron {
     height: 200px;
@@ -24,7 +24,6 @@
     #grid-example {
       padding: 10px;
       border: solid 2px rgb(255, 255, 255);
-      width: 100%;
       max-width: 1280px;
       margin: 0 auto;
       display: grid;

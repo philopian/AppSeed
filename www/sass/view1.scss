@@ -1,4 +1,11 @@
 @import 'globals';
 #view-1 {
-    background-color: $color-blue;
+  background-color: $color-blue;
+  padding: 10px;
+  .success {
+    margin-top: 14px;
+  }
+  #react-dialog {
+    display: block;
+  }
 }

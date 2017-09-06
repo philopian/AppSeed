@@ -1,5 +1,14 @@
 import $ from 'jquery';
-import { foundation } from 'foundation'; // eslint-disable-line 
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
+import ReactBanner from '../react/components/ReactBanner.jsx';
+import DialogExample from '../react/components/DialogExample.jsx';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+
+
 
 require("../sass/view1.scss");
 const html = require("../html/view1.html");
@@ -20,10 +29,21 @@ export class View {
   }
 
   init() {
-    $('#view-1').foundation(); // Allows you to do foundation JS stuff like show modals
+    // $('#view-1').foundation(); // Allows you to do foundation JS stuff like show modals
+    this.initReact();
   }
 
   //--Custom Method---------
+  initReact() {
+    const App = () => (
+      <MuiThemeProvider>
+        <DialogExample />
+      </MuiThemeProvider>
+    );
+
+    ReactDOM.render(<App />, document.getElementById('react-dialog'));
+  }
+
   justaButtonClick(e) {
     this.printMessage(`..the (${$(e.target).text()}) button was clicked `);
   }
