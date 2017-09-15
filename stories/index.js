@@ -18,7 +18,7 @@ storiesOf('HEADER_TITLE', module)
 
 import ReactBanner from '../www/react/components/ReactBanner.jsx';
 import SimpleBanner from '../www/react/components/SimpleBanner.jsx';
-storiesOf('Component List', module)
+storiesOf('Atoms', module)
   .addDecorator(withKnobs)
   .add('ReactBanner',
     withInfo('')(() =>
