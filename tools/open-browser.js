@@ -4,4 +4,7 @@ const open = require("open");
 console.log('..opening the browser');
 
 // Open the browser to view the build
-open('http://localhost:' + config.port);
+setTimeout(() => {
+  open('http://localhost:3001');
+  open('http://localhost:' + config.port);
+}, 3000);
