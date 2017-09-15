@@ -24,7 +24,7 @@ export class Router {
   loadView(view, nav = false) {
     try { this.deconstructor(); } catch (e) {} // eslint-disable-line no-empty
     switch (view) {
-      //===(DON'T DELETE)===========
+      //===(DON'T DELETE THIS LINE!!!!)===========
       case 'reduxexample':
         v = new reduxExample();
         break;
