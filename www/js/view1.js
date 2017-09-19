@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 
 import ReactBanner from '../react/components/ReactBanner.jsx';
 import DialogExample from '../react/components/DialogExample.jsx';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 
 
 
@@ -36,9 +36,7 @@ export class View {
   //--Custom Method---------
   initReact() {
     const App = () => (
-      <MuiThemeProvider>
-        <DialogExample />
-      </MuiThemeProvider>
+      <DialogExample />
     );
 
     ReactDOM.render(<App />, document.getElementById('react-dialog'));
