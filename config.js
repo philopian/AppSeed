@@ -10,6 +10,7 @@ module.exports = {
   port: 8080,
   portTests: 8081,
   portAPI: 8082,
+  portStorybook: 8083,
   BASE_URL,
 
   appRoot: __dirname,
