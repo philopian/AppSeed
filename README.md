@@ -1,4 +1,4 @@
-<img src="appseedica.png" />
+<img src="appseedica.gif" />
 
 
 ## What is AppSeed?
