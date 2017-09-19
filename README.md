@@ -53,6 +53,7 @@ Here a couple of npm commands you can use while developing:
 | Initialize your server | $ npm run deploy:init -s |
 | Update the server | $ npm run deploy -s |
 | Add a new view | $ npm run new:view -s |
+| Add a new react component | $ npm run new:component -s |
 | Run unit tests | $ npm run test:once -s |
 | Run unit tests coverage | $ npm run test:cover -s |
 
@@ -117,7 +118,6 @@ Here a couple of npm commands you can use while developing:
 - You can have dynamic styles based on prop values
 - styled-components makes random class name in the HTML
 
-
 - How to define the css
     ~~~
     const Container = styled.div`
@@ -152,7 +152,6 @@ Here a couple of npm commands you can use while developing:
 
 
 ## Stuff to come
-- Storybook/React new component CLI
 - Jest
 - Jest: coverage
 - Jest: snapshots
@@ -173,9 +172,6 @@ Here a couple of npm commands you can use while developing:
 - Nodejs Sequelize
 - Add sample data in a SQLite database
 - Make a tutorial (how to use this)
-- Style guide
 - Add .net core
 - JWT with JOSE .net core
-- Yeoman generator lite, full, older-lite
-
-
+- Yeoman generator lite, full, older-lite OR AppSeed-CLI

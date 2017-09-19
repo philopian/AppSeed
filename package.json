@@ -6,6 +6,7 @@
   "scripts": {
     "up": "bower i && npm i",
     "new:view": "node_modules/.bin/babel-node tools/new-view",
+    "new:component": "node_modules/.bin/babel-node tools/new-component",
     "start": "npm-run-all security-check up bower test:reporter-check",
     "poststart": "npm-run-all --parallel storybook server:rest webpack:dev-server bower:watch test open-browser",
     "app": "npm-run-all security-check up bower test:reporter-check",
