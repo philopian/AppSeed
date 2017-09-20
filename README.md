@@ -48,7 +48,7 @@ Here a couple of npm commands you can use while developing:
 |----------|-------|
 | Download all the application dependencies | $ npm run up |
 | Start developing | $ npm start -s |
-| Start developing without automatically opening a browser tab | $ npm run app -s |
+| Start developing without automatically opening a browser tabs | $ npm run app -s |
 | Build the distribution version | $ npm run build -s |
 | Initialize your server | $ npm run deploy:init -s |
 | Update the server | $ npm run deploy -s |
