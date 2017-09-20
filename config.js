@@ -19,6 +19,8 @@ module.exports = {
   distFileName: `${DEPLOY}/${DIST_NAME}`,
   deployRoot: path.join(__dirname, DEPLOY),
   distRoot: path.join(__dirname, DEPLOY, DIST_NAME),
+  deployWww: path.join(__dirname, DEPLOY, DIST_NAME),
+  deployServeWww: path.join(__dirname, DIST_NAME),
   bower: path.join(__dirname, './www/bower_components'),
 
   logo: path.join(__dirname, "logo.png"),
