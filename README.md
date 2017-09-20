@@ -49,7 +49,8 @@ Here a couple of npm commands you can use while developing:
 | Download all the application dependencies | $ npm run up |
 | Start developing | $ npm start -s |
 | Start developing without automatically opening a browser tabs | $ npm run app -s |
-| Build the distribution version | $ npm run build -s |
+| Build the distribution version for Docker | $ npm run build -s |
+| Build the distribution version for Azure WebApp Services| $ npm run build:azure -s |
 | Initialize your server | $ npm run deploy:init -s |
 | Update the server | $ npm run deploy -s |
 | Add a new view | $ npm run new:view -s |
