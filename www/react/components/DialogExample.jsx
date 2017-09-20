@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Dialog, FlatButton, RaisedButton} from 'material-ui';
-import {MuiThemeProvider} from 'material-ui/styles/';
-
+// import {MuiThemeProvider} from 'material-ui/styles/';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 // import {} from 'material-ui';
@@ -66,7 +66,7 @@ export default class DialogExample extends React.Component {
 
     return (
       <MuiThemeProvider>
-
+      <div>
         <RaisedButton label="Click me to view a modal" onClick={this.handleOpen} />
         <Response>
           { this.showModalResult() }
@@ -81,6 +81,7 @@ export default class DialogExample extends React.Component {
         >
           Click on one of the option in this dialog.
         </Dialog>
+      </div>
       </MuiThemeProvider>
     );
   }
