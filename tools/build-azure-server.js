@@ -15,8 +15,8 @@ fs.copy(sourceServer, destinationServer, function(err) {
   if (err) {
     console.error(err);
   } else {
-    console.log("Nodejs server files has been copied to the ./DEPLOY/nodejs folder!");
-    console.log(chalk.blue('...Copied the nodejs server files has been copied to the ./DEPLOY/nodejs folder'));
+    console.log(chalk.green('Nodejs server files has been copied to the ./DEPLOY/nodejs folder!'));
+    console.log(chalk.green('...Copied the nodejs server files has been copied to the ./DEPLOY/nodejs folder'));
   }
 });
 

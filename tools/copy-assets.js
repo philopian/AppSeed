@@ -10,6 +10,6 @@ fs.copy(source, destination, function(err) {
   if (err) {
     console.error(err);
   } else {
-    console.log("Assets files have been copied to the dist folder!");
+    console.log(chalk.green('Assets files have been copied to the dist folder!'));
   }
 }); //copies directory, even if it has subdirectories or files

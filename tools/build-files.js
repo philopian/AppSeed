@@ -57,7 +57,7 @@ concat(bowerCssFiles.minified, outCssFile, function(err) {
   // Minify these JS packages
   concat(bowerCssFiles.minifiedNotFound, tempOutCssFile, function(err) {
     if (err) throw err
-    console.log(chalk.blue('Concat non-min CSS bowerfiles'));
+    console.log(chalk.green('Concat non-min CSS bowerfiles'));
 
     var uglified = uglifyCss.processFiles(
       [tempOutCssFile], { uglyComments: true }
