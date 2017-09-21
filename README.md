@@ -153,9 +153,7 @@ Here a couple of npm commands you can use while developing:
 
 
 ## Stuff to come
-- Jest
-- Jest: coverage
-- Jest: snapshots
+- new:component script add the jest boilerplate
 - PWA (Progressive Web Applicationify the client)
 - vscode setup/configuration
 - .vscode debugging the frontend via the ./.vscode/launch.json

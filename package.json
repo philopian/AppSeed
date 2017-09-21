@@ -153,8 +153,8 @@
     "testResultsProcessor": "./node_modules/jest-html-reporter"
   },
   "jest-html-reporter": {
-    "pageTitle": "React Code Coverage",
+    "pageTitle": "React Test Report",
     "outputPath": "tests-reports/react-coverage.html",
-    "styleOverridePath": "tests-reports/react-coverage.css"
+    "styleOverridePath": "tools/react-coverage.css"
   }
 }
