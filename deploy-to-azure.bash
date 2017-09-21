@@ -13,6 +13,6 @@ else
  exit 1 # not dev, staging or master branch. Exit without deploying.
 fi
 
-ncftpput -v -u "$ftp_username" -p "$ftp_password" -R $FTP_HOST $FTP_SITE_ROOT DEPLOY/*
+ncftpput -v -u "$ftp_username" -p "$ftp_password" -R $FTP_HOST $FTP_SITE_ROOT dist/*
 
 echo Finished uploading files to $FTP_HOST$FTP_SITE_ROOT.
