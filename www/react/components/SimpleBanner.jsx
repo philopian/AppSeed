@@ -18,7 +18,7 @@ const Bold = styled.span`
 /** A super lame component that says Hello with a custom message. */
 function SimpleBanner({message}) {
   return (
-  <Container>
+  <Container className="simple-banner">
     <Bold>Hello </Bold> {message}
   </Container>
   )
