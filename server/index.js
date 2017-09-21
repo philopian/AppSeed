@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false })); // Parse application/x-www-
 app.use(bodyParser.json()); // Parse application/json
 app.use(express.static(config.deployWww)); // Serve all the files as static
 
+
 /******** API Calls	**************************************/
 const api = new express.Router();
 api.use(bodyParser.json());
