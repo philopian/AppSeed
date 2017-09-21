@@ -33,9 +33,13 @@ api.use(bodyParser.json());
 app.use('/api/', api);
 
 
-/******** REST API	**************************************/
-api.get('/test', apiRoute.test); // Test route
-api.get('/testjsonapi', apiRoute.testJsonApi); // Another test route
+
+/******** TEST API	**************************************/
+api.get('/test', apiRoute.test);
+api.get('/testjsonapi', apiRoute.testJsonApi);
+
+/******** TEST API	**************************************/
+
 /*************************************************************************************
 const api = new express.Router();
 api.use(bodyParser.json());
