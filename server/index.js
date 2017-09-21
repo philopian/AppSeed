@@ -1,3 +1,4 @@
+// require('dotenv').config();
 import path from 'path';
 import chalk from 'chalk';
 import express from 'express';

@@ -20,6 +20,17 @@ fs.copy(sourceServer, destinationServer, function(err) {
   }
 });
 
+
+// Create nodejs .env file
+const dotEnvFile = path.join(config.deployRoot, '.env');
+const dotEnvContents = `NODE_ENV=production
+`;
+fs.writeFile(dotEnvFile, dotEnvContents, 'utf8', (err) => {
+  if (err) return console.error(err)
+  console.log(chalk.blue('....env file created in the nodejs folder'));
+});
+
+
 // Copy the package.json and remove all the devDependencies
 const packageJsonFileIn = path.join(config.appRoot, 'package.json');
 const packageJsonFileOut = path.join(config.deployRoot, 'package.json');

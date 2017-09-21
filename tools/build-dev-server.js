@@ -13,6 +13,19 @@ fs.mkdirSync(nodejsDir);
 
 
 /*********************************************
+ * nodejs .env file
+ *********************************************/
+const dotEnvFile = path.join(nodejsDir, '.env');
+const dotEnvContents = `NODE_ENV=production
+`;
+fs.writeFile(dotEnvFile, dotEnvContents, 'utf8', (err) => {
+  if (err) return console.error(err)
+  console.log(chalk.blue('....env file created in the nodejs folder'));
+});
+
+
+
+/*********************************************
  * nodejs
  *********************************************/
 // Copy the server files
@@ -41,7 +54,7 @@ fs.readFile(packageJsonFileIn, 'utf8', (err, packageJson) => {
   const regexRemoveNpmScripts = /"scripts": {([\s\S]*?)},\n /g;
   const prodScripts = `"scripts": {
     "prestart": "npm i",
-    "start": "cd /var/nodejs && NODE_ENV=production node_modules/.bin/nodemon server --exec babel-node --presets babel-preset-es2015"
+    "start": "cd /var/nodejs && NODE_ENV=production node_modules/.bin/nodemon server"
   },
 `;
   packageJson = packageJson.replace(regexRemoveNpmScripts, prodScripts);
