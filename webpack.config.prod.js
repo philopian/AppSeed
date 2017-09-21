@@ -11,9 +11,7 @@ module.exports = {
   resolve: {
     modules: ['node_modules', 'bower_components'],
     descriptionFiles: ['package.json', 'bower.json'],
-    alias: {
-      foundation: 'foundation-sites/dist/js/foundation.min.js'
-    }
+    alias: {}
   },
 
   entry: [

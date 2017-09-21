@@ -17,11 +17,7 @@ module.exports = {
   resolve: {
     modules: ['node_modules', 'bower_components'],
     descriptionFiles: ['package.json', 'bower.json'],
-    alias: {
-      // foundation: 'foundation-sites/js/foundation.core'
-      foundation: 'foundation-sites/dist/js/foundation.min.js'
-
-    }
+    alias: {}
   },
   devtool: 'cheap-module-eval-source-map',
 
@@ -34,7 +30,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': `"DEV"`
+        'NODE_ENV': `"dev"`
       }
     })
   ],

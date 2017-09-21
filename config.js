@@ -1,15 +1,15 @@
 var path = require('path');
 const DEPLOY = 'DEPLOY';
 const DIST_NAME = 'www';
-const BASE_URL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8082';
+const BASE_URL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8081';
 
 module.exports = {
   serverIp: 'xxx.xxx.xxx.xxx',
   mysecret: 'This is a secret shhhhh',
   jwtUniqueId: '123456789',
   port: 8080,
-  portTests: 8081,
-  portAPI: 8082,
+  portAPI: 8081,
+  portTests: 8082,
   portStorybook: 8083,
   BASE_URL,
 
@@ -19,8 +19,6 @@ module.exports = {
   distFileName: `${DEPLOY}/${DIST_NAME}`,
   deployRoot: path.join(__dirname, DEPLOY),
   distRoot: path.join(__dirname, DEPLOY, DIST_NAME),
-  deployWww: path.join(__dirname, DEPLOY, DIST_NAME),
-  deployServeWww: path.join(__dirname, DIST_NAME),
   bower: path.join(__dirname, './www/bower_components'),
 
   logo: path.join(__dirname, "logo.png"),

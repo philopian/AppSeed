@@ -1,16 +1,15 @@
-const path = require('path');
-const chalk = require('chalk');
-const express = require('express');
-const compression = require('compression');
-const bodyParser = require('body-parser');
+import path from 'path';
+import chalk from 'chalk';
+import express from 'express';
+import compression from 'compression';
+import bodyParser from 'body-parser';
 
-const config = require('../config');
-const apiRoute = require('./api');
-const jwtAuth = require('./jwt-auth');
-const db = require('./db');
-const PORT = process.env.PORT || config.port;
+import config from '../config';
+import apiRoute from './api';
+import jwtAuth from './jwt-auth';
+import db from './db';
 
-/******** Nodejs Server *************************************/
+const PORT = process.env.PORT || config.portAPI;
 const app = express();
 
 /******** Middleware *************************************/
@@ -24,7 +23,6 @@ app.use((req, res, next) => {
 app.use(compression()); // compress all responses 
 app.use(bodyParser.urlencoded({ extended: false })); // Parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // Parse application/json
-app.use(express.static(config.deployWww)); // Serve all the files as static
 
 
 /******** API Calls	**************************************/
@@ -66,11 +64,14 @@ api.delete('/example/:id', jwtAuth.validator, apiRoute.deleteExample);
 api.all('/*', apiRoute.routeDoesNotExist); // Any other /api/* route gets this message
 
 
-
 /******** All other routes redirect to the SPA ********/
-app.all('/*', (req, res) => {
-  res.status(200).sendFile(path.join(config.deployWww, 'index.html'));
-});
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(config.webRoot)); // Serve all the files as static
+  app.all('/*', (req, res) => {
+    const indexHtml = path.join(config.webRoot, 'index.html');
+    res.status(200).sendFile(indexHtml);
+  });
+}
 
 
 /******** Listen on a port	*****************************/

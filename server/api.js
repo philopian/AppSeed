@@ -15,7 +15,6 @@ module.exports = {
     res.status(200).json(JSON.parse(file));
   },
 
-
   routeDoesNotExist: (req, res) => {
     res.json({ "route": "does not exist!" });
   }
