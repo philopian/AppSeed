@@ -1,14 +1,16 @@
-import path from 'path';
-import chalk from 'chalk';
-import express from 'express';
-import compression from 'compression';
-import bodyParser from 'body-parser';
+const path = require('path');
+const chalk = require('chalk');
+const express = require('express');
+const compression = require('compression');
+const bodyParser = require('body-parser');
 
 const config = require('../config');
 const apiRoute = require('./api');
 const jwtAuth = require('./jwt-auth');
 const db = require('./db');
+const PORT = process.env.PORT || config.port;
 
+/******** Nodejs Server *************************************/
 const app = express();
 
 /******** Middleware *************************************/
@@ -19,11 +21,10 @@ app.use((req, res, next) => {
   res.set('X-Powered-By', 'AppSeed');
   next();
 });
-
-
-app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
-app.use(bodyParser.json()); // parse application/json
-
+app.use(compression()); // compress all responses 
+app.use(bodyParser.urlencoded({ extended: false })); // Parse application/x-www-form-urlencoded
+app.use(bodyParser.json()); // Parse application/json
+app.use(express.static(config.deployWww)); // Serve all the files as static
 
 /******** API Calls	**************************************/
 const api = new express.Router();
@@ -31,13 +32,9 @@ api.use(bodyParser.json());
 app.use('/api/', api);
 
 
-
-/******** TEST API	**************************************/
-api.get('/test', apiRoute.test);
-api.get('/testjsonapi', apiRoute.testJsonApi);
-
-/******** TEST API	**************************************/
-
+/******** REST API	**************************************/
+api.get('/test', apiRoute.test); // Test route
+api.get('/testjsonapi', apiRoute.testJsonApi); // Another test route
 /*************************************************************************************
 const api = new express.Router();
 api.use(bodyParser.json());
@@ -60,23 +57,18 @@ api.get('/example/:id', jwtAuth.validator, apiRoute.getExample);
 api.post('/example', jwtAuth.validator, apiRoute.addExample);
 api.put('/example', jwtAuth.validator, apiRoute.updateExample);
 api.delete('/example/:id', jwtAuth.validator, apiRoute.deleteExample);
-
-api.all('/*', apiRoute.allOtherRoutes); // Any other /api/* route gets this message
 *************************************************************************************/
+api.all('/*', apiRoute.routeDoesNotExist); // Any other /api/* route gets this message
 
 
 
-
-/******** All other routes redirect frontend static ********/
-// let www = path.resolve(config.webRoot, 'index.html');
-// if (app.get('env') === 'production') {
-//   www = path.resolve(config.distRoot, 'index.html');
-// }
+/******** All other routes redirect to the SPA ********/
 app.all('/*', (req, res) => {
-  res.send({ "error": "not a valid route" });
+  res.status(200).sendFile(path.join(config.deployWww, 'index.html'));
 });
 
+
 /******** Listen on a port	*****************************/
-app.listen(config.portAPI, () => {
-  console.log(chalk.blue(`The REST magic happens: http://localhost:${config.portAPI}`));
+app.listen(PORT, () => {
+  console.log(chalk.blue(`The REST magic happens: http://localhost:${PORT}`));
 });
