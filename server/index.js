@@ -30,14 +30,9 @@ const api = new express.Router();
 api.use(bodyParser.json());
 app.use('/api/', api);
 
-
-
 /******** TEST API	**************************************/
 api.get('/test', apiRoute.test);
 api.get('/testjsonapi', apiRoute.testJsonApi);
-
-/******** TEST API	**************************************/
-
 /*************************************************************************************
 const api = new express.Router();
 api.use(bodyParser.json());
@@ -76,5 +71,6 @@ if (process.env.NODE_ENV === 'production') {
 
 /******** Listen on a port	*****************************/
 app.listen(PORT, () => {
+  console.log(chalk.bgBlue.bold(`...Nodejs server running in "${process.env.NODE_ENV}" mode`));
   console.log(chalk.blue(`The REST magic happens: http://localhost:${PORT}`));
 });
