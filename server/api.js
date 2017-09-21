@@ -1,9 +1,8 @@
-import fs from 'fs';
-import path from 'path';
-import config from '../config';
+const fs = require('fs');
+const path = require('path');
+const config = require('../config');
 
 module.exports = {
-
   test: (req, res) => {
     console.log('.....server is up!');
     res.status(200).json({ "test": "works!!" });
@@ -16,6 +15,6 @@ module.exports = {
   },
 
   routeDoesNotExist: (req, res) => {
-    res.json({ "route": "does not exist!" });
+    res.json({ "route": "does not exist!!!!!" });
   }
 };

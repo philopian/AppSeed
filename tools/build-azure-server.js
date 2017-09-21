@@ -46,7 +46,7 @@ fs.readFile(packageJsonFileIn, 'utf8', (err, packageJson) => {
   const regexRemoveNpmScripts = /"scripts": {([\s\S]*?)},\n /g;
   const prodScripts = `"scripts": {
     "prestart": "npm i",
-    "start": "node_modules/.bin/nodemon server --exec babel-node --presets babel-preset-es2015"
+    "start": "node_modules/.bin/node-dev server"
   },
 `;
   packageJson = packageJson.replace(regexRemoveNpmScripts, prodScripts);

@@ -1,14 +1,14 @@
-// require('dotenv').config();
-import path from 'path';
-import chalk from 'chalk';
-import express from 'express';
-import compression from 'compression';
-import bodyParser from 'body-parser';
+require('dotenv').config();
+const path = require('path');
+const chalk = require('chalk');
+const express = require('express');
+const compression = require('compression');
+const bodyParser = require('body-parser');
 
-import config from '../config';
-import apiRoute from './api';
-import jwtAuth from './jwt-auth';
-import db from './db';
+const config = require('../config');
+const apiRoute = require('./api');
+const jwtAuth = require('./jwt-auth');
+const db = require('./db');
 
 const PORT = process.env.PORT || config.portAPI;
 const app = express();
