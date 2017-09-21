@@ -1,6 +1,6 @@
 {
   "name": "appseed",
-  "version": "1.1.3",
+  "version": "1.2.0",
   "description": "Starter Kit for ES6 workflow",
   "main": "server/index.js",
   "scripts": {
