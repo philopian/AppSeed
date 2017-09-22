@@ -6,7 +6,6 @@ import bowerMain from 'bower-main';
 import mainBowerFiles from 'main-bower-files';
 import merge2 from 'merge2';
 import concat from 'concat-files';
-import uglifyJS from "uglify-js";
 import uglifyCss from 'uglifycss';
 import rimraf from 'rimraf';
 import config from '../config';

@@ -129,7 +129,6 @@
     "strip-comments": "0.4.4",
     "style-loader": "0.13.2",
     "styled-components": "2.1.1",
-    "uglify-js": "2.8.12",
     "uglifycss": "0.0.25",
     "uppercamelcase": "3.0.0",
     "webpack": "2.7.0",
