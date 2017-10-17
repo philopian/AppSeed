@@ -14,13 +14,13 @@ fs.readFile(inputHtml, 'utf8', (err, html) => {
     return console.log(err);
   }
 
-  var regexInjectCss = /<!-- bower:css -->([\s\S]*?)<!-- endinject -->/g;
-  var regexInjectJs = /<!-- bundle:css -->([\s\S]*?)<!-- endinject -->/g;
+  var regexInjectVendorCss = /<!-- bower:css -->([\s\S]*?)<!-- endinject -->/g;
+  var regexInjectClientCss = /<!-- bundle:css -->([\s\S]*?)<!-- endinject -->/g;
   var regexInjectBundleJs = /<!-- bundle:js -->([\s\S]*?)<!-- endinject -->/g;
 
   // Replace tags
-  html = html.replace(regexInjectCss, '<!-- bower:css -->\n    <link rel="stylesheet" href="code/vendor.min.css">\n    <!-- endinject -->');
-  html = html.replace(regexInjectJs, '<!-- bundle:css -->\n    <link rel="stylesheet" type="" href="code/app.css">\n    <!-- endinject -->');
+  html = html.replace(regexInjectVendorCss, '<!-- bower:css -->\n    <link rel="stylesheet" href="code/vendor.min.css">\n    <!-- endinject -->');
+  html = html.replace(regexInjectClientCss, '<!-- bundle:css -->\n    <link rel="stylesheet" type="" href="code/app.css">\n    <!-- endinject -->');
   html = html.replace(regexInjectBundleJs, '<!-- bundle:js -->\n <script src="code/bundle.js"></script> <!-- endinject -->');
 
   // Create new file

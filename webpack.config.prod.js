@@ -40,9 +40,9 @@ module.exports = {
         removeStyleLinkTypeAttributes: true,
         keepClosingSlash: true,
         minifyJS: true,
-        minifyCSS: true,
+        minifyCSS: true
       },
-      inject: true
+      inject: false
     }),
     extractSASS,
     new webpack.optimize.UglifyJsPlugin(),
