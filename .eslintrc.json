@@ -1,8 +1,7 @@
 {
   "extends": "airbnb-base",
-  "plugins": [
-    "import"
-  ],
+  "plugins": ["react", "jsx-a11y", "import"],
+  "parser": "babel-eslint",
   "rules": {
     "semi": ["error", "always"],
     "max-len": 0,
