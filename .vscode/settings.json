@@ -11,6 +11,20 @@
     "**/.gitignore": false
   },
 
+  // Update icons in the vscode file explorer
+  "vsicons.associations.files": [{
+      "icon": "webpack",
+      "extensions": ["webpack.config.extra.js"],
+      "filename": true,
+      "format": "svg"
+    },
+    {
+      "icon": "docker",
+      "extensions": ["docker", "*.docker"],
+      "format": "svg"
+    }
+  ],
+
   // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
   "editor.formatOnSave": true,
   // Enable/disable default JavaScript formatter (For Prettier)
