@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Root (Snapshot) Root renders without crashing 1`] = `
+<div
+  className="application-container"
+>
+  <div>
+    <ul
+      className="react-component  sc-bdVaJa hxzgNW"
+    >
+      <li
+        className="sc-bwzfXH kOAiJq"
+      >
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+           Home 
+        </a>
+      </li>
+      <li
+        className="sc-bwzfXH kOAiJq"
+      >
+        <a
+          href="/view2"
+          onClick={[Function]}
+        >
+           View2 
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div />
+</div>
+`;

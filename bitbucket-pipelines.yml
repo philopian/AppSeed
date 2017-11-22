@@ -1,0 +1,56 @@
+image: node:7.7.1
+pipelines:
+  custom: # Pipelines that are triggered manually
+    deploy-on-demand: # The name that is displayed in the list in the Bitbucket Cloud GUI
+      - step:         
+          caches:
+            - node
+          script:            
+            - apt-get update
+            - npm install
+            - npm install bower -g
+            - bower install --allow-root
+            - appseed build --azure
+            - apt-get install ncftp
+            - chmod +x ./deploy-to-azure.bash
+            - ./deploy-to-azure.bash
+  branches:
+    DEV:
+      - step:
+          caches:
+            - node
+          script:  # Modify the commands below to build and test your repository.            
+            - apt-get update
+            - npm install
+            - npm install bower -g
+            - bower install --allow-root
+            - appseed build --azure
+            - apt-get install ncftp
+            - chmod +x ./deploy-to-azure.bash
+            - ./deploy-to-azure.bash
+    STAGING:
+      - step:
+          caches:
+            - node
+          script:  # Modify the commands below to build and test your repository.            
+            - apt-get update
+            - npm install
+            - npm install bower -g
+            - bower install --allow-root
+            - appseed build --azure
+            - apt-get install ncftp
+            - chmod +x ./deploy-to-azure.bash
+            - ./deploy-to-azure.bash
+    master:
+      - step:
+          caches:
+            - node
+          script:  # Modify the commands below to build and test your repository.            
+            - apt-get update
+            - npm install
+            - npm install bower -g
+            - bower install --allow-root
+            - appseed build --azure
+            - apt-get install ncftp
+            - chmod +x ./deploy-to-azure.bash
+            - ./deploy-to-azure.bash
