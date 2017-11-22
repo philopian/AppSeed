@@ -10,7 +10,6 @@ import styled from "styled-components";
 const Container = styled.div`
   padding: 10px;
   display: inline-block;
-  background-color: rgb(0, 102, 182);
   width: 100%;
 `;
 
@@ -37,15 +36,6 @@ export default class View1 extends React.Component {
         />
       );
     });
-
-    // return (
-    //   <div>
-    //     <ClassComponent message={this.state.messageForClassBase} />
-    //     <FunctionCompoment message={this.state.messageForFunctionBase} />
-    //     <CommentForm />
-    //     {users}
-    //   </div>
-    // );
 
     return (
       <div>

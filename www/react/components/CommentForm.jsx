@@ -16,7 +16,7 @@ const Input = styled.input`
   width: 310px;
 `;
 const Button = styled.button`
-  background-color: rgb(142, 214, 251);
+  background-color: rgb(135, 82, 148);
   width: 100%;
   display: inline-block;
   cursor: pointer;

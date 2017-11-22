@@ -1,33 +1,44 @@
-@import "globals.scss";
+@import "colors.scss";
 body,
 window {
     margin: 0px;
     padding: 0px;
-    background-color: rgb(35, 122, 191);
+    background-color: $color-green;
     font-family: "Roboto", sans-serif;
+    display: initial;
 }
 
-#welcome-message,
-#show-react-component-title {
-    text-align: center;
-    color: white;
-}
-
-#webpack-logo {
-    display: block;
-    margin: 0 auto;
-    margin-top: 60px;
+#welcome-banner {
+    position: relative;
+    #web-logo {
+        display: block;
+        margin: 0 auto;
+        margin-top: 60px;
+    }
+    #welcome-message,
+    #show-react-component-title {
+        text-align: center;
+        color: white;
+        color: $color-purple;
+        position: absolute;
+        width: 100%;
+        bottom: 40px;
+    }
     height: 200px;
 }
 
 .container,
 .container-user-info {
-    border: solid 2px white;
+    border: solid 2px $color-purple;
     margin: 6px;
     max-width: 340px;
     padding: 0px 10px;
     display: inline-block;
-    color: lighten($color-blue-light, 10%);
+    color: lighten($color-green, 10%);
+}
+
+.nav-bar {
+    background-color: $color-blue-dark;
 }
 
 .container-user-info {
