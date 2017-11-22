@@ -5,12 +5,10 @@ const express = require('express');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 
-const config = require('../config');
+const config = require('../appseed.config.js');
 const apiRoute = require('./api');
-const jwtAuth = require('./jwt-auth');
-const db = require('./db');
 
-const PORT = process.env.PORT || config.portAPI;
+const PORT = process.env.PORT || config.portApi;
 const app = express();
 
 /******** Middleware *************************************/
@@ -33,7 +31,6 @@ app.use('/api/', api);
 
 /******** TEST API	**************************************/
 api.get('/test', apiRoute.test);
-api.get('/testjsonapi', apiRoute.testJsonApi);
 /*************************************************************************************
 const api = new express.Router();
 api.use(bodyParser.json());
@@ -62,9 +59,9 @@ api.all('/*', apiRoute.routeDoesNotExist); // Any other /api/* route gets this m
 
 /******** All other routes redirect to the SPA ********/
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(config.webRoot)); // Serve all the files as static
+  app.use(express.static(config.paths.webRoot)); // Serve all the files as static
   app.all('/*', (req, res) => {
-    const indexHtml = path.join(config.webRoot, 'index.html');
+    const indexHtml = path.join(config.paths.webRoot, 'index.html');
     res.status(200).sendFile(indexHtml);
   });
 }
@@ -72,6 +69,6 @@ if (process.env.NODE_ENV === 'production') {
 
 /******** Listen on a port	*****************************/
 app.listen(PORT, () => {
-  console.log(chalk.bgBlue.bold(`...Nodejs server running in "${process.env.NODE_ENV}" mode`));
-  console.log(chalk.blue(`The REST magic happens: http://localhost:${PORT}`));
+  console.log(chalk.bgBlue.bold(`[NODE_ENV] "${process.env.NODE_ENV}"`));
+  console.log(chalk.blue(`[REST Server]: http://localhost:${PORT}/api/`));
 });

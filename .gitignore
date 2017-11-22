@@ -1,11 +1,7 @@
-package-lock.json
-node_modules
 bower_components
-.DS_Store
-typings
-tests-reports
-coverage
-.tmp
-.nyc_output
-.log
+node_modules
 DEPLOY
+.env
+__reports__
+yarn.lock
+package-lock.json

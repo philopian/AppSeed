@@ -1,7 +1,7 @@
 {
-  "name": "appseed-es6",
-  "description": "Starter Kit for ES6 workflow",
-  "main": "index.js",
+  "name": "starter-kit",
+  "description": "",
+  "main": "src/app.js",
   "authors": [
     "Phil Willis <pdotwdot@gmail.com> (http://www.philwillis.pw/)"
   ],
@@ -11,13 +11,13 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "public/bower_components",
     "test",
     "tests"
   ],
   "dependencies": {
-    "leaflet": "1.0.3",
-    "font-awesome": "4.7.0",
-    "jquery": "3.1.1"
+    "jquery": "^3.2.1",
+    "font-awesome": "^4.7.0"
   },
   "overrides": {
     "bootstrap": {

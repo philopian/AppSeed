@@ -1,20 +1,13 @@
 const fs = require('fs');
 const path = require('path');
-const config = require('../config');
+const config = require('../appseed.config.js');
 
 module.exports = {
   test: (req, res) => {
-    console.log('.....server is up!');
-    res.status(200).json({ "test": "works!!" });
-  },
-
-  testJsonApi: (req, res) => {
-    const filepath = path.join(config.serverRoot, 'data/test.json');
-    var file = fs.readFileSync(filepath, 'utf-8');
-    res.status(200).json(JSON.parse(file));
+    res.status(200).json({ "localServer": "works!" });
   },
 
   routeDoesNotExist: (req, res) => {
-    res.json({ "route": "does not exist!!!!!" });
+    res.json({ "route": "does not exist!" });
   }
 };
