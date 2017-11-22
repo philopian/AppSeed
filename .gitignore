@@ -1,7 +1,0 @@
-bower_components
-node_modules
-DEPLOY
-.env
-__reports__
-yarn.lock
-package-lock.json

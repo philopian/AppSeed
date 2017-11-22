@@ -1,8 +1,0 @@
-*.js
-!www/**/*.js
-!tests/**/*.js
-webpack.config.*
-package.json
-appseed.config.js
-bower.json
-.storybook
