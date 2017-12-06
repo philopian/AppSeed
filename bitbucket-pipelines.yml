@@ -10,7 +10,7 @@ pipelines:
             - npm install
             - npm install bower -g
             - bower install --allow-root
-            - appseed build --azure
+            - npm run build -s
             - apt-get install ncftp
             - chmod +x ./deploy-to-azure.bash
             - ./deploy-to-azure.bash
@@ -24,7 +24,7 @@ pipelines:
             - npm install
             - npm install bower -g
             - bower install --allow-root
-            - appseed build --azure
+            - npm run build -s
             - apt-get install ncftp
             - chmod +x ./deploy-to-azure.bash
             - ./deploy-to-azure.bash
@@ -37,7 +37,7 @@ pipelines:
             - npm install
             - npm install bower -g
             - bower install --allow-root
-            - appseed build --azure
+            - npm run build -s
             - apt-get install ncftp
             - chmod +x ./deploy-to-azure.bash
             - ./deploy-to-azure.bash
@@ -50,7 +50,7 @@ pipelines:
             - npm install
             - npm install bower -g
             - bower install --allow-root
-            - appseed build --azure
+            - npm run build -s
             - apt-get install ncftp
             - chmod +x ./deploy-to-azure.bash
             - ./deploy-to-azure.bash
