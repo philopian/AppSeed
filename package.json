@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prestart": "yarn install && bower install",
-    "start": "nsp check",
-    "poststart": "npm-run-all --parallel server start:appseed test storybook",
+    "_prestart": "nsp check",
+    "start": "npm-run-all --parallel server start:appseed storybook test",
     "start:appseed": "appseed start --open=storybook --open=browser",
     "server": "appseed server",
     "test": "appseed test watch",
@@ -16,7 +15,7 @@
   "author": "Phil Willis <pdotwdot@gmail.com> (http://www.philwillis.pw/)",
   "license": "ISC",
   "dependencies": {
-    "appseed-scripts": "^2.0.13",
+    "appseed-scripts": "^2.0.23",
     "body-parser": "^1.18.2",
     "chalk": "^2.3.0",
     "compression": "^1.7.1",
