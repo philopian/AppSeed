@@ -32,8 +32,6 @@ class MapContainer extends Component {
   render() {
     return (
       <div>
-        {this.state.newComment.visibility ? "YES" : "NOPE"}
-
         <div
           className="btn-add"
           onClick={() => {
