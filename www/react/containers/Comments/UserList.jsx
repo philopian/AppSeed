@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import _ from "lodash";
-// import store from "../services/store";
 
 const Container = styled.div`
   padding: 10px;
@@ -10,8 +9,12 @@ const Container = styled.div`
   float: left;
   margin: 8px;
 `;
-const H3 = styled.h3`margin: 0px;`;
-const UL = styled.ul`margin-top: 0px;`;
+const H3 = styled.h3`
+  margin: 0px;
+`;
+const UL = styled.ul`
+  margin-top: 0px;
+`;
 
 export default class UserList extends React.Component {
   constructor(props) {

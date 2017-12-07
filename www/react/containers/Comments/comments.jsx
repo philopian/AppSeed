@@ -1,13 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import ClassComponent from "../components/ClassComponent.jsx";
-import FunctionCompoment from "../components/FunctionCompoment.jsx";
-import CardView from "../components/CardView.jsx";
-import CommentForm from "../components/CommentForm.jsx";
-import UserList from "../components/UserList.jsx";
-// import store from "../store";
+import CardView from "./CardView.jsx";
+import CommentForm from "./CommentForm.jsx";
+import UserList from "./UserList.jsx";
 
-import { addComment } from "../reducers/comments/actions";
+import { addComment } from "../../reducers/comments/actions";
 
 import styled from "styled-components";
 const Container = styled.div`
@@ -20,12 +17,10 @@ const Container = styled.div`
 class Comments extends React.Component {
   constructor(props) {
     super(props);
-    console.log("[props]", props);
+    // console.log("[Comments props]", props);
   }
 
   render() {
-    console.log("[Root, state]", this.props.comments);
-
     const users = this.props.comments.map(user => {
       return (
         <CardView
@@ -59,9 +54,9 @@ const mapStateToProps = state => {
     comments: state.comments
   };
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    addComment: value => dispatch(addComment(value))
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Comments);
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addComment: value => dispatch(addComment(value))
+//   };
+// };
+export default connect(mapStateToProps, null)(Comments);

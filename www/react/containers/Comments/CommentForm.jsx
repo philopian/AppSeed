@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-// import store from "../../store";
 import uuid from "uuid";
 
-import { addComment } from "../reducers/comments/actions";
+import { addComment } from "../../reducers/comments/actions";
 
 const Container = styled.div`
   padding: 10px;
@@ -44,17 +43,6 @@ class CommentForm extends React.Component {
 
   handleClick = () => {
     console.log("[Clicked, Add new comment!]");
-
-    // // Dispatch values
-    // store.dispatch({
-    //   type: "ADD_COMMENT",
-    //   payload: {
-    //     id: uuid.v4(),
-    //     username: document.getElementById("username").value,
-    //     comment: document.getElementById("comment").value
-    //   }
-    // });
-
     this.props.addComment({
       id: uuid.v4(),
       username: document.getElementById("username").value,
