@@ -1,7 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
-import store from "../../store";
+// import store from "../../store";
 import uuid from "uuid";
+
+import { addComment } from "../reducers/comments/actions";
 
 const Container = styled.div`
   padding: 10px;
@@ -33,29 +36,35 @@ const Button = styled.button`
   width: 100%;
 `;
 
-export default class CommentForm extends React.Component {
+class CommentForm extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    console.log("[form props]", props);
   }
 
-  handleClick() {
+  handleClick = () => {
     console.log("[Clicked, Add new comment!]");
 
-    // Dispatch values
-    store.dispatch({
-      type: "ADD_COMMENT",
-      payload: {
-        id: uuid.v4(),
-        username: document.getElementById("username").value,
-        comment: document.getElementById("comment").value
-      }
+    // // Dispatch values
+    // store.dispatch({
+    //   type: "ADD_COMMENT",
+    //   payload: {
+    //     id: uuid.v4(),
+    //     username: document.getElementById("username").value,
+    //     comment: document.getElementById("comment").value
+    //   }
+    // });
+
+    this.props.addComment({
+      id: uuid.v4(),
+      username: document.getElementById("username").value,
+      comment: document.getElementById("comment").value
     });
 
     // Clear values
     document.getElementById("username").value = "";
     document.getElementById("comment").value = "";
-  }
+  };
 
   render() {
     return (
@@ -67,3 +76,16 @@ export default class CommentForm extends React.Component {
     );
   }
 }
+
+// Map state/dispatch to props
+// const mapStateToProps = state => {
+//   return {
+//     comments: state.comments
+//   };
+// };
+const mapDispatchToProps = dispatch => {
+  return {
+    addComment: value => dispatch(addComment(value))
+  };
+};
+export default connect(null, mapDispatchToProps)(CommentForm);

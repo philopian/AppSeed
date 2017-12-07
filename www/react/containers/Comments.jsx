@@ -1,10 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 import ClassComponent from "../components/ClassComponent.jsx";
 import FunctionCompoment from "../components/FunctionCompoment.jsx";
 import CardView from "../components/CardView.jsx";
 import CommentForm from "../components/CommentForm.jsx";
 import UserList from "../components/UserList.jsx";
-import store from "../../store";
+// import store from "../store";
+
+import { addComment } from "../reducers/comments/actions";
 
 import styled from "styled-components";
 const Container = styled.div`
@@ -14,20 +17,16 @@ const Container = styled.div`
   background-color: rgb(136, 231, 207);
 `;
 
-export default class View1 extends React.Component {
+class Comments extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = store.getState();
-    store.subscribe(() => {
-      this.setState(store.getState());
-    }); // get new state when available
+    console.log("[props]", props);
   }
 
   render() {
-    console.log("[Root, state]", this.state.users);
+    console.log("[Root, state]", this.props.comments);
 
-    const users = this.state.users.map(user => {
+    const users = this.props.comments.map(user => {
       return (
         <CardView
           className="card-view"
@@ -45,7 +44,7 @@ export default class View1 extends React.Component {
           <UserList
             className="user-list"
             style="float:left;"
-            users={this.state.users}
+            users={this.props.comments}
           />
         </Container>
         <div id="container-cards">{users}</div>
@@ -53,3 +52,16 @@ export default class View1 extends React.Component {
     );
   }
 }
+
+// Map state/dispatch to props
+const mapStateToProps = state => {
+  return {
+    comments: state.comments
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    addComment: value => dispatch(addComment(value))
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Comments);
