@@ -8,9 +8,10 @@ import store from "../../store";
 
 import styled from "styled-components";
 const Container = styled.div`
-  padding: 10px;
+  padding: 10px 20px;
   display: inline-block;
   width: 100%;
+  background-color: rgb(136, 231, 207);
 `;
 
 export default class View1 extends React.Component {

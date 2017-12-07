@@ -1,15 +1,17 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Nav = styled.ul`
   li {
     line-height: 42px;
-    // border: solid rgb(190, 190, 190) 2px;
-    padding: 10px;
+    display: inline-block;
     a {
+      display: inline-block; // anchor display: block or display: inline-block; and then it will accept the width and height values.
       text-decoration: none;
       color: white;
+      line-height: 42px;
+      padding: 10px;
     }
   }
   li:first-child {
@@ -17,7 +19,6 @@ const Nav = styled.ul`
   }
   li:hover {
     background-color: rgb(23, 88, 149);
-
     a {
       color: white;
     }
@@ -25,7 +26,6 @@ const Nav = styled.ul`
 `;
 const NavList = styled.li`
   display: inline;
-  // background-color: rgb(202, 72, 151);
 `;
 export default class Navigation extends Component {
   render() {
@@ -34,10 +34,19 @@ export default class Navigation extends Component {
     return (
       <Nav className="react-component nav-bar">
         <NavList>
-          <Link to="/"> Home </Link>
+          <NavLink to="/" exact activeClassName="selected">
+            Home
+          </NavLink>
         </NavList>
         <NavList>
-          <Link to={linkToView2}> View2 </Link>
+          <NavLink to={linkToView2} activeClassName="selected">
+            View2
+          </NavLink>
+        </NavList>
+        <NavList>
+          <NavLink to="/comments" activeClassName="selected">
+            Comments
+          </NavLink>
         </NavList>
       </Nav>
     );

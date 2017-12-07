@@ -29,6 +29,7 @@ const Button = styled.button`
   text-decoration: none;
   text-shadow: rgb(47, 102, 39) 0px 1px 0px;
   border: 0;
+  border-radius: 0px 0px 4px 4px;
   width: 100%;
 `;
 

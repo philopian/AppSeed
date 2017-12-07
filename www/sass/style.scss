@@ -6,6 +6,7 @@ window {
     background-color: $color-green;
     font-family: "Roboto", sans-serif;
     display: initial;
+    width: 100%;
 }
 
 #welcome-banner {
@@ -27,59 +28,28 @@ window {
     height: 200px;
 }
 
-.container,
-.container-user-info {
-    border: solid 2px $color-purple;
-    margin: 6px;
-    max-width: 340px;
-    padding: 0px 10px;
-    display: inline-block;
-    color: lighten($color-green, 10%);
+.selected {
+    // color: red;
+    background-color: $color-purple;
+    height: 100%;
 }
 
-.nav-bar {
-    background-color: $color-blue-dark;
-}
-
-.container-user-info {
-    width: 100%;
-}
-
-.card {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    background: #fff;
-    border-radius: 2px;
-    display: inline-block;
-    height: 150px;
-    margin: 1rem;
-    position: relative;
-    width: 300px;
-    color: rgb(81, 81, 81);
-    font-size: 12px;
-    p {
-        margin-bottom: 4px;
+#react {
+    .application-container {
+        width: 100%;
     }
-}
-
-.card:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
-#react .show-react-components {
-    border: solid red 2px;
-    float: left;
-    display: block;
-}
-
-#react .show-react-components.component-user-list {
-    float: initial;
-    width: 200px;
-    margin-top: 167px;
-}
-
-#show-hide-all-components {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
+    .nav-bar {
+        background-color: $color-blue-dark;
+    }
+    .container-user-info {
+        width: 100%;
+    }
+    .container,
+    .container-user-info {
+        margin: 6px;
+        max-width: 340px;
+        padding: 0px 10px;
+        display: inline-block;
+        color: rgb(81, 81, 81);
+    }
 }
