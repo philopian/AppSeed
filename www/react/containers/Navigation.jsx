@@ -48,6 +48,11 @@ export default class Navigation extends Component {
             Comments
           </NavLink>
         </NavList>
+        <NavList>
+          <NavLink to="/map" activeClassName="selected">
+            Map
+          </NavLink>
+        </NavList>
       </Nav>
     );
   }

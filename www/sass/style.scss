@@ -53,3 +53,7 @@ window {
         color: rgb(81, 81, 81);
     }
 }
+
+.leaflet-popup-content-wrapper {
+    border-radius: 4px !important;
+}

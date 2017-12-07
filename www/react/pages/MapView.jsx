@@ -1,8 +1,8 @@
 import React from "react";
-import Map from "../containers/Map";
+import MapContainer from "../containers/MapContainer";
 
 const MapView = () => {
-  return <Map />;
+  return <MapContainer />;
 };
 
 export default MapView;
