@@ -3,20 +3,28 @@ import L from "leaflet";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import "NodeModules/leaflet/dist/leaflet.css";
 import DefaultMarker from "./DefaultMarker.jsx";
+import NewMarkerComment from "./NewMarkerComment.jsx";
 
 const position = [45.5231, -122.6765];
+const viewport = {
+  center: position,
+  zoom: 13
+};
 
 class MapContainer extends Component {
   constructor(props) {
     super(props);
     console.log("[Map props]", props);
     this.state = {
-      viewport: props.viewport
+      viewport: viewport,
+      newComment: {
+        visibility: false,
+        center: null
+      }
     };
   }
 
   onViewportChanged = viewport => {
-    // The viewport got changed by the user, keep track in state
     this.setState({ viewport });
     console.log("[viewport change]", viewport);
   };
@@ -24,6 +32,23 @@ class MapContainer extends Component {
   render() {
     return (
       <div>
+        {this.state.newComment.visibility ? "YES" : "NOPE"}
+
+        <div
+          className="btn-add"
+          onClick={() => {
+            console.log("[addMarker]", this.state.viewport);
+            this.setState({
+              newComment: {
+                visibility: true,
+                center: this.state.viewport.center
+              }
+            });
+          }}
+        >
+          +
+        </div>
+
         <Map
           center={position}
           zoom={13}
@@ -37,6 +62,10 @@ class MapContainer extends Component {
           />
           <DefaultMarker position={position} />
           <DefaultMarker position={[45.5231, -122.6965]} />
+
+          {this.state.newComment.visibility ? (
+            <NewMarkerComment position={this.state.newComment.center} />
+          ) : null}
         </Map>
       </div>
     );
