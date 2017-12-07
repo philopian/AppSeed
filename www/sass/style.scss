@@ -29,7 +29,6 @@ window {
 }
 
 .selected {
-    // color: red;
     background-color: $color-purple;
     height: 100%;
 }
@@ -52,19 +51,4 @@ window {
         display: inline-block;
         color: rgb(81, 81, 81);
     }
-}
-
-.leaflet-popup-content-wrapper {
-    border-radius: 4px !important;
-}
-
-.btn-add {
-    color: rgba(255, 255, 255, 1);
-    background-color: #ff4081;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    font-size: 30px;
-    border-radius: 50px;
-    line-height: 50px;
 }
