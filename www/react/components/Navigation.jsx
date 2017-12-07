@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Nav = styled.ul`
-  width: 100%;
-
   li {
     line-height: 42px;
     // border: solid rgb(190, 190, 190) 2px;

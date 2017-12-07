@@ -29,7 +29,7 @@ export default class View1 extends React.Component {
     const users = this.state.users.map(user => {
       return (
         <CardView
-          className="component component-card-view"
+          className="card-view"
           key={user.id}
           username={user.username}
           comment={user.comment}
@@ -40,12 +40,9 @@ export default class View1 extends React.Component {
     return (
       <div>
         <Container>
-          <CommentForm
-            className="component component-comment-form"
-            style="float:left;"
-          />
+          <CommentForm className="comment-form" style="float:left;" />
           <UserList
-            className="component component-user-list"
+            className="user-list"
             style="float:left;"
             users={this.state.users}
           />
