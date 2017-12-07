@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import store from "./store";
-import Navigation from "./components/Navigation.jsx";
+import Navigation from "./containers/Navigation.jsx";
 import View1 from "./pages/View1.jsx";
 import View2 from "./pages/View2.jsx";
 import CommentView from "./pages/CommentView.jsx";
