@@ -1,13 +1,16 @@
 const path = require("path");
 const ROOT = __dirname;
 const DEPLOY_FOLDER_NAME = "DEPLOY";
-const REST_API_PORT = 9090;
+const PORT_DEV_SERVER = 8080;
+const PORT_STORYBOOK = 8081; // Make sure you update the package.json
+const PORT_REST_API = 5150; // Make sure you update the package.json
 
 module.exports = {
-  port: 8080,
-  portApi: REST_API_PORT,
-  portStorybook: 8081,
-  baseUrl: (process.env.NODE_ENV === "production") ? "" : `http://localhost:${REST_API_PORT}`,
+  port: PORT_DEV_SERVER,
+  portApi: PORT_REST_API,
+  portStorybook: PORT_STORYBOOK,
+  baseUrl: (process.env.NODE_ENV === "production") ? "" : `http://localhost:${PORT_REST_API}`,
+  jsonServerData: path.join(ROOT, "server-json/index.json"),
   fileNames: {
     webRoot: "www",
     distRoot: DEPLOY_FOLDER_NAME

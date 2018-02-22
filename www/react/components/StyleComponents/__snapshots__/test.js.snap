@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyleComponents (Snapshot) StyleComponents renders without crashing 1`] = `
+<div
+  className="my-component"
+>
+  <div
+    className="sc-bdVaJa itNETs"
+  >
+    <h1>
+      Styled-Components
+    </h1>
+    <p>
+      Some content
+    </p>
+    <button
+      className="btn-warnning button"
+      onClick={[Function]}
+    >
+      this is a button
+    </button>
+    <p>
+      World
+    </p>
+  </div>
+</div>
+`;

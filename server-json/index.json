@@ -1,0 +1,26 @@
+{
+  "comments": [
+    {
+      "id": 0,
+      "user": "Mark Barger",
+      "body": "some comment"
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "name": "Phil Miller",
+      "city": "Portland, OR"
+    },
+    {
+      "id": 1,
+      "name": "John Smith",
+      "city": "Portland, OR"
+    },
+    {
+      "id": 3,
+      "name": "Dave Weir",
+      "city": "San Diego, CA"
+    }
+  ]
+}

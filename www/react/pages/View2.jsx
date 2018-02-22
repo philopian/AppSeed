@@ -1,12 +1,21 @@
 import React, { Component } from "react";
 
-export default class View2 extends Component {
+import MyContainer from "../containers/MyContainer";
+
+class View2 extends Component {
   constructor(props) {
     super(props);
     console.log("[View2]", this.props.location.state);
   }
 
   render() {
-    return <div>... VIEW 2</div>;
+    return (
+      <div>
+        <p>view 2</p>
+        <MyContainer />
+      </div>
+    );
   }
 }
+
+export default View2;

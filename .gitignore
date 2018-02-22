@@ -1,5 +1,7 @@
-bower_components
+.cache
 node_modules
+bower_components
+dist
 DEPLOY
-.env
-__reports__
+yarn.lock
+package-lock.json

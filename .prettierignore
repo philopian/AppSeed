@@ -1,5 +1,6 @@
 *.js
 !www/**/*.js
+!server/**/*.js
 !tests/**/*.js
 webpack.config.*
 package.json

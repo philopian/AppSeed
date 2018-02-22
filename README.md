@@ -1,5 +1,4 @@
-<img src="appseedica.gif" />
-
+![Appseedica](/appseedica.png)
 
 ## What is AppSeed?
 AppSeed is a starter kit for rapid web application development using nodejs and ES6. This template is wired up with react in mind but you can remove it and just work with ES6 classes. It's the environment and some wired up tools. YOU can choose as little or as much 3rd party dependencies (via Bower or NPM or Github) you like.
@@ -14,14 +13,26 @@ Happy coding!
 - Bower & Yarn ($ npm i -g yarn bower)
 - (Optional) Docker (for testing the DEPLOY folder & running those containers on a server)
 - (Optional) Anisble (if you want to auto deploy to your server)
-- Wire up ESLint with some global nodejs packages 
-  ~~~
-    $ npm i -g eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-config-airbnb-base
-  ~~~
 
 <br>
 
 
+
+
+## Commands
+Here a couple of npm commands you can use while developing:
+
+| **Command** | **How to run command** |
+|----------|-------|
+| Start developing | $ npm start -s |
+| Only run tests | $ npm test -s |
+| Only run Storybook | $ npm run storybook -s |
+| Run all (dev/test/storybook) | $ npm run start:all -s |
+| Build your application | $ npm run build -s |
+
+
+
+<br>
 
 
 
@@ -45,18 +56,4 @@ AppSeed is aimed at making your web development experience exceptional, here are
 | [Docker](https://www.docker.com/) | Have containers for testing locally and using those containers on the server. |
 | [Ansible](https://www.ansible.com/) | Deployment automation to your server. |
 | [Storybook](https://storybook.js.org/) | Great way to develop your react components in isolation before you add them to you website. |
-<br>
-
-
-## Commands
-Here a couple of npm commands you can use while developing:
-
-| **Command** | **How to run command** |
-|----------|-------|
-| Start developing | $ npm start -s |
-| Build your application | $ npm run build -s |
-| Only run tests | $ npm test -s |
-| Only run Storybook | $ npm run storybook -s |
-
-
 <br>
