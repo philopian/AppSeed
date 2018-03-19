@@ -1,4 +1,4 @@
-# AppSeed Style Guide
+# AppSeed Style Guide (v1.0.0)
 
 ![appseed](appseedica.gif)
 
@@ -108,63 +108,63 @@
 
 ### Types of components
 
-1. Function based component
+1.  Function based component
 
-   * These are to be used if you don't need a local state for the component
-   * e.g. ./www/react/components/ComponentExamples/FunctionCompoment.jsx
+    * These are to be used if you don't need a local state for the component
+    * e.g. ./www/react/components/ComponentExamples/FunctionCompoment.jsx
 
-   ```jsx
-   import React from "react";
-   import PropTypes from "prop-types";
+    ```jsx
+    import React from "react";
+    import PropTypes from "prop-types";
 
-   const FunctionComponent = props => {
-     return (
-       <div className="container">
-         <h3>Function Component</h3>
-         <p>{props.message}</p>
-       </div>
-     );
-   };
+    const FunctionComponent = props => {
+      return (
+        <div className="container">
+          <h3>Function Component</h3>
+          <p>{props.message}</p>
+        </div>
+      );
+    };
 
-   FunctionComponent.propTypes = {
-     message: PropTypes.string
-   };
-   FunctionComponent.defaultProps = {
-     message: "World"
-   };
-   export default FunctionComponent;
-   ```
+    FunctionComponent.propTypes = {
+      message: PropTypes.string
+    };
+    FunctionComponent.defaultProps = {
+      message: "World"
+    };
+    export default FunctionComponent;
+    ```
 
-2. Class based component
+2.  Class based component
 
-   * You have the options of props & state
-   * e.g. ./www/react/components/ComponentExamples/ClassComponent.jsx
+    * You have the options of props & state
+    * e.g. ./www/react/components/ComponentExamples/ClassComponent.jsx
 
-   ```jsx
-   import React from "react";
-   import PropTypes from "prop-types";
-   class ClassComponent extends React.Component {
-     constructor(props) {
-       super(props);
-     }
-     render() {
-       return (
-         <div className="container">
-           <h3>Class Component!</h3>
-           <p>{this.props.message}</p>
-         </div>
-       );
-     }
-   }
+    ```jsx
+    import React from "react";
+    import PropTypes from "prop-types";
+    class ClassComponent extends React.Component {
+      constructor(props) {
+        super(props);
+      }
+      render() {
+        return (
+          <div className="container">
+            <h3>Class Component!</h3>
+            <p>{this.props.message}</p>
+          </div>
+        );
+      }
+    }
 
-   ClassComponent.propTypes = {
-     message: PropTypes.string
-   };
-   ClassComponent.defaultProps = {
-     message: "World"
-   };
-   export default ClassComponent;
-   ```
+    ClassComponent.propTypes = {
+      message: PropTypes.string
+    };
+    ClassComponent.defaultProps = {
+      message: "World"
+    };
+    export default ClassComponent;
+    ```
 
 ### Components vs Containers
 
@@ -253,55 +253,55 @@
 
 * All you have to do is:
 
-1. Create a ./storybook.js beside your component
+1.  Create a ./storybook.js beside your component
 
-   ```jsx
-   import { storiesOf } from "@storybook/react";
-   import { action } from "@storybook/addon-actions";
-   import { withInfo } from "@storybook/addon-info";
-   import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
-   import { setConsoleOptions } from "@storybook/addon-console";
+    ```jsx
+    import { storiesOf } from "@storybook/react";
+    import { action } from "@storybook/addon-actions";
+    import { withInfo } from "@storybook/addon-info";
+    import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
+    import { setConsoleOptions } from "@storybook/addon-console";
 
-   import React from "react";
-   import Component from "./index.js";
+    import React from "react";
+    import Component from "./index.js";
 
-   setConsoleOptions({
-     panelExclude: [/[HMR]/]
-   });
+    setConsoleOptions({
+      panelExclude: [/[HMR]/]
+    });
 
-   //----ALL YOU HAVE TO DO IS UPDATE THIS OBJECT'S PROPERTIES------------------
-   const Info = {
-     componentSection: "Components",
-     title: "Style Components",
-     about: "This is a simple component to show how to style components...",
-     props: {
-       message: "message passed",
-       handleClick: action("[Style Components] - click")
-     }
-   };
-   // ---------------------------------------------------------------------------
+    //----ALL YOU HAVE TO DO IS UPDATE THIS OBJECT'S PROPERTIES------------------
+    const Info = {
+      componentSection: "Components",
+      title: "Style Components",
+      about: "This is a simple component to show how to style components...",
+      props: {
+        message: "message passed",
+        handleClick: action("[Style Components] - click")
+      }
+    };
+    // ---------------------------------------------------------------------------
 
-   storiesOf(Info.componentSection, module)
-     .addDecorator(withKnobs)
-     .add(
-       Info.title,
-       withInfo(Info.about)(() => <Component {...Info.props} />)
-     );
-   ```
+    storiesOf(Info.componentSection, module)
+      .addDecorator(withKnobs)
+      .add(
+        Info.title,
+        withInfo(Info.about)(() => <Component {...Info.props} />)
+      );
+    ```
 
-2. Import that storybook file in ./.storybook/config.js
+2.  Import that storybook file in ./.storybook/config.js
 
-   ```JS
-   import { configure } from '@storybook/react';
+    ```JS
+    import { configure } from '@storybook/react';
 
-   function loadStories() {
-     require("babel-polyfill");
-     require('../www/sass/global.scss');
-     require("../www/react/components/StyleComponents/storybook.js"); // add your story
-   }
+    function loadStories() {
+      require("babel-polyfill");
+      require('../www/sass/global.scss');
+      require("../www/react/components/StyleComponents/storybook.js"); // add your story
+    }
 
-   configure(loadStories, module);
-   ```
+    configure(loadStories, module);
+    ```
 
 ---
 
