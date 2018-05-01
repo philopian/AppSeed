@@ -22,7 +22,6 @@
     "author": "Phil Willis <pdotwdot@gmail.com> (http://www.philwillis.pw/)",
     "license": "ISC",
     "dependencies": {
-        "appseed-scripts": "^2.1.22",
         "body-parser": "1.18.2",
         "compression": "1.7.1",
         "dotenv": "5.0.0",
@@ -34,10 +33,9 @@
         "winston": "2.4.0"
     },
     "devDependencies": {
+        "appseed-scripts": "^2.1.28",
         "axios": "0.17.1",
-        "hoek": "^5.0.3",
         "json-server": "0.12.1",
-        "leaflet": "1.2.0",
         "npm-run-all": "^4.1.2",
         "polished": "1.9.0",
         "prop-types": "15.6.0",
