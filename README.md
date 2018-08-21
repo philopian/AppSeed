@@ -1,3 +1,5 @@
+![Appseedica](/appseedica.gif)
+
 # AppSeed StarterKit
 
 - Dev/Test/Build web application with live-reloading on file save
