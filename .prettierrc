@@ -1,3 +1,0 @@
-{
-  "extends": ["standard", "prettier", "prettier/react", "prettier/standard"]
-}

@@ -1,7 +1,0 @@
-.cache
-node_modules
-bower_components
-dist
-DEPLOY
-yarn.lock
-package-lock.json
