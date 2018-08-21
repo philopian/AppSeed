@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HiThere (Snapshot) HiThere renders without crashing 1`] = `
+<div
+  className="my-component"
+>
+  <div
+    className="sc-bdVaJa jayZg"
+  >
+    <div
+      className="container"
+    >
+      <h1>
+        hi there
+      </h1>
+      <p
+        className="props-message"
+      >
+        World
+      </p>
+    </div>
+    <div
+      className="local-message container"
+    >
+      <input
+        className="username"
+        onChange={[Function]}
+        placeholder="username"
+        type="text"
+        value=""
+      />
+      <button
+        onClick={[Function]}
+      >
+        Click me!
+      </button>
+      <p
+        className="click-message"
+      >
+        
+      </p>
+    </div>
+    <div
+      className="parent-message container"
+    >
+      <button>
+        Send Message to parent!
+      </button>
+      <p
+        className="click-message-for-parent"
+      >
+        
+      </p>
+    </div>
+  </div>
+</div>
+`;

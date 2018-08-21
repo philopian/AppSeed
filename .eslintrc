@@ -1,0 +1,29 @@
+{
+  "extends": "airbnb-base",
+  "plugins": ["react", "import"],
+  "parser": "babel-eslint",
+  "rules": {
+    "semi": ["error", "always"],
+    "max-len": 0,
+    "spaced-comment": 0,
+    "no-var": 0,
+    "comma-dangle": 0,
+    "no-multiple-empty-lines": 0,
+    "quotes": 0,
+    "guard-for-in": 0,
+    "require-jsdoc": 0,
+    "Fatal": 0,
+    "no-multi-spaces": 0,
+    "no-tabs": 0,
+    "no-console": 0,
+    "eol-last": 0,
+    "no-undef": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+    "class-methods-use-this": 0,
+    "import/extensions": 0,
+    "import/newline-after-import": 0,
+    "global-require": 0,
+    "no-param-reassign": 0
+  }
+}

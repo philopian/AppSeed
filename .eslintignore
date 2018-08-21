@@ -1,0 +1,8 @@
+*.js
+!www/**/*.js
+!tests/**/*.js
+!server/**/*.js
+!tools/**/*.js
+!firebase/**/*.js
+package.json
+.babelrc

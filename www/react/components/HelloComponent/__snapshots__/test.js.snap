@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HelloComponent (Snapshot) HelloComponent renders without crashing 1`] = `
+<div
+  className="my-component"
+>
+  <div
+    className="sc-bdVaJa kSUpXQ"
+  >
+    <h1>
+      HelloComponent
+    </h1>
+    <p>
+      it 
+      <span>
+        World
+      </span>
+    </p>
+  </div>
+</div>
+`;

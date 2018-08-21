@@ -1,0 +1,76 @@
+{
+  // Place your settings in this file to overwrite default and user settings.
+  "editor.wordWrap": "off",
+
+  // Want to have VS Code treat Geojson files as JSON files and the min versions as Plain text so it doesn't get formatted
+  "files.associations": {
+    "*.min.geojson": "plain text",
+    "*.geojson": "json"
+  },
+  "files.exclude": {
+    // "**/.gitignore": false,
+    // "**/.eslintrc": true,
+    // "**/.eslintignore": true,
+    // "**/.prettierignore": true,
+    // "**/postcss.config.js": true,
+    // "**/.babelrc": true,
+    // "**/.bowerrc": true,
+    // "**/.jest": true,
+    // "**/webpack.config*": true,
+    // "logs": true,
+    // "*.log": true,
+    // "npm-debug.log*": true,
+    // "yarn-debug.log*": true,
+    // "**/yarn.lock": true,
+    // "yarn-error.log*": true
+  },
+
+  // Update icons in the vscode file explorer
+  "vsicons.associations.files": [
+    {
+      "icon": "webpack",
+      "extensions": ["webpack.config.extra.js"],
+      "filename": true,
+      "format": "svg"
+    },
+    {
+      "icon": "webpack",
+      "extensions": ["webpack.config.extra.js"],
+      "filename": true,
+      "format": "svg"
+    },
+    {
+      "icon": "storybook",
+      "extensions": ["storybook.js"],
+      "filename": true,
+      "format": "svg"
+    },
+    {
+      "icon": "test",
+      "extensions": ["test.js"],
+      "filename": true,
+      "format": "svg"
+    },
+    {
+      "icon": "docker",
+      "extensions": [".docker"],
+      "filename": true,
+      "format": "svg"
+    },
+    {
+      "icon": "style",
+      "extensions": ["styles.js"],
+      "filename": true,
+      "format": "svg"
+    }
+  ],
+
+  // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
+  "editor.formatOnSave": true,
+
+  // Enable/disable default JavaScript formatter (For Prettier)
+  "javascript.format.enable": false,
+
+  // Use 'prettier-eslint' instead of 'prettier'. Other settings will only be fallbacks in case they could not be inferred from eslint rules.
+  "prettier.eslintIntegration": true
+}

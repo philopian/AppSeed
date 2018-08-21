@@ -1,0 +1,35 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "[Frontend debug] Launch Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceRoot}"
+    },
+
+    {
+      "type": "node",
+      "request": "attach",
+      "protocol": "auto",
+      "name": "Attach to Process",
+      "port": 9090
+    },
+    {
+      "name": "[Express Launch] on port:1234",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/server/index.js",
+      "args": ["PORT=1234"],
+      "cwd": "${workspaceRoot}",
+      "env": {
+        "NODE_ENV": "development",
+        "PORT": "1234"
+      }
+    }
+  ]
+}

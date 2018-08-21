@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HelloContainer (Snapshot) HelloContainer renders without crashing 1`] = `
+<div
+  className="sc-bdVaJa bixvQK"
+>
+  <h1>
+    Hello containter!
+  </h1>
+  <p>
+    Container components connect to the redux store for props
+  </p>
+  <p>
+    this is from the redux store ---&gt;
+     
+    <span
+      className="from-store"
+    >
+      ......
+    </span>
+  </p>
+  <p>
+    this is from the redux store via REST ---&gt;
+     
+    <span
+      className="from-store"
+    >
+      it 
+    </span>
+  </p>
+  <div
+    className="my-component"
+  >
+    <div
+      className="sc-bwzfXH bPsJDo"
+    >
+      <h1>
+        HelloComponent
+      </h1>
+      <p>
+        it 
+        <span>
+          World
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;
