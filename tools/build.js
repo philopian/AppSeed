@@ -23,6 +23,35 @@ const SERVER_PROD_PATH = path.join(config.deployRoot, "server");
  *
  */
 
+// copy manifest file
+const copyManifestFile = () => {
+  const fromPath = path.join(WWW_DEV_PATH, "manifest.json");
+  const toPath = path.join(WWW_PROD_PATH, "manifest.json");
+  if (fs.existsSync(fromPath)) {
+    fs.writeFile(toPath, fs.readFileSync(fromPath, "utf-8"), err => {
+      printMessage("copied", "manifest.json file to the prod folder");
+    });
+  }
+};
+
+// Copy the app icon
+const copyAppIcon = () => {
+  const fromPath = path.join(WWW_DEV_PATH, "icon.png");
+  const toPath = path.join(WWW_PROD_PATH, "icon.png");
+  const file = fs.createReadStream(fromPath, {
+    flags: "r",
+    encoding: "binary"
+  });
+  const logoDest = fs.createWriteStream(toPath, {
+    flags: "w",
+    encoding: "binary"
+  });
+  file.pipe(
+    logoDest,
+    { end: false }
+  );
+};
+
 // "./www/assets" folder
 const copyAssets = () => {
   const fromAssetsFolder = path.join(WWW_DEV_PATH, "assets");
@@ -156,6 +185,8 @@ const deployIndexRemoveScript = () => {
  * Fire off the functions
  *
  */
+copyManifestFile();
+copyAppIcon();
 copyAssets();
 copyDataFolder();
 copyFavicon();
