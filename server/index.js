@@ -1,14 +1,15 @@
 require("dotenv").config();
-const path = require("path");
-const express = require("express");
-const compression = require("compression");
-const bodyParser = require("body-parser");
-const helmet = require("helmet");
+import path from "path";
+import express from "express";
+import compression from "compression";
+import bodyParser from "body-parser";
+import helmet from "helmet";
 
-const config = require("../appseed.config.js");
-const apiRoute = require("./api");
-const printMessage = require("./tools/print-message");
-const logger = require("./tools/logger.js"); // Wire up logging if you choose e.g. logger.log({ level: "info", message: "hello!!!" });
+import config from "../appseed.config.js";
+
+import apiRoute from "./api";
+import printMessage from "./tools/print-message";
+import logger from "./tools/logger.js"; // Wire up logging if you choose e.g. logger.log({ level: "info", message: "hello!!!" });
 
 const PORT = process.env.PORT || config.portApi;
 const app = express();

@@ -1,8 +1,11 @@
 const path = require("path");
 const fs = require("fs");
-const config = require("../appseed.config");
+const shell = require("shelljs");
 const copydir = require("copy-dir");
+
+const config = require("../appseed.config");
 const printMessage = require("./print-message");
+const templates = require("./templates");
 
 /**
  * Variables
@@ -102,15 +105,15 @@ const packageJsonFile = options => {
 
 // Copy over the server folder to DEPLOY
 const serverFiles = hasServer => {
-  const templates = require("./templates");
   if (fs.existsSync(SERVER_DEV_PATH)) {
-    // copy the server file
-    copydir.sync(SERVER_DEV_PATH, SERVER_PROD_PATH);
-    printMessage("copied", "server folder to the prod folder");
+    // Transpile server code to ES5
+    printMessage("build", "transpile server for prod");
+    shell.exec("babel server -d " + SERVER_PROD_PATH);
 
+    // Created a web.config file
     const pathName = path.join(PROD_DIR, "web.config");
     fs.writeFile(pathName, templates.webConfig(), "utf8", err => {});
-    printMessage("copied", "web.config file in the prod folder");
+    printMessage("created", "web.config file in the prod folder");
 
     // build
   } else {

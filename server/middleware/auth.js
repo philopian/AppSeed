@@ -1,8 +1,8 @@
 require("dotenv").config();
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 const SECRET = process.env.JWT || "this is a secret shhhhhh";
 
-function createToken(authtype, payload) {
+const createToken = (authtype, payload) => {
   var date = new Date();
   var expires = moment()
     .add(5, "minutes")
@@ -16,9 +16,9 @@ function createToken(authtype, payload) {
     iat: date
   };
   return jwt.encode(claims, SECRET); // add token to the req (to be passed on to the get/route)
-}
+};
 
-module.exports = {
+const auth = {
   tokenRequester(req, res, next) {
     /**
      *
@@ -77,3 +77,4 @@ module.exports = {
     }
   }
 };
+export default auth;

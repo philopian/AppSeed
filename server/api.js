@@ -1,8 +1,6 @@
-const fs = require("fs");
-const path = require("path");
-const config = require("../appseed.config.js");
+import config from "../appseed.config.js";
 
-module.exports = {
+const api = {
   test: (req, res) => {
     res.status(200).json({ localServer: "works!" });
   },
@@ -11,3 +9,4 @@ module.exports = {
     res.json({ route: "does not exist!" });
   }
 };
+export default api;
