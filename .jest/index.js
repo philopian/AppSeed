@@ -8,6 +8,9 @@ const appDirectory = fs.realpathSync(process.cwd());
 const jest = require("jest");
 let jestConfig = require("./config");
 jestConfig.roots = [appDirectory];
+delete jestConfig.collectCoverageFrom;
+delete jestConfig.coverageDirectory;
+delete jestConfig.reporters;
 const jestCommand = [
   "--env=jsdom",
   "--watchAll",

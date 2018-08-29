@@ -4,6 +4,7 @@
 
 - Dev/Test/Build web application with live-reloading on file save
 - Scafold additional react/redux features
+- _For the older version take a look at the "VERSION_1" branch_
 
 ## Start Developing
 
